@@ -6,3 +6,47 @@ body {
     color: #537A5A;
     font-family: 'Poppins';
 }
+
+input[type=submit]{
+    background-color: beige;
+    color: #537A5A;
+    border-radius: 10%;
+    font-size: 20px;
+}
+
+input[type=submit]:hover{
+    background-color: #537A5A;
+    color: white;
+}
+
+.parent {
+    display:block;
+}
+
+.action-container {
+    display: flex;
+    max-width: 25%;
+    max-height: 25%;
+    height: 25%;
+    width: 25%;
+    top: 50%;
+    transform: translate(0, 50%);
+    border: 1px dotted black;
+    background-color: white;
+    padding: 5%;
+    margin: auto;
+}
+
+.login-container {
+    border: 1px solid black;
+    border-left: 1px solid black;
+    display: contents;
+}
+
+.register-container {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-left: 1px solid black;
+    margin: 10%;
+}
