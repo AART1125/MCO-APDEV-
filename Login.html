@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Login.css">
+    <script src="Login.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div><!--Parent Div-->
+    <div class="parent-div"><!--Parent Div-->
         <header><!--Header contianing Logos and other buttons-->
             <img src="" alt="">
         </header>
-        <div class="login-container"><!--Form for logging in-->
-            <form action="index.html" method="get">
-                <b>Username:</b> <input type="text" name="user-login" id="user-login"><br>
-                <b>Password:</b> <input type="text" name="pass-login" id="pass-login"><br>
-                <input type="submit" value="Enter">
-            </form>
+        <div class="action-container"><!--Form for logging in-->
+            <div class="login-container">
+                <form action="index.html" method="get">
+                    <b>Username:</b> <input type="text" name="user-login" id="user-login"><br>
+                    <b>Password:</b> <input type="text" name="pass-login" id="pass-login"><br><br>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+            <div class="register-container">
+                <br><br><br><br>
+            </div>
         </div>
     </div>
 </body>
