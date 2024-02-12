@@ -19,6 +19,30 @@ input[type=submit]:hover{
     color: white;
 }
 
+header {
+    display: flex;
+    justify-content:center;
+}
+
+.logo-container {
+    border: 1px solid black;
+    position: absolute;
+    top:5px;
+}
+
+.logo-container > a > img {
+    width: 3%;
+    height: 3%;
+}
+
+.title-holder {
+    top: 5px;
+}
+
+.link-containers {
+    justify-content: end;
+}
+
 .parent {
     display:block;
 }
@@ -38,15 +62,11 @@ input[type=submit]:hover{
 }
 
 .login-container {
-    border: 1px solid black;
-    border-left: 1px solid black;
-    display: contents;
+    
 }
 
 .register-container {
     height: 100%;
     width: 100%;
-    border: 1px solid black;
-    border-left: 1px solid black;
     margin: 10%;
 }
