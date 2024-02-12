@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    background-color: #191F24;
+    color: #191F24;
+    font-family: 'Poppins';
+    font-size: 2vh;
+}
+
+/** 
+#EE6958
+#537A5A 
+**/
+
+/* -- FOR A HREF */
+
+a {
+    all: unset;
+}
+
+a:hover {
+    background-color: #FAF6DF;
+    padding: 1vh;
+    color: #191F24;
+}
+
+.links a {
+    margin-right: 1em;
+}
+
+.nav_links {
+    position: relative;
+    transition: background-color 0.1s ease;
+}
+
+
+/* -- FOR A DIVIDERS */
+
+.header {
+    padding: 5%;
+    padding-bottom: 1%;
+    padding-top: 1em;
+    overflow: hidden;
+}
+
+.divide {
+    padding-bottom: .5em;
+    background: #FAF6DF;
+}
+
+.divide2 {
+    padding-bottom: 1%;
+    background: #191F24;
+}
+
+.navigation {
+    display: flex;
+    background-color: #191F24;
+    color: #F4F6DF;
+    justify-content: space-between;
+    margin-left: -1em;
+    margin-right: -2em;
+}
+
+.profile-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 1%;
+}
+
+.profile-section1 {
+    padding: 2em;
+    background-color: #FAF6DF;
+    display: block;
+    text-align: center;
+    width: 20%;
+}
+
+.profile-section2 {
+    padding: 2em;
+    width: 71%;
+    background-color: #FAF6DF;
+    display: block;
+}
+
+.profile-section3 {
+    padding: 30px;
+    background-color: #FAF6DF;
+    display: block;    
+}
+
+
+.likes {
+    background-color: #537A5A;
+    padding: 10px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    color: #F4F6DF;
+}
+
+.dislikes {
+    background-color: #EE6958;
+    padding: 10px;
+    color: #F4F6DF;
+}
+
+
+.reviews {
+    padding-top: 1em;
+    display: flex;
+    align-items: center;
+    gap: 1.5%;
+}
+
+.edit-profile {
+    background-color: #FAF6DF;
+    padding: 2em;
+    width: 71%;
+    display: block;
+}
+
+.edit-form-table {
+    display: flex;
+    align-items: center;
+    
+}
+
+.edit-form1 {
+    padding-top: 1em;
+    line-height: 2;
+}
+
+.edit-form2 {
+    padding-top: 1em;
+    line-height: 1.5;
+    width: 65%;
+}
+
+/* -- FOR INPUTS */
+
+.edit-input {
+    padding: 1%;
+    font: 'Poppins';
+    border: 1px solid #191F24;
+    border-radius: 30px;
+}
+
+ #submit {
+    all: unset;
+    font-family: 'Poppins';
+    border-radius: 30px;
+    background-color: #537A5A;
+    color: #F4F6DF;
+    padding-left: 10px;
+    padding-right: 10px;
+ }
+
+
+/* -- FOR A SPANS */
+
+.logo_text {
+    display: flex;
+    align-items: center;
+}
+
+.head-review {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.sub {
+    display: block;
+    text-align: center;
+}
+/* -- FOR A TEXTS */
+.logo_text p {
+    margin-left: .5em;
+}
+
+h1 {
+    margin: 0; 
+    margin-bottom: -.1em;
+}
+
+p {
+    margin: 0; 
+    margin-bottom: .4em;
+}
+
+h2 {
+    font-family: 'Helvetica';
+    margin: 0;
+}
+
+
+
+/* -- FOR A BUTTONS */
+
+button {
+    all: unset;
+    background-color: #537A5A;
+    color: #F4F6DF;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 30px;
+}
+
+.del {
+    background-color: #EE6958;
+}
+
+
+/* -- FOR A IMAGES */
+
+.logo {
+    margin-top: -1vh;
+    width: 4vh;
+}
+
+.profile-picture {
+    width:80%;
+    margin: 0;
+    border-radius: 100%;
+}
+
+.restaurant {
+    width: 10%;
+    border-radius: 30px;
+}
+
+.react {
+    width: 2vh;
+}
