@@ -20,13 +20,12 @@ input[type=submit]:hover{
 }
 
 header {
-    display: flex;
-    justify-content:center;
+    display: inline-flex;
 }
 
 .logo-container {
     border: 1px solid black;
-    position: absolute;
+    position: fixed;
     top:5px;
 }
 
@@ -36,7 +35,7 @@ header {
 }
 
 .title-holder {
-    top: 5px;
+    margin: auto;
 }
 
 .link-containers {
