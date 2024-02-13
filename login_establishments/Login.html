@@ -1,34 +1,56 @@
+<!--Created By Aaron Ace R. Toledo-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Login.css">
-    <link rel="shortcut icon" href="./index_profile/favicon/favicon.ico" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="../index_profile/favicon/favicon.ico" type="image/x-icon">
     <script src="Login.js"></script>
-    <title>Archer's Hunt | Log in</title>
+    <title>Document</title>
 </head>
 <body>
-    <div class="parent-div"><!--Parent Div-->
-        <header><!--Header contianing Logos and other buttons-->
-            <div class="logo-container">
-                <a href="index.html"><img src="./raw assets _ psds/line.png" alt="Logo"></a>
-                <span class="title-holder">Archer's Hunt</span>
-                <span class="link-containers"><a href="">Home</a>  <a href="">Listings</a>  <a href="">Profile</a></span>
-            </div>
-        </header>
-        <div class="action-container"><!--Form for logging in-->
-            <div class="login-container">
-                <form action="index.html" method="get">
-                    <b>Username:</b> <input type="text" name="user-login" id="user-login"><br>
-                    <b>Password:</b> <input type="text" name="pass-login" id="pass-login"><br><br>
-                    <input type="submit" value="Login">
-                </form>
-            </div>
-            <div class="register-container">
-                <br><br><br><br>
-            </div>
-        </div>
+    <div class="title">
+        <span class="logo">
+            <img src="../raw assets _ psds/logo_white.png" alt="Logo">
+            <h1>Archer's Hunt</h1>
+        </span>
     </div>
+    <div class="login-container">
+        <form onsubmit="" method="get">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" name="username-login" id="username-login" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password-login" id="password-login" placeholder="Password" required>
+                <i class='bx bx-key' ></i>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="register">
+                <p>Don't have an account with us? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- <div class="register-container">
+        <form onsubmit="" method="get">
+            <h1>Register</h1>
+            <div class="input-box">
+                <input type="text" name="username-login" id="username-login" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password-login" id="password-login" placeholder="Password" required>
+                <i class='bx bx-key' ></i>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="register">
+                <p>Don't have an account with us? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div> -->
 </body>
 </html>
