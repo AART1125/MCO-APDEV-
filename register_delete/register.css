@@ -1,0 +1,155 @@
+body {
+    background-color: #181d23;
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.img-left {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 100%;
+    object-position: right;
+    object-fit: cover;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+}
+
+
+.center {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.container {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.main-color {
+    color: #537A5A;Í
+}
+
+.register-card {
+    margin: 0 auto;
+    box-shadow: 0px 5px 20px gray;
+    width: 70%;
+    background-color: #faf5df;
+    border-radius: 20px;
+    min-height: 870px;
+}
+
+.img-left {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 100%;
+    object-position: right;
+    object-fit: cover;
+}
+
+.content-padding {
+    padding: 3% 10%;
+}
+
+.register-lbl {
+    margin: 15px 0px;
+    width: 50%;
+    font-size: 35px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.choice {
+    width: 99%;
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+    color: #9C9C9C;
+}
+
+.choice:focus, .choice:focus {
+    outline:0;
+}
+
+.choice > p {
+    margin: 0px;
+    padding: 10px 0px;
+    font-weight: bold;
+    background-color: #E2E2E2;
+}
+
+:target > p {
+    background-color: #537A5A;
+    color: white;
+    box-shadow: 0px 5px 20px gray;
+}
+
+.subtitle {
+    font-weight: lighter;
+    text-align: center;
+    margin: 0px;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.form-label {
+    font-size: 10px;
+    margin: 0px;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+textarea, input {
+    width: 95%;
+    padding: 2%;
+    margin-top: 5px;
+    border-radius: 20px;
+    border: 1.5px solid gray;
+}
+
+textarea:focus, input:focus {
+    outline: 0;
+}
+
+.required {
+    color: red;
+}
+
+button {
+    width: 100%;
+    background-color: white;
+    border: 2px solid #537A5A;
+    color: #537A5A;
+    border-radius: 30px;
+    padding: 10px 0px;
+    margin-top: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #537A5A;
+    color: white;
+}
+
+#owner-form {
+    display: none;
+}
