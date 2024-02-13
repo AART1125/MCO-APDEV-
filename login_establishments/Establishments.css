@@ -2,5 +2,21 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 body {
+    background-color: #191F24;
+    color: #FAF6DE;
+    display: flex;
     font-family: 'Poppins';
+}
+
+.navbar {
+   display: flex; 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 5vh; 
 }

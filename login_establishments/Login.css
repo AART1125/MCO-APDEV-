@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url('assets/pizza.gif');
+    background-image: url('assets/pizza.gif');/*This gif came from this site https://youtu.be/sv3TXMSv6Lw*/
     background-size: cover;
     background-position: top;
     position: relative;
@@ -89,6 +89,7 @@ header {
     color: black;
     padding: 30px 30px 30px 30px;
     border-radius: 3vh;
+    border: 5px solid #191F24;
 }
 
 .login-container h1 {
