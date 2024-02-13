@@ -34,25 +34,8 @@ p {
     padding: 0;
 }
 
-<<<<<<< Updated upstream:Login.css
-.parent {
-    display:block;
-}
-
-.action-container {
-    display: flex;
-    max-width: 25%;
-    max-height: 25%;
-    height: 25%;
-    width: 25%;
-    top: 50%;
-    transform: translate(0, 50%);
-    border: 1px dotted black;
-    background-color: white;
-=======
 header {
     color: #FAF6DE;
->>>>>>> Stashed changes:login_establishments/Login.css
     padding: 5%;
     padding-top: 1em;
     overflow: hidden;
@@ -98,11 +81,6 @@ header {
 }
 
 .login-container {
-<<<<<<< Updated upstream:Login.css
-    border: 1px solid black;
-    border-left: 1px solid black;
-    display: contents;
-=======
     position: absolute;
     right: 40%;
     transform: translateY(15em);
@@ -185,7 +163,6 @@ header {
     right: 5.5vh;
     transform: translateY(1.5vh);
     font-size: 20px;
->>>>>>> Stashed changes:login_establishments/Login.css
 }
 
 .register-container {
@@ -210,11 +187,6 @@ header {
 
 .register-container .input-box {
     width: 100%;
-<<<<<<< Updated upstream:Login.css
-    border: 1px solid black;
-    border-left: 1px solid black;
-    margin: 10%;
-=======
     height: 50px;
     background-color: #FAF6DE;
     margin: 30px 0;
@@ -232,5 +204,4 @@ header {
     font-size: 20px;
     font-weight: 600;
     cursor: pointer;
->>>>>>> Stashed changes:login_establishments/Login.css
 }
