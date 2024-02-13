@@ -2,5 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 body {
+    background-color: beige;
+    color: black;
     font-family: 'Poppins';
 }
