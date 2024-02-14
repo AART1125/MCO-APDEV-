@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Establishments.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="Establishments.js"></script>
-    <title>Searches</title>
+    <title>Listings</title>
 </head>
 <body>
     <header><!--Header containing logo and other buttons-->
@@ -14,76 +16,119 @@
                 <img src="../index_profile/logo.png" alt="Logo">
                 <p>Archer's Hunt</p>
             </span>
-            <span class="linksbar">
-                <a class="links" href="#">Home</a>
-                <a class="links" href="#">Listings</a>
-                <a class="links" href="#">Profile</a>
-                <a class="links" href="#">Log out</a>
+            <span class="links">
+                <a class="hyperlink" href="../index_profile/index.html">Home</a>
+                <a class="hyperlink" href="#">Listings</a>
+                <a class="hyperlink" href="../index_profile/profile.html">Profile</a>
+                <a class="hyperlink" href="./Login.html">Log out</a>
             </span>
         </div>
     </header>
-    <div class="sidebar"><!--Sidebar-->
-        asdasd
+    <div class="searchbar">
+        <input type="text" name="listings-search" id="listings-search" placeholder="Search....">
+        <i class='bx bx-search'></i>
     </div>
-    <div class="search-results"><!--List of Establishments-->
+    <!-- <div class="sidebar">
+    </div> -->
+    <div class="search-results">
         <div class="results">
             <div class="resto-img">
-
+                <img src="./assets/restaurant_pics/bonchon.webp"/assets/restaurant_pics/bonchon.webp" alt="">
             </div>
-            <div class="info">
-                <a href=""><h1>Name of Restaurant</h1></a>
-                <p>Description</p>
-            </div>
-            <div class="rating">
-
+            <div class="description">
+                <div class="name">
+                    <a href=""><h1>Bonchon</h1></a>
+                </div>
+                <div class="info">
+                    <p>Discover the delicious journey of BonChon! From its humble beginnings to worldwide success, founder Jinduk Seh's passion for Korean comfort food led him to craft the ultimate crispy, tender, and flavorful Korean Fried Chicken. Aside from the delicious Korean meals, BonChon brings people together to celebrate culture and tradition with every delectable bite.</p>
+                </div>
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
             </div>
         </div> 
         <div class="results">
             <div class="resto-img">
-
+                <img src="./assets/restaurant_pics/ate-ricas-bacsilog-delivery.jpg" alt="">
             </div>
-            <div class="info">
-                <a href=""><h1>Name of Restaurant</h1></a>
-                <p>Description</p>
-            </div>
-            <div class="rating">
-
-            </div>
-        </div> 
-        <div class="results">
-            <div class="resto-img">
-
-            </div>
-            <div class="info">
-                <a href=""><h1>Name of Restaurant</h1></a>
-                <p>Description</p>
-            </div>
-            <div class="rating">
-
+            <div class="description">
+                <div class="name">
+                    <a href=""><h1>Ate Rica's Bacsilog</h1></a>
+                </div>
+                <div class="info">
+                    <p>Ate Rica, along with her business partners, just recently incorporated the company, Baconnoisseur Corporation, in order to open its franchise operations. After more than a decade of providing delicious and budget-friendly food to students of DLSU and UST, Ate Rica's is now poised to take off and open itself to franchise partners so that more people on-the-go can enjoy the Ate Rica's Bacsilog experience all over the Philippines and beyond!</p>
+                </div>
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </div>
             </div>
         </div> 
         <div class="results">
             <div class="resto-img">
-
+                <img src="./assets/restaurant_pics/army.jpg" alt="">
             </div>
-            <div class="info">
-                <a href=""><h1>Name of Restaurant</h1></a>
-                <p>Description</p>
-            </div>
-            <div class="rating">
-
+            <div class="description">
+                <div class="name">
+                    <a href=""><h1>Army Navy</h1></a>
+                </div>
+                <div class="info">
+                    <p>#Delicious is more than a just a word to describe our burgers and burritos. We strive to give you the dining experience you deserve from the moment you step into any of our more than 80 stores nationwide and up until you walk out with a smile of sure satisfaction on your face. Grab a burger. Or a burrito. Or both – because you deserve it!</p>
+                </div>
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
             </div>
         </div> 
         <div class="results">
             <div class="resto-img">
-
+                <img src="./assets/restaurant_pics/jj.jpg" alt="">
             </div>
-            <div class="info">
-                <a href=""><h1>Name of Restaurant</h1></a>
-                <p>Description</p>
+            <div class="description">
+                <div class="name">
+                    <a href=""><h1>Jus and Jerry's</h1></a>
+                </div>
+                <div class="info">
+                    <p>Jus & Jerry’s Food Corp. was founded by identical twin brothers Justin and Jeremy as a small cafeteria-style back in 2010. Their first store was located along Tolentino St., Manila near UST. A year later, they moved to a bigger location in Taft Ave., Manila to cater to more patrons. It has now grown into a full quick service restaurant operating with 4 branches. Growing up in a family with a restaurant background, most of their menu started at home in their small kitchen and has evolved to what it has now been known for – fried chicken, noodles, dimsum and milk teas. Despite the unfavorable support from their family and with limited startup capital, they pursued their passion and love for food, cooking and creative new ideas.</p>
+                </div>
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </div>
             </div>
-            <div class="rating">
-
+        </div> 
+        <div class="results">
+            <div class="resto-img">
+                <img src="./assets/restaurant_pics/jabee.jpg" alt="">
+            </div>
+            <div class="description">
+                <div class="name">
+                    <a href=""><h1>Jollibee</h1></a>
+                </div>
+                <div class="info">
+                    <p>Jollibee is the largest fast food chain brand in the Philippines, operating a network of more than 1,500 stores in 17 countries. A dominant market leader in the Philippines, Jollibee enjoys the lion’s share of the local market that is more than all the other multinational fast food brands in PH combined. With a strict adherence to the highest standards of food quality, service and cleanliness, Jollibee serves great-tasting, high-quality and affordable food products to include its superior-tasting Chickenjoy, mouth-watering Yumburger, and deliciously satisfying Jolly Spaghetti among other delicious products.</p>
+                </div>
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
             </div>
         </div>           
     </div>
