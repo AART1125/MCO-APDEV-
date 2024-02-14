@@ -73,6 +73,11 @@ a:hover {
     margin-left: .5em;
 }
 
+.logo {
+    margin-top: -1vh;
+    width: 4vh;
+}
+
 /* -- FOR TEXT AREA */ 
 
 * {
@@ -95,6 +100,10 @@ a:hover {
 .text-header h3 {
     font-size: 2rem;
     font-weight: 600;
+}
+
+.upload{
+    color:#537A5A;
 }
 
 .recommendation{
@@ -172,12 +181,12 @@ textarea {
 }
 
 .btn-group .btn.cancel {
-    background: #FAF6DF;
+    background: #d9d8d5;
     color: #537A5A;
 }
 
 .btn-group .btn.cancel:hover {
-    background: #F4F6DF;
+    background: rgb(240, 205, 201);
 }
 
 
