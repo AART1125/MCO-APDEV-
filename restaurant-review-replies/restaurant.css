@@ -143,8 +143,21 @@ a:hover {
 }
 
 .comment{
+    margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
+    text-align: justify;
+}
+
+.delete, .edit {
+    color: rgb(118, 116, 116);
+    text-align: right;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+.delete:hover, .edit:hover {
+    color: #EE6958;
 }
 
 .logo_text {
@@ -202,7 +215,6 @@ a:hover {
 
 .leave-review-button {
     text-align: center;
-    margin-top: 20px;
 }
 
 .button-link {

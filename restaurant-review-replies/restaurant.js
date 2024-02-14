@@ -69,3 +69,25 @@ document.querySelectorAll(".rev2").forEach(review => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var deleteButtons = document.querySelectorAll('.delete');
+
+    deleteButtons.forEach(function (deleteButton) {
+        deleteButton.addEventListener('click', function () {
+            var isConfirmed = confirm('Are you sure you want to delete this review?');
+
+            if (isConfirmed) {
+                alert('Review deleted!');
+            } 
+        });
+    });
+});
+
+var editLinks = document.getElementsByClassName("edit");
+
+for (var i = 0; i < editLinks.length; i++) {
+    editLinks[i].addEventListener("click", function() {
+        window.location.href = "editreview.html";
+    });
+}

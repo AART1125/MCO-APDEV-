@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     reviewForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        alert('Your review is submitted successfully!');
+        alert('Your review is edited successfully!');
 
-        window.history.back();
+        window.history.back();;
     });
 });
