@@ -95,7 +95,38 @@ a:hover {
 .text-header h3 {
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+}
+
+.recommendation{
+    color:#537A5A;
+    margin-bottom:5px;
+}
+.recommendation input[type="radio"]:checked + label {
+    background-color: #f0f0f0; 
+    color: #537A5A; 
+    border: 1px solid #537A5A; 
+}
+.recommendation input[type="radio"]::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #537A5A; 
+    border-radius: 50%;
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.recommendation label {
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+.recommendation input[type="radio"]:checked + label::before {
+    border-color: #537A5A; 
+}
+
+.recommendation input[type="radio"]:checked + label {
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
 textarea {
@@ -108,8 +139,8 @@ textarea {
     border: none;
     outline: none;
     resize: none;
-    margin-bottom: .5rem;
     border: 2px solid #537A5A;
+    margin-top: 5px;
 }
 
 
