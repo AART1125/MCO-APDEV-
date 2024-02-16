@@ -25,6 +25,5 @@ document.addEventListener('DOMContentLoaded', function () {
         textarea1.value = "";
         document.getElementById('reply-pop-up-1').style.display = 'none';
     })
-
 });
 
