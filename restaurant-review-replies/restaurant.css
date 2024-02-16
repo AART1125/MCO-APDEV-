@@ -118,7 +118,8 @@ a:hover {
 
 .replies {
     padding: 1em;
-    background-color: #EE6958;
+    background-color: #F4F6DF;
+    border: 1.5px solid #537A5A;
 }
 
 .profile-picture {
