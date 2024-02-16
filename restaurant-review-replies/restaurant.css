@@ -23,6 +23,11 @@ a:hover {
     color: #191F24;
 }
 
+
+.linkz {
+    all:unset !important;
+}
+
 .links a {
     margin-right: 1em;
 }

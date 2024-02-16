@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '../index_profile/index.html';
         } else if (username === 'bryan' && password === '67890') {
             window.location.href = '../index_profile/OWNERindex.html';
+        } else if (username === 'guest' && password === '00000') {
+            window.location.href = '../unregistered_view/UNREGISTEREDindex.html';
         } else {
             const userbox = document.getElementById('username-login');
             const passbox = document.getElementById('password-login');
