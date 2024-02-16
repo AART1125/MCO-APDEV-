@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
 body {
     margin: 0;
     background-color: #191F24;
@@ -274,6 +276,7 @@ a:hover {
 }
 
 .text-area {
+    font-family: 'Poppins';
     border: 1px solid #537A5A;
     background-color: #F4F6DF;
     padding: .5em;

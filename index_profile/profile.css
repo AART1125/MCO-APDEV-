@@ -6,6 +6,18 @@ body {
     font-size: 2vh;
 }
 
+* {
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
 /** 
 #EE6958
 #537A5A 
@@ -30,6 +42,10 @@ a:hover {
 .nav_links {
     position: relative;
     transition: background-color 0.1s ease;
+}
+
+.linkz {
+    all: unset !important;
 }
 
 
@@ -85,7 +101,8 @@ a:hover {
 .profile-section3 {
     padding: 30px;
     background-color: #FAF6DF;
-    display: block;    
+    display: block; 
+       
 }
 
 
@@ -206,6 +223,19 @@ button {
 }
 
 .del {
+    background-color: #EE6958;
+}
+
+.linkzers {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: .5%;
+    border: #F4F6DF 1px solid;
+}
+
+.limmerz {
+    padding-right: 10px;
+    padding-left: 10px;
     background-color: #EE6958;
 }
 

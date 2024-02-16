@@ -9,17 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (username === 'janina' && password === '12345') {
             window.location.href = '../index_profile/index.html';
+        } else if (username === 'bryan' && password === '67890') {
+            window.location.href = '../index_profile/OWNERindex.html';
         } else {
             const userbox = document.getElementById('username-login');
             const passbox = document.getElementById('password-login');
 
-            if (username != 'janina') {
+            if (username != 'janina' || username != 'bryan') {
                 userbox.style.border = "2px solid #EE6958";
             } else {
                 userbox.style.border = "2px solid #537A5A";
             }
             
-            if(password != '12345') {
+            if(password != '12345' || password != '67890') {
                 passbox.style.border = "2px solid #EE6958";
             } else {
                 passbox.style.border = "2px solid #537A5A";
