@@ -1,4 +1,5 @@
 {{> header}}
+
 <div class="searchbar">
     <input type="text" name="listings-search" id="listings-search" placeholder="Search....">
     <i class='bx bx-search'></i>
@@ -8,7 +9,7 @@
     {{#each search-results}}
     <div class="results">
         <div class="resto-img">
-            <img src="{{resto-img}}" alt="">
+            <img src="{{resto-img}}" alt="{{resto-name}}">
         </div>
         <div class="description">
             <div class="name">
@@ -33,9 +34,9 @@
 
 {{!-- 
 Search Results :
-    resto-img,
+    {resto-img,
     link,
     resto-name,
     resto-desc,
-    star: [{isStar : true},...],
+    star: [{isStar : true},...]}
  --}}
