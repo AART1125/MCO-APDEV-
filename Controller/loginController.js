@@ -1,15 +1,11 @@
-const loginDB = require('../Model/loginDB');
+const loginDB = require('../Model/loginModel');
 
-const loginView = function(req, resp){
-    resp.render('login', {
-        layout  :   'index',
-        title   :   'Archer\'s Hunt'
+function add(){
+    server.post('/user-login', (req, resp) => {
+        loginDB.loginToWebsite(req, resp);
     });
 }
 
-const login = function(req, resp){loginDB.loginToWebsite()};
-
 module.exports = {
-    loginView,
-    login
+    add
 }

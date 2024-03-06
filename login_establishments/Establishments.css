@@ -133,6 +133,7 @@ header {
 
 .name h1:hover {
     text-decoration: underline;
+    cursor: pointer;
     color: #EE6958;
     transition: .7s ease;
 }
