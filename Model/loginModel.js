@@ -1,4 +1,4 @@
-const schemas = require('./schemas');
+const schemas = require('./schemaModels');
 
 function loginToWebsite(req, resp){
     const query = {username : req.body.user, password : req.body.pass};
@@ -9,13 +9,14 @@ function loginToWebsite(req, resp){
             resp.render('/main',{
                 layout      :   'index',
                 title       :   'Archer\'s Hunt',
-                islogin     :   true,
+                js          :   '../public/common/main.js',
+                css         :   '../public/common/main.css',
+                islogin     :   true
             });
         } else {
             const response = {isSame : false};
             resp.send(response);
         };
-
     }).catch(errorFn)
 }
 

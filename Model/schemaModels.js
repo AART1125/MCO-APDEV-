@@ -1,5 +1,8 @@
+const mongoose = require('mongoose'); // Database
+mongoose.connect('mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt'); // Database Link
+
 const replySchema = new mongoose.Schema({
-    owner_id    :   {type: Number},
+    resto_id    :   {type: Number},
     reply       :   {type: String},
     likes       :   {type: Number, default: 0},
     dislikes    :   {type: Number, default: 0},
@@ -17,12 +20,12 @@ const reviewSchema = new mongoose.Schema({
 
 const restaurantSchema = new mongoose.Schema({
     restoname   :   {type: String},
-    owner       :   {type: ownerSchema, default: null},
+    owner_id    :   {type: Number},
     contactnum  :   {type: Number},
     address     :   {type: String},
     likes       :   {type: Number, default: 0},
     dislikes    :   {type: Number, default: 0},
-    reviews     :   {type: reviewSchema, default: null}
+    reviews     :   {type: [reviewSchema], default: []}
 },{ versionKey: false});
 
 const userSchema = new mongoose.Schema({

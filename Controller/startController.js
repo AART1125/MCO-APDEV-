@@ -1,4 +1,4 @@
-function add(){
+function add(server){
     server.get('/',(req, resp) => {
         resp.render('main',{
             layout  :   'index',
@@ -8,7 +8,6 @@ function add(){
             islogin :   false
         });
     });
-
 }
 
 module.exports = {

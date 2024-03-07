@@ -1,6 +1,6 @@
 const loginDB = require('../Model/loginModel');
 
-function add(){
+function add(server){
     server.post('/user-login', (req, resp) => {
         loginDB.loginToWebsite(req, resp);
     });
