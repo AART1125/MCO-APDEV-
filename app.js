@@ -31,48 +31,12 @@ function getControllerPaths(pathname = './Controller'){ // function to get contr
     return array;
 }
 
-function getJSPaths(pathname = './public/common'){ // function to get js files
-    let array = []
-
-    fs.readdir(pathname, (err, files) => {
-        if (err) {
-            console.error('ERROR', err);
-        }
-
-        files.filter(file => path.extname(file) === '.js').forEach(file => {
-            array.push(path.join(pathname,file));
-        })
-    });
-
-    return array;
-}
-
-function getCSSPaths(pathname = './public/common'){ // function to get css files
-    let array = []
-
-    fs.readdir(pathname, (err, files) => {
-        if (err) {
-            console.error('ERROR', err);
-        }
-
-        files.filter(file => path.extname(file) === '.css').forEach(file => {
-            array.push(path.join(pathname,file));
-        })
-    });
-
-    return array;
-}
-
-var controllerPaths = getControllerPaths();
-var jsPaths = getJSPaths();
-var cssPaths = getCSSPaths(); 
-
-
+let controllerPaths = getControllerPaths(); 
 
 for(let path of controllerPaths){
     console.log('Processing Controllers: ' + path);
     const controller = require('./Controller/' + path);
-    controller.add(server);//add controllers to server
+    controller.add(server);//add server to controllers
 }
 
 const port = process.env.PORT | 3000;

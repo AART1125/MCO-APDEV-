@@ -1,4 +1,7 @@
 {{#if islogin}}
+    {{#if isOwner}}
+        {{> ownernav}}
+    {{/if}}
     {{> usernav}}
 {{#else}}
     {{> guestnav}}
