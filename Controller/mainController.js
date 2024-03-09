@@ -3,8 +3,8 @@ function add(server){
         resp.render('main',{
             layout  :   'index',
             title   :   'Archer\'s Hunts',
-            js      :   '../public/common/js/main.js',
-            css     :   '../public/common/css/main.css',
+            js      :   '../common/js/mainFunc.js',
+            css     :   '../common/css/main.css',
             islogin :   false
         });
     });
@@ -13,8 +13,8 @@ function add(server){
         resp.render('Login', {
             layout  :   'index',
             title   :   'Archer\'s Hunts | Login',
-            js      :   '../public/common/js/Login.js',
-            css     :   '../public/common/css/Login.css',
+            js      :   '..common/js/Login.js',
+            css     :   '..common/css/Login.css',
         })
     });
 
@@ -22,8 +22,17 @@ function add(server){
         resp.render('Establishments', {
             layout  :   'index',
             title   :   'Archer\'s Hunts | Listings',
-            js      :   '../public/common/js/Establishments.js',
-            css     :   '../public/common/css/Establishments.css',
+            js      :   '..common/js/Establishments.js',
+            css     :   '..common/css/Establishments.css',
+        })
+    });
+
+    server.get('/profile',(req, resp) => {
+        resp.render('Profile', {
+            layout  :   'index',
+            title   :   'Archer\'s Hunts | Profile',
+            js      :   '..common/js/profile.js',
+            css     :   '..common/css/profile.css',
         })
     });
 }

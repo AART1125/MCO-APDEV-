@@ -1,14 +1,129 @@
 <!-- To put files in each other -->
 
-<div class="main">
-  <div class="center-area">
-    <table id="message-area">
-    </table>
-  </div>
+<div class="cover">
+    {{#if islogin}}
+        {{#if isOwner}}
+            {{> ownernav}}
+        {{else}}
+            {{> usernav}}
+        {{/if}}
+    {{else}}
+        {{> guestnav}}
+    {{/if}}
+    <div class="welcome">
+        <span class="animated">
+            <img class="star" src="../common/images/star.png" alt="star">
+            <img class="banner" src="../common/images/text1.png" alt="text">
+            <img class="star" src="../common/images/star.png" alt="star">
+        </span>
+        <span class="search">
+            <form>
+                <input type="text" id="query">
+            </form>
+            <a href="../login_establishments/Establishments.html" class="linkz">
+                <img class="smol" src="../common/images/search.png" alt="search">
+            </a>
+        </span>
+    </div>
 </div>
 
-<footer>
-  <div class="center-area resp-area">
-    <input type="text" id="msg-txt" /><button id="msg-btn">Send</button>
+
+
+<div class = "body">
+  
+  <div class = "divide">
   </div>
-</footer>
+  
+  <div class="uno">
+      <div class = "title_card">
+          <h1><span class="cursive">M</span>x. <span class="cursive">P</span>opularity?</h1>
+          <p>Check here some of the most clicked categories among the users!</p>
+      </div>
+      <div class="categories">
+          <span class="scrollers">
+              <button id="scroll-uno-left"><</button>
+              <button id="scroll-uno-right">></button>
+          </span>
+          <div class="category-items">
+            
+<!--    {{#each category}}
+    <a href="../{{category-search}}">
+        <button class="categories_buttons">
+            <img class="category_pic" src="{{category-img}}" alt="{{category-name}}">
+            <br>{{category-name}}
+        </button>
+    </a>
+{{/each}} -->
+
+                    <a href="../login_establishments/Establishments.html"> 
+                        <button class="categories_buttons"><img class="category_pic" src="common/images/food/chinese.png"><br>Chinese</button> 
+                    </a>
+                    <a href="../login_establishments/Establishments.html"> 
+                        <button class="categories_buttons"><img class="category_pic" src="common/images/food/chicken.png"><br>Chicken</button>
+                    </a>
+                    <a href="../login_establishments/Establishments.html"> 
+                        <button class="categories_buttons"><img class="category_pic" src="common/images/food/italian.png"><br>Italian</button>
+                    </a>
+                    <a href="../login_establishments/Establishments.html"> 
+                        <button class="categories_buttons"><img class="category_pic" src="common/images/food/quickbites.png"><br>Quick Bites</button>
+                    </a>
+                    <a href="../login_establishments/Establishments.html"> 
+                        <button class="categories_buttons" style="display: none;"><img class="category_pic" src="common/images/food/seafood.png"><br>Seafood</button>
+                    </a>
+                    <a href="../login_establishments/Establishments.html"> 
+                        <button class="categories_buttons" style="display: none;"><img class="category_pic" src="common/images/food/french.png"><br>French</button>
+                    </a>
+                    <a href="../login_establishments/Establishments.html"> 
+                        <button class="categories_buttons" style="display: none;"><img class="category_pic" src="common/images/food/dessert.png"><br>Dessert</button>
+                    </a>
+                    <a href="../login_establishments/Establishments.html"> 
+                        <button class="categories_buttons" style="display: none;"><img class="category_pic" src="common/images/food/vegetarian.png"><br>Vegetarian</button>
+                    </a>
+
+          </div>
+      </div>
+  </div>
+  
+  
+  <div class = "divide">
+  </div>
+  
+  <div class="dos">
+      <span class="beige">
+          <h1><span class="cursive">D</span>ine <span class="cursive">&</span> <span class="cursive">D</span>iscover</h1>
+          <p>Looking for the most popular restaurants right now? You're in the right place!</p>
+      </span>
+      <div class="categories">
+          <span class="scrollers">
+              <button id="scroll-dos-left"><</button>
+              <button id="scroll-dos-right">></button>
+          </span>
+          <div class="category-items-2">
+
+<!--    {{#each restaurant}}
+    <a href="../{{resto-name}}">
+        <button class="restaurant_buttons">
+            <img class="restaurants_pic" src="{{resto-img}}" alt="{{resto-name}}">
+        </button>
+    </a>
+{{/each}} -->
+    
+
+          </div>
+      </div>
+  </div>
+  
+  <div class = "divide">
+  </div>
+  
+  <div class="tres">
+      <img class = "ban" src="../common/images/banner.png">
+  </div>
+  
+  <div class = "divide">
+  </div>
+  
+</div>
+
+
+<script src="index.js"></script>

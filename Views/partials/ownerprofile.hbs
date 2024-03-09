@@ -1,0 +1,41 @@
+<div class="profile-main">
+            <div class="profile-section1">
+                <img class="profile-picture" src="profile_assets/owner.jpg">
+                <h1>{{fullname}}</h1>
+                <p>{{username}}</p>
+                <span class="buttons">
+                    <a href="edit_profile_owner.html"><button>Edit Profile</button></a>
+                </span>
+            </div>
+
+            <div class="profile-section2">
+                <h1>Details</h1>
+                <div class="likes">
+                    <h2>CONTACT INFORMATION</h2>
+                    <a href="https://www.linkedin.com/in/bryan-shin-64786832?original_referer=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fbryan-shin-64786832" class="linkz"><button class="linkzers">{{contactnum}}</button></a>
+                </div>
+                <div class="dislikes">
+                    <h2>ADDITIONAL INFORMATION</h2>
+                    {{#each addinfo}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        <div class="divide2"></div>
+
+        <div class="profile-section3">
+            <h1>Restaurants</h1>
+            <div class="reviews">
+                {{#each restaurants}}
+                    <img class="restaurant" src="index_assets/restaurants/bonchon.webp">
+                    <span class="review">
+                        <span class="head-review"><h2>{{restoname}}</h2></span>
+                        <a href="../{{restoname}}" class="linkz">
+                            <button class="limmerz">View Restaurant</button>
+                        </a>
+                    </span> 
+                {{/each}}
+            </div>
+        </div>
