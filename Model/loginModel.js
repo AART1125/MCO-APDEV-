@@ -11,8 +11,8 @@ function loginToWebsite(req, resp){
             resp.render('main',{
                 layout      :   'index',
                 title       :   'Archer\'s Hunt',
-                js          :   '../public/common/js/main.js',
-                css         :   '../public/common/css/main.css',
+                js          :   '..common/js/main.js',
+                css         :   '..common/css/main.css',
                 islogin     :   true,
                 isOwner     :   false
             });
