@@ -9,7 +9,7 @@ function add(server){
         resp.render('main',{
             layout      :   'index',
             title       :   'Archer\'s Hunt',
-            js          :   '/common/js/main.js',
+            js          :   '/common/js/mainFunc.js',
             css         :   '/common/css/main.css',
             islogin     :   true,
             isOwner     :   false
