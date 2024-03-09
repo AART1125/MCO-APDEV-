@@ -4,9 +4,8 @@ mongoose.connect('mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/
 const replySchema = new mongoose.Schema({
     owner_id    :   {type: mongoose.Schema.ObjectId},
     resto_id    :   {type: mongoose.Schema.ObjectId},
+    reviewofR   :   {type: mongoose.Schema.ObjectId},
     reply       :   {type: String},
-    likes       :   {type: Number, default: 0},
-    dislikes    :   {type: Number, default: 0},
     datemade    :   {type: Date}
 },{versionKey: false})
 
@@ -16,11 +15,13 @@ const reviewSchema = new mongoose.Schema({
     review      :   {type: String},
     likes       :   {type: Number, default: 0},
     dislikes    :   {type: Number, default: 0},
+    reply       :   {type: mongoose.Schema.ObjectId},
+    isRecommend :   {type: Boolean},
     datemade    :   {type: Date}
 },{versionKey: false});
 
 const restaurantSchema = new mongoose.Schema({
-    // restaurantimg   :   {type: [Buffer]}, use in MCO3
+    restaurantimgs  :   {type: [String]},
     restoname       :   {type: String},
     restodesc       :   {type: String},
     owner_id        :   {type: mongoose.Schema.ObjectId},
@@ -44,7 +45,7 @@ const userSchema = new mongoose.Schema({
     likedresto  :   {type: [String], default : []},//names
     preferences :   {type: [String], default : []},//preferences
     reviews     :   {type: [reviewSchema], default : []},
-    friends     :   {type: [mongoose.Schema.ObjectId], default : []}//
+    friends     :   {type: [mongoose.Schema.ObjectId], default : []}
 },{versionKey: false});
 
 const ownerSchema = new mongoose.Schema({
@@ -54,7 +55,7 @@ const ownerSchema = new mongoose.Schema({
     password    :   {type: String},
     email       :   {type: String},
     contactnum  :   {type: Number},
-    replies     :   {type: [String], default : []},
+    replies     :   {type: [replySchema], default : []},
     restaurants :   {type: [restaurantSchema], default: []}
 },{versionKey: false});
 
