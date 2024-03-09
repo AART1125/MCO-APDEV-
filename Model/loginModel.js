@@ -1,46 +1,34 @@
+//Database Functions
 const schemas = require('./schemaModels');
 
 function loginToWebsite(req, resp){
-    const query = {username : req.body.user, password : req.body.pass};
+    const query = {username : req.body.username, password : req.body.password};
+    let response = {doesExist : true, isOwner : false};
 
-    var found = true;
-
+    console.log('Trying to Login');
     schemas.userModel.findOne(query).then((login) => {
+        console.log(login._id.toString());
         console.log('Finding user');
         if (login != undefined && login._id != null) {
-            resp.render('main',{
-                layout      :   'index',
-                title       :   'Archer\'s Hunt',
-                js          :   '..common/js/main.js',
-                css         :   '..common/css/main.css',
-                islogin     :   true,
-                isOwner     :   false
-            });
+            console.log("User found!");
+            resp.send(response);
         } else {
-            console.log('User Not Found');
-            found = false;
+            console.log("User not found!");
+            schemas.ownerModel.findOne(query).then((owner) => {
+                console.log('Finding owner');
+                if (owner != undefined && owner._id != null) {
+                    console.log("Owner found!");
+                    response = {doesExist : true, isOwner : true};
+                    resp.send(response);
+                } else {
+                    console.log('Owner not found!');
+                    console.log('No information in Database!');
+                    response = {doesExist : false};
+                    resp.send(response);
+                };
+            }).catch();
         };
-    }).catch(errorFn)
-
-    if (!found) {
-        schemas.ownerModel.findOne(query).then((login) => {
-            console.log('Finding owner');
-            if (login != undefined && login._id != null) {
-                resp.render('main',{
-                    layout      :   'index',
-                    title       :   'Archer\'s Hunt',
-                    js          :   '../public/common/js/main.js',
-                    css         :   '../public/common/css/main.css',
-                    islogin     :   true,
-                    isOwner     :   true
-                });
-            } else {
-                console.log('Owner Not Found');
-                const response = {doesExist : false}
-                resp.send(response);
-            };
-        }).catch(errorFn)
-    }
+    }).catch();
 }
 
 module.exports = {

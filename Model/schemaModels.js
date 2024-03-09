@@ -15,13 +15,13 @@ const reviewSchema = new mongoose.Schema({
     review      :   {type: String},
     likes       :   {type: Number, default: 0},
     dislikes    :   {type: Number, default: 0},
-    reply       :   {type: mongoose.Schema.ObjectId},
+    reply       :   {type: mongoose.Schema.ObjectId, default: null},
     isRecommend :   {type: Boolean},
     datemade    :   {type: Date}
 },{versionKey: false});
 
 const restaurantSchema = new mongoose.Schema({
-    restaurantimgs  :   {type: [String]},
+    restoimg        :   {type: [String]},
     restoname       :   {type: String},
     restodesc       :   {type: String},
     owner_id        :   {type: mongoose.Schema.ObjectId},
@@ -66,9 +66,9 @@ const userModel = mongoose.model('users', userSchema);
 const ownerModel = mongoose.model('owners', ownerSchema);
 
 module.exports = {
-    replyModel,
-    reviewModel,
-    restaurantModel,
-    userModel,
-    ownerModel
+    replyModel : replyModel,
+    reviewModel : reviewModel,
+    restaurantModel : restaurantModel,
+    userModel : userModel,
+    ownerModel : ownerModel
 }

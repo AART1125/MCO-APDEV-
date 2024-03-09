@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url('assets/pizza.gif');/*This gif came from this site https://youtu.be/sv3TXMSv6Lw*/
+    background-image: url('../assets/backgroundimgs/pizza.gif');/*This gif came from this site https://youtu.be/sv3TXMSv6Lw*/
     background-size: cover;
     background-position: top;
     position: relative;
