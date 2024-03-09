@@ -1,10 +1,10 @@
 <div class="profile-main">
     <div class="profile-section1">
-        <img class="profile-picture" src="profile_assets/owner.jpg">
+        <img class="profile-picture" src="{{profileimg}}">
         <h1>{{fullname}}</h1>
         <p>{{username}}</p>
         <span class="buttons">
-            <a href="edit_profile_owner.html"><button>Edit Profile</button></a>
+            <a href="/edit_profile"><button>Edit Profile</button></a>
         </span>
     </div>
     
@@ -12,7 +12,9 @@
         <h1>Details</h1>
         <div class="likes">
             <h2>CONTACT INFORMATION</h2>
-            <a href="https://www.linkedin.com/in/bryan-shin-64786832?original_referer=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fbryan-shin-64786832" class="linkz"><button class="linkzers">{{contactnum}}</button></a>
+             {{#each links}}
+            <a href="{{this.links}}" class="linkz"><button class="linkzers">{{this.contacttitle}}</button></a>
+            {{/each}}
         </div>
         <div class="dislikes">
             <h2>ADDITIONAL INFORMATION</h2>
@@ -29,10 +31,10 @@
     <h1>Restaurants</h1>
     <div class="reviews">
         {{#each restaurants}}
-        <img class="restaurant" src="index_assets/restaurants/bonchon.webp">
+        <img class="restaurant" src="{{this.restaurantimgs.[0]}}">
         <span class="review">
             <span class="head-review"><h2>{{restoname}}</h2></span>
-            <a href="../{{restoname}}" class="linkz">
+            <a href="/{{restoname}}" class="linkz">
                 <button class="limmerz">View Restaurant</button>
             </a>
         </span> 

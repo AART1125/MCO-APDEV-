@@ -1,10 +1,10 @@
 <div class="profile-main">
     <div class="profile-section1">
-        <img class="profile-picture" src="profile_assets/test.jpg">
+        <img class="profile-picture" src="{{profileimg}}">
         <h1>{{fullname}}</h1>
         <p>{{username}}</p>
         <span class="buttons">
-            <a href="edit_profile.html"><button>Edit Profile</button></a>
+            <a href="/edit_profile"><button>Edit Profile</button></a>
         </span>
     </div>
 
@@ -40,7 +40,7 @@
         <div class="profile-section3">
             <h1>Reviews</h1>
             <div class="reviews">
-                <img class="restaurant" src="index_assets/restaurants/{{this.restaurantName}}.webp">
+            <img class="restaurant" src="{{this.restaurantimgs.[0]}}">
                 <span class="review">
                     <span class="head-review">
                         <h2>{{this.restaurantName}}</h2>
