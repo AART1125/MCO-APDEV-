@@ -116,6 +116,10 @@ a:hover {
     margin-bottom: 1em;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .rev1, .rev2{
     background-color: #FAF6DF;
     padding: 1em;

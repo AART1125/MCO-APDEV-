@@ -1,0 +1,1 @@
+const schemas = require('./schemaModels');
