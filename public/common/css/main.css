@@ -10,17 +10,6 @@ a {
     all: unset;
 }
 
-.nav_links {
-    position: relative;
-    transition: background-color 0.1s ease;
-}
-
-a:hover {
-    background-color: #FAF6DE;
-    padding: 1vh;
-    color: #191F24;
-}
-
 .category-items a {
     all: unset;
 }
@@ -29,12 +18,17 @@ a:hover {
     all: unset;
 }
 
-
-.linkz {
-    all: unset !important;
+.category-items a:hover {
+    all: unset;
 }
 
+.category-items-2 a:hover {
+    all: unset;
+}
 
+.remove-hover {
+    all: unset !important; /* -- REMOVES HOVER EFFECT */
+}
 
 
 /* -- FOR DISPLAY */
@@ -66,21 +60,6 @@ a:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.601);
-}
-
-.header {
-    color: #FAF6DE;
-    padding: 5%;
-    padding-top: 1em;
-    overflow: hidden;
-    position: relative;
-}
-
-.navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-left: -1em;
-    margin-right: -2em;
 }
 
 
@@ -141,14 +120,6 @@ a:hover {
 
 /* -- FOR PICTURES */
 
-.logo {
-    margin-top: -1vh;
-    width: 4vh;
-}
-
-.logo_b {
-    width: 4vh;
-}
 
 .banner {
     width: 80%;
@@ -156,7 +127,7 @@ a:hover {
 }
 
 .star {
-    width: 30%;
+    width: 20%;
     animation-name: spin;
     animation-duration: 10000ms;
     animation-iteration-count: infinite;
@@ -187,19 +158,6 @@ a:hover {
 
 
 /* -- FOR SPANS */
-
-.logo_text {
-    display: flex;
-    align-items: center;
-}
-
-.logo_text p {
-    margin-left: .5em;
-}
-
-.links a {
-    margin-right: 1em;
-}
 
 .animated {
     display: flex;
