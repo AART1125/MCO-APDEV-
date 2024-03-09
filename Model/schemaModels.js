@@ -15,13 +15,13 @@ const reviewSchema = new mongoose.Schema({
     review      :   {type: String},
     likes       :   {type: Number, default: 0},
     dislikes    :   {type: Number, default: 0},
-    reply       :   {type: mongoose.Schema.ObjectId, default: null},
+    reply       :   {type: mongoose.Schema.ObjectId},
     isRecommend :   {type: Boolean},
     datemade    :   {type: Date}
 },{versionKey: false});
 
 const restaurantSchema = new mongoose.Schema({
-    restoimg        :   {type: [String]},
+    restaurantimgs  :   {type: [String]},
     restoname       :   {type: String},
     restodesc       :   {type: String},
     location        :   {type: String},
@@ -39,25 +39,32 @@ const restaurantSchema = new mongoose.Schema({
 },{versionKey: false});
 
 const userSchema = new mongoose.Schema({
-    // profileimg  :   {type: Buffer}, use in MCO3
+    profileimg  :   {type: String},
     fullname    :   {type: String},
     username    :   {type: String},
     password    :   {type: String},
     email       :   {type: String},
     contactnum  :   {type: Number},
-    likedresto  :   {type: [String], default : []},//names
-    preferences :   {type: [String], default : []},//preferences
+    likedresto  :   {type: [String], default : []}, //names
+    preferences : {
+        isLike      : { type: [String], default: [] }, 
+        isDislike   : { type: [String], default: [] } 
+    },
     reviews     :   {type: [reviewSchema], default : []},
     friends     :   {type: [mongoose.Schema.ObjectId], default : []}
 },{versionKey: false});
 
 const ownerSchema = new mongoose.Schema({
-    // profileimg  :   {type: Buffer}, use in MCO3
+    profileimg  :   {type: String},
     fullname    :   {type: String},
     username    :   {type: String},
     password    :   {type: String},
     email       :   {type: String},
     contactnum  :   {type: Number},
+    contactinfo : {
+        title       : { type: [String], default: [] }, 
+        links       : { type: [String], default: [] } 
+    },
     replies     :   {type: [replySchema], default : []},
     restaurants :   {type: [restaurantSchema], default: []}
 },{versionKey: false});
@@ -69,9 +76,9 @@ const userModel = mongoose.model('users', userSchema);
 const ownerModel = mongoose.model('owners', ownerSchema);
 
 module.exports = {
-    replyModel : replyModel,
-    reviewModel : reviewModel,
-    restaurantModel : restaurantModel,
-    userModel : userModel,
-    ownerModel : ownerModel
+    replyModel,
+    reviewModel,
+    restaurantModel,
+    userModel,
+    ownerModel
 }
