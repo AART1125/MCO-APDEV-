@@ -21,7 +21,7 @@ const reviewSchema = new mongoose.Schema({
 },{versionKey: false});
 
 const restaurantSchema = new mongoose.Schema({
-    restaurantimgs  :   {type: [String]},
+    restoimg        :   {type: [String]},
     restoname       :   {type: String},
     restodesc       :   {type: String},
     location        :   {type: String},
