@@ -1,7 +1,6 @@
 const establishmentsModel = require('../Model/establishmentsModel');
 
 function add(server) {
-
     server.get('/establishments', (req, resp) => {
         establishmentsModel.initGen().then((dict) => {
             resp.render('establishments',{
@@ -9,13 +8,13 @@ function add(server) {
                 title               :   'Archer\'s Hunt',
                 js                  :   '/common/js/establishments.js',
                 css                 :   '/common/css/establishments.css',
-                islogin             :   true,
+                islogin             :   false,
                 isOwner             :   false,
                 'search-results'    :   dict
             });
         }).catch();
     });
-}
+};
 
 module.exports = {
     add

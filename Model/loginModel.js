@@ -7,7 +7,6 @@ function loginToWebsite(req, resp){
 
     console.log('Trying to Login');
     schemas.userModel.findOne(query).then((login) => {
-        console.log(login._id.toString());
         console.log('Finding user');
         if (login != undefined && login._id != null) {
             console.log("User found!");
