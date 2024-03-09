@@ -24,8 +24,8 @@ function add(server){
         resp.render('establishments', {
             layout  :   'index',
             title   :   'Archer\'s Hunts | Listings',
-            js      :   '/common/js/Establishments.js',
-            css     :   '/common/css/Establishments.css',
+            js      :   '/common/js/establishments.js',
+            css     :   '/common/css/establishments.css',
         })
     });
 

@@ -8,15 +8,9 @@ async function initGen(){
         for(const restaurant of restaurants){
             let stars = [];
             for (let i = 0; i < 5; i++) {
-                if(i < restaurant.stars){
-                    stars.push({
-                        isStar: true
-                    });
-                } else {
-                    stars.push({
-                        isStar: false
-                    });
-                }
+                stars.push({
+                    isStar: i < restaurant.stars
+                });
             }
             dict.push({
                 'resto-img'     : restaurant.restoimg[0],

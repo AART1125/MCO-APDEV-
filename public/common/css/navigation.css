@@ -2,16 +2,17 @@
 
 a {
     all: unset;
+    cursor: pointer;
 }
 
 .nav_links {
     position: relative;
+    padding: 1vh;
     transition: background-color 0.1s ease;
 }
 
 a:hover {
     background-color: #FAF6DE;
-    padding: 1vh;
     color: #191F24;
 }
 

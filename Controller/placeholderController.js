@@ -1,21 +1,19 @@
-const establishmentsModel = require('../Model/establishmentsModel');
+const establishmentsModel = require('../Model/profileModel');
 
 // placeholder only 
 function add(server) {
-    server.get('/establishments', (req, resp) => {
-        const dict = establishmentsModel.initGen()
-        resp.render('establishments',{
-            layout              :   'index',
-            title               :   'Archer\'s Hunt',
-            js                  :   '/common/js/main.js',
-            css                 :   '/common/css/main.css',
-            islogin             :   true,
-            isOwner             :   false,
-            'search-results'    :   dict
-        });
+    server.get('/establishment', (req, res) => {
+        establishmentsModel.find()
+            .then(establishments => {
+                res.render('establishments', { establishments: establishments });
+            })
+            .catch(err => {
+                console.error('Error fetching establishments:', err);
+                res.status(500).send('Internal Server Error');
+            });
     });
 }
 
 module.exports = {
-    add
+    add: add
 };
