@@ -1,23 +1,45 @@
 const schemas = require('./schemaModels');
 
-// to fix pa
-
 function findProfile(req, resp) {
-    const { username } = req.body;
+    const query = req.body.user;
 
-    schemas.userModel.findOne({ username })
+    schemas.userModel.findOne(query)
         .then(user => {
+            console.log('Finding user');
             if (!user) {
-                return resp.status(404).send('User not found');
+                return schemas.ownerModel.findOne(query)
+                    .then(owner => {
+                        console.log('Finding owner');
+                        if (!owner) {
+                            console.log('Account not found');
+                            return resp.status(404).send('User or owner not found');
+                        } else {
+                            resp.render('profile', {
+                                layout: 'index',
+                                title: 'Archer\'s Hunt | Profile',
+                                js: '../common/profile.js',
+                                css: '../common/profile.css',
+                                islogin: true,
+                                isOwner: true,
+                                user: user
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        resp.status(500).send('Internal Server Error');
+                    });
+            } else {
+                resp.render('profile', {
+                    layout: 'index',
+                    title: 'Archer\'s Hunt | Profile',
+                    js: '../common/profile.js',
+                    css: '../common/profile.css',
+                    islogin: true,
+                    isUser: true,
+                    user: user
+                });
             }
-
-            resp.render('profile', {
-                layout: 'index',
-                title: 'User Profile',
-                js          :   '../common/profile.js',
-                css         :   '../common/profile.css',
-                user: user,
-            });
         })
         .catch(error => {
             console.error(error);
