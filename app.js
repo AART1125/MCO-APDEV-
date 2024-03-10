@@ -16,6 +16,8 @@ server.use(express.static('public')); // static fils in public folder
 const fs = require('fs'); // File System
 const path = require('path'); // Paths System
 
+const mongoose = require('mongoose');
+
 function getControllerPaths(pathname = './Controller'){ // function to get controllers
     let array = []
     

@@ -9,8 +9,10 @@
 {{/if}}
 
 <div class="searchbar">
-    <input type="text" name="listings-search" id="listings-search" placeholder="Search....">
-    <i class='bx bx-search'></i>
+    <form action="/search" method="get">
+        <input type="text" name="listings-search" id="listings-search" placeholder="Search....">
+        <i class='bx bx-search'></i>
+    </form>
 </div>
 
 <div class="search-results">
