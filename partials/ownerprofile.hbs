@@ -1,0 +1,43 @@
+<div class="profile-main">
+    <div class="profile-section1">
+        <img class="profile-picture" src="{{profileimg}}">
+        <h1>{{fullname}}</h1>
+        <p>{{username}}</p>
+        <span class="buttons">
+            <a href="/edit_profile"><button>Edit Profile</button></a>
+        </span>
+    </div>
+    
+    <div class="profile-section2">
+        <h1>Details</h1>
+        <div class="likes">
+            <h2>CONTACT INFORMATION</h2>
+             {{#each links}}
+            <a href="{{this.links}}" class="linkz"><button class="linkzers">{{this.contacttitle}}</button></a>
+            {{/each}}
+        </div>
+        <div class="dislikes">
+            <h2>ADDITIONAL INFORMATION</h2>
+            {{#each addinfo}}
+            <li>{{this}}</li>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div class="divide2"></div>
+
+<div class="profile-section3">
+    <h1>Restaurants</h1>
+    <div class="reviews">
+        {{#each restaurants}}
+        <img class="restaurant" src="{{this.restaurantimgs.[0]}}">
+        <span class="review">
+            <span class="head-review"><h2>{{restoname}}</h2></span>
+            <a href="/{{restoname}}" class="linkz">
+                <button class="limmerz">View Restaurant</button>
+            </a>
+        </span> 
+        {{/each}}
+    </div>
+</div>
