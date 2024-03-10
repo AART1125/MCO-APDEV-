@@ -1,4 +1,4 @@
-const schemas = require('./schemaModels');
+const { restaurantModel } = require('./schemaModels');
 
 async function getRestaurantData() {
     try {
@@ -38,4 +38,4 @@ async function getRestaurantData() {
 
 module.exports = {
     getRestaurantData
-}
+};
