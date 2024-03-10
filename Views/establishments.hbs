@@ -17,31 +17,6 @@
 
 <div class="search-results">
     {{#if isEmpty}}
-       {{#each search-results}}
-        <div class="results">
-            <div class="resto-img">
-                <img src="{{resto-img}}" alt="{{resto-name}}">
-            </div>
-            <div class="description">
-                <div class="name">
-                    <a href="/restaurant/{{resto-name}}"><h1>{{resto-name}}</h1></a>
-                </div>
-                <div class="info">
-                    <p>{{resto-desc}}</p>
-                </div>
-                <div class="rating">
-                {{#each star}}
-                    {{#if isStar}}
-                        <span class="fa fa-star checked"></span>
-                    {{else}}
-                        <span class="fa fa-star"></span>
-                    {{/if}}
-                {{/each}}
-                </div>
-            </div>
-        </div>
-        {{/each}} 
-    {{else}}
        <div class="results">
             <div class="descriptionempty">
                 <div class="name">
@@ -49,6 +24,31 @@
                 </div>
             </div>
         </div>
+    {{else}}
+        {{#each search-results}}
+            <div class="results">
+                <div class="resto-img">
+                    <img src="{{resto-img}}" alt="{{resto-name}}">
+                </div>
+                <div class="description">
+                    <div class="name">
+                        <a href="/restaurant/{{resto-name}}"><h1>{{resto-name}}</h1></a>
+                    </div>
+                    <div class="info">
+                        <p>{{resto-desc}}</p>
+                    </div>
+                    <div class="rating">
+                    {{#each star}}
+                        {{#if isStar}}
+                            <span class="fa fa-star checked"></span>
+                        {{else}}
+                            <span class="fa fa-star"></span>
+                        {{/if}}
+                    {{/each}}
+                    </div>
+                </div>
+            </div>
+        {{/each}} 
     {{/if}}
 </div>
 

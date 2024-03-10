@@ -29,6 +29,21 @@ function add(server) {
             });
         }).catch()
     });
+
+    server.get('/search/:foodtype', (req, resp) => {
+        establishmentsModel.searchFoodType(req.params.foodtype).then((dict) => {
+            resp.render('establishments',{
+                layout              :   'index',
+                title               :   'Archer\'s Hunt',
+                js                  :   '/common/js/establishments.js',
+                css                 :   '/common/css/establishments.css',
+                islogin             :   false,
+                isOwner             :   false,
+                'search-results'    :   dict,
+                isEmpty             :   dict.length === 0
+            });
+        }).catch()
+    });
 };
 
 module.exports = {

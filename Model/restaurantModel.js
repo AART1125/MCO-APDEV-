@@ -2,7 +2,7 @@ const { restaurantModel } = require('./schemaModels');
 
 async function getRestaurantData() {
     try {
-        const restaurants = await schemas.restaurantModel.find({});
+        const restaurants = await restaurantModel.find({});
         const restaurantDataArray = [];
 
         restaurants.forEach(restaurant => {
