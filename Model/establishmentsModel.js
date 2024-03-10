@@ -59,7 +59,7 @@ async function searchFoodType(foodtype){
     try {
         const restaurants = await schemas.restaurantModel.find();
         for(const restaurant of restaurants){
-            for(const type of restaurant.foodtype){
+            restaurant.foodtype.forEach((type) => {
                 if(type.toLowerCase() === foodtype.toLowerCase()){
                     let stars = [];
                     for (let i = 0; i < 5; i++) {
@@ -74,7 +74,7 @@ async function searchFoodType(foodtype){
                         star            : stars
                     });
                 }
-            }
+            });
         }
 
     } catch (error) {
