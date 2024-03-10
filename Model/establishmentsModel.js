@@ -26,8 +26,8 @@ async function initGen(){
     return dict;
 }
 
-async function searchGen(searchQuery){
-    let names = [];
+async function search(searchQuery){
+    let dict = [];
     try {
         const restaurants = await schemas.restaurantModel.find();
         for(const restaurant of restaurants){
@@ -38,7 +38,7 @@ async function searchGen(searchQuery){
                 });
             }
             if(restaurant.restoname.toLowerCase().includes(searchQuery.toLowerCase())){
-                names.push({
+                dict.push({
                     'resto-img'     : restaurant.restoimg[0],
                     'resto-name'    : restaurant.restoname,
                     'resto-desc'    : restaurant.restodesc,
@@ -51,9 +51,10 @@ async function searchGen(searchQuery){
         console.error("Error fetching restaurants:", error);
     }
 
-    return names;
+    return dict;
 }
 
 module.exports = {
-    initGen
+    initGen,
+    search
 }

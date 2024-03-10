@@ -14,6 +14,21 @@ function add(server) {
             });
         }).catch();
     });
+
+    server.get('/search', (req, resp) => {
+        establishmentsModel.search(req.query.searchlist).then((dict) => {
+            resp.render('establishments',{
+                layout              :   'index',
+                title               :   'Archer\'s Hunt',
+                js                  :   '/common/js/establishments.js',
+                css                 :   '/common/css/establishments.css',
+                islogin             :   false,
+                isOwner             :   false,
+                'search-results'    :   dict,
+                isEmpty             :   dict.length === 0
+            });
+        }).catch()
+    });
 };
 
 module.exports = {

@@ -122,6 +122,18 @@ header {
     background-color: #537A5A;
 }
 
+.descriptionempty {
+    text-align: center;
+    display: grid;
+    margin-top: -2vh;
+    margin-left: 2em;
+    margin-right: 2em;
+    width: 100%;
+    padding-left: 2em;
+    border-radius: 2em;
+    background-color: #537A5A;
+}
+
 .results:nth-child(even) .description{
     background-color: #EE6958;
 }
