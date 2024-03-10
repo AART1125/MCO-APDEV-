@@ -1,6 +1,7 @@
 //Database Functions
 const schemas = require('./schemaModels');
 
+
 function loginToWebsite(req, resp){
     const query = {username : req.body.username, password : req.body.password};
     let response = {doesExist : true, isOwner : false};

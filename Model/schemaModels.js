@@ -11,7 +11,7 @@ const replySchema = new mongoose.Schema({
 
 const reviewSchema = new mongoose.Schema({
     users_id    :   {type: mongoose.Schema.ObjectId},
-    restuarant  :   {type: String},
+    restaurant  :   {type: String},
     review      :   {type: String},
     likes       :   {type: Number, default: 0},
     dislikes    :   {type: Number, default: 0},

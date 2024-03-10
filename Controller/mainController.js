@@ -1,5 +1,8 @@
 //server specific functions
 
+const profileDB = require('../Model/profileModel');
+
+
 function add(server){
     server.get('/',(req, resp) => {
         resp.render('main',{
@@ -29,14 +32,10 @@ function add(server){
         })
     });
 
-    server.get('/profile',(req, resp) => {
-        resp.render('profile', {
-            layout  :   'index',
-            title   :   'Archer\'s Hunts | Profile',
-            js      :   '/common/js/profile.js',
-            css     :   '/common/css/profile.css',
-        })
+    server.get('/profile', (req, resp) => {
+        profileDB.findProfile(req, resp);
     });
+
 }
 
 module.exports = {

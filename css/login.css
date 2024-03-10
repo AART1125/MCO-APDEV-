@@ -1,0 +1,208 @@
+/*Login Stylesheet by Aaron Ace R. Toledo*/
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../assets/backgroundimgs/pizza.gif');/*This gif came from this site https://youtu.be/sv3TXMSv6Lw*/
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 2.1vh;
+    display: block;
+    justify-content: center;
+    align-content: center;
+}
+
+a {
+    all: unset;
+}
+
+a:hover {
+    background-color: #FAF6DE;
+    padding: 1vh;
+    color: #191F24;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    color: #FAF6DE;
+    padding: 5%;
+    padding-top: 1em;
+    overflow: hidden;
+    position: relative;
+}
+
+.title {
+    display: flex;
+    color: #FAF6DE;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 37em;
+    transform: translateY(8em);
+}
+
+.logo > img {
+    margin-top: -1vh;
+    width: 5em;
+}
+
+.logo > h1 {
+    margin-left: .5vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -1em;
+    margin-right: -2em;
+}
+
+.links {
+    margin-right: 1em;
+}
+
+.hyperlink a {
+    position: relative;
+    transition: background-color 0.1s ease;
+}
+
+.login-container {
+    position: absolute;
+    right: 40%;
+    transform: translateY(15em);
+    width: 420px;
+    background-color: #FAF6DE;
+    color: black;
+    padding: 30px 30px 30px 30px;
+    border-radius: 3vh;
+    border: 5px solid #191F24;
+}
+
+.login-container h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.login-container a {
+    padding: 0;
+}
+
+.login-container .input-box {
+    width: 100%;
+    height: 50px;
+    background-color: #FAF6DE;
+    margin: 30px 0;
+}
+
+.login-container .btn{
+    width: 100%;
+    height: 45px;
+    background-color: #537A5A;
+    color: #FAF6DE;
+    border-radius: 5vh;
+    border: none;
+    outline: none;
+    box-shadow: #191F24;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-container .register {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #EE6958;
+    color: #FAF6DE;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
+
+.input-box {
+    border-radius: 5vh;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #537A5A;
+    border-radius: 5vh;
+    color: black;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: black;
+}
+
+.input-box i {
+    position: absolute;
+    right: 5.5vh;
+    transform: translateY(1.5vh);
+    font-size: 20px;
+}
+
+.register-container {
+    position: absolute;
+    right: 40%;
+    transform: translateY(15em);
+    width: 420px;
+    background-color: #FAF6DE;
+    color: black;
+    padding: 30px 30px 30px 30px;
+    border-radius: 3vh;
+}
+
+.register-container h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.register-container a {
+    padding: 0;
+}
+
+.register-container .input-box {
+    width: 100%;
+    height: 50px;
+    background-color: #FAF6DE;
+    margin: 30px 0;
+}
+
+.register-container .btn{
+    width: 100%;
+    height: 45px;
+    background-color: #537A5A;
+    color: #FAF6DE;
+    border-radius: 5vh;
+    border: none;
+    outline: none;
+    box-shadow: #191F24;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
