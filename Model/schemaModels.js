@@ -17,7 +17,7 @@ const reviewSchema = new mongoose.Schema({
     dislikes    :   {type: Number, default: 0},
     reply       :   {type: mongoose.Schema.ObjectId},
     isRecommend :   {type: Boolean},
-    datemade    :   {type: Date}
+    datemade    :   {type: Date, default: null}
 },{versionKey: false});
 
 const restaurantSchema = new mongoose.Schema({
