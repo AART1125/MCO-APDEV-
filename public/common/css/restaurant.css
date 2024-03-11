@@ -71,7 +71,6 @@ a:hover {
     flex-shrink: 0;
     max-width: 1200px; 
     max-height: 100%;
-    overflow: auto;
     flex-grow: 1; 
     border-radius: 1em;
 }
@@ -128,6 +127,7 @@ a:hover {
     display:flex;
     flex-direction: column;
     margin-bottom: 20px;
+    border-radius: 1em;
 }
 
 .profile{
