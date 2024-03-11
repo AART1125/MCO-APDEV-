@@ -53,7 +53,9 @@ async function getSpecificRestaurantData(restoname) {
             };
 
             const reviewData = {
-                'reviews': restaurant.reviews.map(review => ({
+                'reviews': restaurant.reviews.map(review => (
+                    
+                    {
                     'user-profileimg': review.users_id.profileimg,
                     'user-fullname': review.users_id.fullname,
                     'user-username': review.users_id.username,
