@@ -3,12 +3,9 @@ const restaurantModel = require('../Model/restaurantModel');
 function add(server) {
     server.get('/restaurant/:restoname', async (req, resp) => {
         try {
-            const restaurantDataArray = await restaurantModel.getRestaurantData();
-            
-            const restonameParam = req.params.restoname;
-            const selectedRestaurant = restaurantDataArray.find(restaurant => restaurant['resto-name'] === restonameParam);
-
-            if (selectedRestaurant) {
+            const [restodata, reviewdata] = await restaurantModel.getSpecificRestaurantData(req.params.restoname);
+            console.log(restodata);
+            if (restodata) {
                 resp.render('restaurant', {
                     layout: 'index',
                     title: 'Archer\'s Hunt',
@@ -16,7 +13,8 @@ function add(server) {
                     css: '/common/css/restaurant.css', 
                     islogin: false,
                     isOwner: false,
-                    restaurant: selectedRestaurant
+                    restaurant: restodata,
+                    reviews: reviewdata
                 });
             } else {
                 resp.status(404).send('Restaurant not found'); 

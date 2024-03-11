@@ -9,11 +9,12 @@
 {{/if}}
 
 <div class = "main">
+    {{#each restaurant}}
     <div class="restaurant">
         <div class="restaurant-text">
             <div class="text-left">
                 <div class="restaurant-name">
-                    <strong>{{resto-name}}</strong>
+                    <strong>{{'resto-name'}}</strong>
                 </div>
                 <div class="restaurant-type">
                     <i>{{resto-type}}</i>
@@ -31,6 +32,7 @@
             <img src="{{resto-img}}" alt="{{resto-name}}">
         </div>
     </div>
+    {{/each}}
     <div class="reviews">
         <div class="rev-scroll">
         <div class="rev1">
