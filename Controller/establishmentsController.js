@@ -15,6 +15,20 @@ function add(server) {
         }).catch();
     });
 
+    server.get('/establishments-owner', (req, resp) => {
+        establishmentsModel.ownerGen().then((dict) => {
+            resp.render('establishments',{
+                layout              :   'index',
+                title               :   'Archer\'s Hunt',
+                js                  :   '/common/js/establishments.js',
+                css                 :   '/common/css/establishments.css',
+                islogin             :   true,
+                isOwner             :   true,
+                'search-results'    :   dict
+            });
+        }).catch();
+    });
+
     server.get('/search', (req, resp) => {
         establishmentsModel.search(req.query.searchlist).then((dict) => {
             resp.render('establishments',{
