@@ -45,10 +45,9 @@ function findProfile(req, resp) {
                         link            : review.link,
                         likes           : review.likes,
                         dislikes        : review.dislikes,
-                        reco            : review.isRecommend,
+                        showReco        : review.isRecommend,
                         showLike        : review.likes > 0,
                         showDislike     : review.dislikes > 0,
-                        showReco        : review.reco = true
                     }))
                 }
             });
