@@ -39,9 +39,14 @@ function findProfile(req, resp) {
                         isDislike: profile.preferences.isDislike
                     },
                     reviews: profile.reviews.map(review => ({
-                        restaurant: review.restaurant,
+                        restaurant: review.restaurant.toUpperCase(),
+                        restaurantimg: review.restoimg,
                         reviewText: review.review,
-                        link: review.link
+                        link: review.link,
+                        likes: review.likes,
+                        isReco: review.isRecommend,
+                        showLike: review.likes > 0,
+                        showReco: review.isReco = true
                     }))
                 }
             });
