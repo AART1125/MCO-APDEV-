@@ -8,7 +8,6 @@ function add(server) {
       title: "Archer's Hunts",
       js: "/common/js/register.js",
       css: "/common/css/register.css",
-      islogin: false,
     });
   });
 
@@ -18,7 +17,6 @@ function add(server) {
       title: "Archer's Hunts",
       js: "/common/js/delete_account.js",
       css: "/common/css/delete_account.css",
-      islogin: false,
     });
   });
 

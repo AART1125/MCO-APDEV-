@@ -9,6 +9,7 @@ body {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     width: 100%;
+    height: 55em;
     object-position: right;
     object-fit: cover;
 }
@@ -48,14 +49,6 @@ body {
     background-color: #faf5df;
     border-radius: 20px;
     min-height: 870px;
-}
-
-.img-left {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    width: 100%;
-    object-position: right;
-    object-fit: cover;
 }
 
 .content-padding {

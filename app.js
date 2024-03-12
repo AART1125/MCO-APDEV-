@@ -47,11 +47,7 @@ for (let path of controllerPaths) {
   console.log("Processing Controllers: " + path);
   const controller = require("./Controller/" + path);
 
-  for (const [key, value] of Object.entries(controller)) {
-    console.log("Processing Controllers: " + key);
-    controller[key](server); //add server to controllers
-  }
-  //   controller.add(server); //add server to controllers
+  controller.add(server);
 }
 
 const port = process.env.PORT | 3000;
