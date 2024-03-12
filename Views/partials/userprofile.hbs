@@ -62,9 +62,12 @@
             <span class="review">
                 <span class="head-review">
                     <h2>{{this.restaurant}}</h2>
-                    {{#each this.reactionIcons}}
-                        <img class="react" src="profile_assets/{{this}}.png">
-                    {{/each}}
+                    {{#if this.showLike}}
+                        <img class="react" src="/common/images/like.png">
+                            {{#if this.showReco}}
+                                <img class="react" src="/common/images/heart.png">
+                            {{/if}}
+                    {{/if}}
                 </span>
                 <p>"{{this.reviewText}}"</p>
                 <a href="{{this.link}}" class="linkz"><button>View Review</button></a>
