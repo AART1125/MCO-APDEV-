@@ -29,24 +29,26 @@ function findProfile(req, resp) {
                 islogin: true,
                 isOwner: isOwner,
                 user: {
-                    profileimg: profile.profileimg,
-                    fullname: profile.fullname,
-                    username: profile.username,
-                    email: profile.email,
-                    contactnum: profile.contactnum,
-                    preferences: {
-                        isLike: profile.preferences.isLike,
-                        isDislike: profile.preferences.isDislike
+                    profileimg  : profile.profileimg,
+                    fullname    : profile.fullname,
+                    username    : profile.username,
+                    email       : profile.email,
+                    contactnum  : profile.contactnum,
+                    preferences : {
+                        isLike      : profile.preferences.isLike,
+                        isDislike   : profile.preferences.isDislike
                     },
-                    reviews: profile.reviews.map(review => ({
-                        restaurant: review.restaurant.toUpperCase(),
-                        restaurantimg: review.restoimg,
-                        reviewText: review.review,
-                        link: review.link,
-                        likes: review.likes,
-                        isReco: review.isRecommend,
-                        showLike: review.likes > 0,
-                        showReco: review.isReco = true
+                    reviews     : profile.reviews.map(review => ({
+                        restaurant      : review.restaurant.toUpperCase(),
+                        restaurantimg   : review.restoimg,
+                        reviewText      : review.review,
+                        link            : review.link,
+                        likes           : review.likes,
+                        dislikes        : review.dislikes,
+                        reco            : review.isRecommend,
+                        showLike        : review.likes > 0,
+                        showDislike     : review.dislikes > 0,
+                        showReco        : review.reco = true
                     }))
                 }
             });
