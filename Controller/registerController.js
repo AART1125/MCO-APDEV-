@@ -1,24 +1,27 @@
 const Entity = require("../Model/schemaModels");
 const fs = require("fs");
+
 function add(server) {
   server.get("/register", (req, res) => {
-    res.render("./register_delete/register", {
+    res.render("register", {
       layout: "index",
       title: "Archer's Hunts",
-      js: "../public/common/js/register.js",
-      css: "../public/common/css/register.css",
+      js: "/common/js/register.js",
+      css: "/common/css/register.css",
       islogin: false,
     });
   });
+
   server.get("/deleteProfile/:id", (req, resp) => {
     resp.render("delete_account", {
       layout: "index",
       title: "Archer's Hunts",
-      js: "../public/common/js/delete_account.js",
-      css: "../public/common/css/delete_account.css",
+      js: "/common/js/delete_account.js",
+      css: "/common/css/delete_account.css",
       islogin: false,
     });
   });
+
   server.post("/register", (req, res) => {
     if (req.body.role === "owner") {
       Entity.ownerModel
