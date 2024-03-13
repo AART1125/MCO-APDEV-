@@ -1,80 +1,105 @@
-<div class="profile-main">
-    <div class="profile-section1">
-        <img class="profile-picture" src="{{user.profileimg}}">
-        <h1>{{user.fullname}}</h1>
-        <p>{{user.username}}</p>
-        <span class="buttons">
-            <a href="/edit_profile"><button>Edit Profile</button></a>
+<div class="welcome">
+        <span class="animated">
+            <img class="star" src="../common/images/star.png" alt="star">
+            <img class="banner" src="../common/images/text1.png" alt="text">
+            <img class="star" src="../common/images/star.png" alt="star">
         </span>
-    </div>
-
-    <div class="profile-section2">
-        <h1>Details</h1>
-        
-        <div class="details">
-            <h2>OTHER INFORMATION</h2>
-            <ul>
-                <li>{{user.email}}</li>
-                <li>{{user.contactnum}}</li>
-            </ul>
-        </div>
-        <div class="likes">
-            <h2>LIKES</h2>
-            <ul>
-                {{#each user.preferences.isLike}}
-                    <li>{{this}}</li>
-                {{/each}}
-            </ul>
-        </div>
-
-        <div class="dislikes">
-            <h2>DISLIKES</h2>
-            <ul>
-                {{#each user.preferences.isDislike}}
-                    <li>{{this}}</li>
-                {{/each}}
-            </ul>
-        </div>
-    </div>
-
-    <div class="profile-section3">
-        <h1>Friends List</h1>
-        <ul>
-            {{#each user.friends}}
-            <li>
-                <img class="friend-picture" src="{{this.friendpic}}"> 
-                <a href = "/{{this.friendid}}"></a>
-                    <span>{{this.friendname}}</span>
-                </a>
-            </li>
-            {{/each}}
-        </ul>
+        <span class="search">
+            <form action="/login" method="get">
+                <input type="text" id="query" placeholder="Search...">
+            </form>
+            <a href="/login" id="link" class="remove-hover">
+                <img class="smol" src="../common/images/search.png" alt="search">
+            </a>
+        </span>
     </div>
 </div>
 
-<div class="divide2"></div>
 
-{{#each user.reviews}}
-    <div class="profile-section4">
-        <h1>Reviews</h1>
-        <div class="reviews">
-            <img class="restaurant" src="{{this.restaurantimg}}">
-            <span class="review">
-                <span class="head-review">
-                    <h2>{{this.restaurant}}</h2>
-                    {{#if this.showLike}}
-                        <img class="react" src="/common/images/like.png">
-                    {{/if}}
-                    {{#if this.showReco}}
-                        <img class="react" src="/common/images/heart.png">
-                    {{/if}}
-                    {{#if this.showDislike}}
-                        <img class="react" src="/common/images/dislike.png">
-                    {{/if}}
-                </span>
-                <p>"{{this.reviewText}}"</p>
-                <a href="{{this.link}}" class="linkz"><button>View Review</button></a>
-            </span>
-        </div>
-    </div>
-{{/each}}
+
+<div class = "body">
+  
+  <div class = "divide">
+  </div>
+  
+  <div class="uno">
+      <div class = "title_card">
+          <h1><span class="cursive">M</span>x. <span class="cursive">P</span>opularity?</h1>
+          <p>Check here some of the most clicked categories among the users!</p>
+      </div>
+      <div class="categories">
+          <span class="scrollers">
+              <button id="scroll-uno-left"><</button>
+              <button id="scroll-uno-right">></button>
+          </span>
+          <div class="category-items">
+
+                <a href="/search/Korean"> 
+                    <button class="categories_buttons"><img class="category_pic" src="common/images/food/chinese.png"><br>Chinese</button> 
+                </a>
+                <a href="/search/Chicken"> 
+                    <button class="categories_buttons"><img class="category_pic" src="common/images/food/chicken.png"><br>Chicken</button>
+                </a>
+                <a href="/search/Italian"> 
+                    <button class="categories_buttons"><img class="category_pic" src="common/images/food/italian.png"><br>Italian</button>
+                </a>
+                <a href="/search/Quickbites"> 
+                    <button class="categories_buttons"><img class="category_pic" src="common/images/food/quickbites.png"><br>Quick Bites</button>
+                </a>
+                <a href="/search/Seafood"> 
+                    <button class="categories_buttons" style="display: none;"><img class="category_pic" src="common/images/food/seafood.png"><br>Seafood</button>
+                </a>
+                <a href="/search/French"> 
+                    <button class="categories_buttons" style="display: none;"><img class="category_pic" src="common/images/food/french.png"><br>French</button>
+                </a>
+                <a href="/search/Dessert"> 
+                    <button class="categories_buttons" style="display: none;"><img class="category_pic" src="common/images/food/dessert.png"><br>Dessert</button>
+                </a>
+                <a href="/search/Vegetarian"> 
+                    <button class="categories_buttons" style="display: none;"><img class="category_pic" src="common/images/food/vegetarian.png"><br>Vegetarian</button>
+                </a>
+          </div>
+      </div>
+  </div>
+  
+  
+  <div class = "divide">
+  </div>
+  
+  <div class="dos">
+      <span class="beige">
+          <h1><span class="cursive">D</span>ine <span class="cursive">&</span> <span class="cursive">D</span>iscover</h1>
+          <p>Looking for the most popular restaurants right now? You're in the right place!</p>
+      </span>
+      <div class="categories">
+          <span class="scrollers">
+              <button id="scroll-dos-left"><</button>
+              <button id="scroll-dos-right">></button>
+          </span>
+          <div class="category-items-2">
+
+    {{#each restaurants}}
+        <a href="/restaurant/{{resto-name}}">
+            <button class="restaurant_buttons">
+                <img class="restaurants_pic" src="{{resto-img}}" alt="{{resto-name}}">
+            </button>
+        </a>
+    {{/each}} 
+    
+
+          </div>
+      </div>
+  </div>
+  
+  <div class = "divide">
+  </div>
+  
+  <div class="tres">
+      <img class = "ban" src="../common/images/banner.png">
+  </div>
+
+</div>
+
+
+
+<script src="index.js"></script>
