@@ -23,6 +23,7 @@ const reviewSchema = new mongoose.Schema({
 
 const restaurantSchema = new mongoose.Schema({
     restoimg        :   {type: [String]},
+    restoimg2       :   {type: [String]},
     restoname       :   {type: String},
     restodesc       :   {type: String},
     location        :   {type: String},

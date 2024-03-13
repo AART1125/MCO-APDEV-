@@ -44,7 +44,7 @@ async function getSpecificRestaurantData(restoname) {
 
         restaurants.forEach(restaurant => {
             const restaurantData = {
-                'resto-img': restaurant.restoimg[0],
+                'resto-img': restaurant.restoimg2[0],
                 'resto-name': restaurant.restoname,
                 'resto-type': restaurant.restotype,
                 'location': restaurant.location,
