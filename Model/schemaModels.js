@@ -23,7 +23,6 @@ const reviewSchema = new mongoose.Schema({
 
 const restaurantSchema = new mongoose.Schema({
     restoimg        :   {type: [String]},
-    restoimg2       :   {type: [String]},
     restoname       :   {type: String},
     restodesc       :   {type: String},
     location        :   {type: String},
@@ -53,7 +52,13 @@ const userSchema = new mongoose.Schema({
         isDislike   : { type: [String], default: [] } 
     },
     reviews     :   {type: [reviewSchema], default : []},
-    friends     :   {type: [mongoose.Schema.ObjectId], default : []}
+    friends     :   [               // hardcoded for now 
+        {
+            profileimg: { type: String },
+            username: { type: String },
+            fullname: { type: String }
+        }
+    ]
 },{versionKey: false});
 
 const ownerSchema = new mongoose.Schema({
