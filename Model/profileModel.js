@@ -38,7 +38,6 @@ function findUserProfile(req, resp, templateName, isOwner) {
                     },
                     friends     : profile.friends.map(friends => ({
                         friendpic       : friends.profileimg,
-                        friendid        : friends.id,
                         friendname      : friends.fullname,
                         friendusername  : friends.username
                     })),
