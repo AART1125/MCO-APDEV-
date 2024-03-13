@@ -30,7 +30,7 @@ function add(server) {
     });
 
     server.get('/search', (req, resp) => {
-        establishmentsModel.search(req.query.searchlist).then((dict) => {
+        establishmentsModel.search(req.query.query).then((dict) => {
             resp.render('establishments',{
                 layout              :   'index',
                 title               :   'Archer\'s Hunt',
