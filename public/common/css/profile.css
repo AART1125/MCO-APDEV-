@@ -101,12 +101,20 @@ a:hover {
 }
 
 .profile-section3 {
-    padding: 30px;
+    padding: 20px;
     width: 20%;
     background-color: #FAF6DF;
     display: block; 
-       
+    list-style-type: none;  
 }
+
+.profile-section3 li {
+    padding: .5em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
 
 .profile-section4 {
     padding: 30px;
