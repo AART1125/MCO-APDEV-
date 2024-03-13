@@ -1,10 +1,10 @@
 <div class="profile-main">
     <div class="profile-section1">
-        <img class="profile-picture" src="{{profileimg}}">
-        <h1>{{fullname}}</h1>
-        <p>{{username}}</p>
+        <img class="profile-picture" src="{{owner.profileimg}}">
+        <h1>{{owner.fullname}}</h1>
+        <p>{{owner.username}}</p>
         <span class="buttons">
-            <a href="/edit_profile"><button>Edit Profile</button></a>
+            <a href="/edit-owner-profile"><button>Edit Profile</button></a>
         </span>
     </div>
     
@@ -12,29 +12,39 @@
         <h1>Details</h1>
         <div class="likes">
             <h2>CONTACT INFORMATION</h2>
-             {{#each links}}
-            <a href="{{this.links}}" class="linkz"><button class="linkzers">{{this.contacttitle}}</button></a>
+            {{#each owner.contactinfo}}
+                <a href="{{this.links}}">
+                <button class="linkzers">{{this.titles}}</button>
+                </a>
             {{/each}}
         </div>
         <div class="dislikes">
             <h2>ADDITIONAL INFORMATION</h2>
-            {{#each addinfo}}
-            <li>{{this}}</li>
-            {{/each}}
+            <li>{{owner.email}}</li>
+            <li>{{owner.contactnum}}</li>
         </div>
     </div>
 </div>
 
 <div class="divide2"></div>
 
-<div class="profile-section3">
+<div class="profile-section4">
     <h1>Restaurants</h1>
     <div class="reviews">
-        {{#each restaurants}}
-        <img class="restaurant" src="{{this.restaurantimgs.[0]}}">
+        {{#each owner.restaurants}}
+        <img class="restaurant" src="{{this.restoimg}}">
         <span class="review">
-            <span class="head-review"><h2>{{restoname}}</h2></span>
-            <a href="/{{restoname}}" class="linkz">
+            <span class="head-review"><h2>{{this.restoname}}</h2>
+                {{#if restostar}}
+                    <script type="text/javascript">
+                        for (var i = 0; i < {{restostar}}; i++) {
+                            document.write('<img class="react" src="/common/images/istar.png">');
+                        }
+                    </script>
+                {{/if}}
+            </span>
+            <p>{{this.restodesc}}</p>
+            <a href="restaurant/{{this.restoname}}" class="linkz">
                 <button class="limmerz">View Restaurant</button>
             </a>
         </span> 

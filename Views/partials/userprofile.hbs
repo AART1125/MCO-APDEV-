@@ -4,7 +4,7 @@
         <h1>{{user.fullname}}</h1>
         <p>{{user.username}}</p>
         <span class="buttons">
-            <a href="/edit_profile"><button>Edit Profile</button></a>
+            <a href="/edit-user-profile"><button>Edit Profile</button></a>
         </span>
     </div>
 
@@ -44,7 +44,7 @@
             <li>
                 <img class="friend-picture" src="{{this.friendpic}}"> 
                 <a href = "/{{this.friendid}}"></a>
-                    <span>{{this.friendname}}</span>
+                    {{this.friendname}}
                 </a>
             </li>
             {{/each}}
