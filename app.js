@@ -1,6 +1,6 @@
 const express = require("express"); // express server
 const server = express();
-
+const mongoose = require('mongoose');
 const bodyParser = require("body-parser"); // body-parser
 server.use(
   express.urlencoded({
