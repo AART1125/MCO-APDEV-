@@ -43,7 +43,8 @@ function findUserProfile(req, resp, templateName, isOwner) {
                         friendusername  : friends.username
                     })),
                     reviews     : profile.reviews.map(review => ({
-                        restaurant      : review.restaurant.toUpperCase(),
+                        restaurant      : review.restaurant,
+                        rname           : review.restaurant.toUpperCase(),
                         restaurantimg   : review.restoimg,
                         reviewText      : review.review,
                         link            : review.link,
@@ -100,7 +101,8 @@ function findOwnerProfile(req, resp, templateName, isOwner) {
                     },
                     restaurants : profile.restaurants.map(restaurants => ({
                         restoimg    : restaurants.restoimg[0],
-                        restoname   : restaurants.restoname.toUpperCase(),
+                        restoname   : restaurants.restoname,
+                        rname       : restaurants.restoname.toUpperCase(),
                         restodesc   : restaurants.restodesc,
                         restostar   : restaurants.stars
                     }))
