@@ -1,0 +1,9 @@
+{{#if islogin}}
+    {{#if isOwner}}
+        {{> ownernav}}
+        {{> editowner}}
+    {{else}}
+        {{> usernav}}
+        {{> edituser}}
+    {{/if}}
+{{/if}}
