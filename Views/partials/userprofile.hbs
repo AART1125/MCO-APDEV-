@@ -61,7 +61,7 @@
             <img class="restaurant" src="{{this.restaurantimg}}">
             <span class="review">
                 <span class="head-review">
-                    <h2>{{this.restaurant}}</h2>
+                    <h2>{{this.rname}}</h2>
                     {{#if this.showLike}}
                         <img class="react" src="/common/images/like.png">
                             {{#if this.showReco}}
@@ -70,7 +70,7 @@
                     {{/if}}
                 </span>
                 <p>"{{this.reviewText}}"</p>
-                <a href="{{this.link}}" class="linkz"><button>View Review</button></a>
+                <a href="/restaurant/{{this.restaurant}}" class="linkz"><button>View Review</button></a>
             </span>
         </div>
     </div>
