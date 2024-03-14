@@ -16,7 +16,7 @@ function add(server) {
                     isOwner: false,
                     restaurant: restodata,
                     reviewsdata: reviewdata,
-                    isReviewEmpty: reviewdata === null
+                    isReviewEmpty: reviewdata.length === 0
                 });
             } else {
                 resp.status(404).send('Restaurant not found'); 
