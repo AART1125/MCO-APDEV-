@@ -116,7 +116,7 @@ async function findOwnerProfile(req, resp, templateName, isOwner) {
                 email: profile.email,
                 contactnum: profile.contactnum,
                 contactinfo: {
-                    title: profile.contactinfo.titles,
+                    titles: profile.contactinfo.title,
                     links: profile.contactinfo.links
                 },
                 restaurants: restaurants.map(restaurants => ({
