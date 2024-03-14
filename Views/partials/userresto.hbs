@@ -1,13 +1,3 @@
-{{#if islogin}}
-    {{#if isOwner}}
-        {{> ownernav}}
-    {{else}}
-        {{> usernav}}
-    {{/if}}
-{{else}}
-    {{> guestnav}}
-{{/if}}
-
 <div class = "main">
     {{#each restaurant}}
     <div class="restaurant">

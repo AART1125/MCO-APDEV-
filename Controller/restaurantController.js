@@ -12,7 +12,7 @@ function add(server) {
                     title: 'Archer\'s Hunt',
                     js: '/common/js/restaurant.js', 
                     css: '/common/css/restaurant.css', 
-                    islogin: false,
+                    islogin: true,
                     isOwner: false,
                     restaurant: restodata,
                     reviewsdata: reviewdata,
