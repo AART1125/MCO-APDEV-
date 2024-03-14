@@ -25,7 +25,8 @@ function add(server) {
       Entity.ownerModel
         .create(req.body)
         .then(item => {
-          const url = `./assets/avatars/owner`;
+          const url = `/common/assets/avatars/owner`;
+          console.log(!fs.existsSync(url));
           if (!fs.existsSync(url)) {
             fs.mkdirSync(url, { recursive: true });
           }
@@ -47,7 +48,7 @@ function add(server) {
       Entity.userModel
         .create(req.body)
         .then(item => {
-          const url = `./assets/avatars/users`;
+          const url = `/common/assets/avatars/users`;
           if (!fs.existsSync(url)) {
             fs.mkdirSync(url, { recursive: true });
           }

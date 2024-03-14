@@ -25,6 +25,20 @@ const fs = require("fs"); // File System
 const path = require("path"); // Paths System
 server.use("/assets", express.static(path.join(__dirname, "assets")));
 
+const session = require('express-session');
+const mongoStore = require('connect-mongodb-session')(session);
+
+server.use(session({
+  secret: 'a secret fruit',
+  saveUninitialized: true, 
+  resave: false,
+  store: new mongoStore({ 
+    uri: 'mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt',
+    collection: 'mySession',
+    expires: 1000*60*60 // 1 hour
+  })
+}));
+
 function getControllerPaths(pathname = "./Controller") {
   // function to get controllers
   let array = [];

@@ -1,13 +1,13 @@
 const schemas = require('./schemaModels');
 
 async function findUserProfile(req, resp, templateName, isOwner) {
-    let query;
-    console.log(req.body.owner);
-    if (isOwner) {
-        query = { owner: req.body.owner };
-    } else {
-        query = { user: req.body.user };
-    }
+    let query = {_id: req.session.login_user};
+    
+    // if (isOwner) {
+    //     query = { owner: req.body.owner };
+    // } else {
+    //     query = { user: req.body.user };
+    // }
 
     let searchModel = isOwner ? schemas.ownerModel : schemas.userModel;
 
@@ -32,9 +32,11 @@ async function findUserProfile(req, resp, templateName, isOwner) {
         resp.render(templateName, {
             layout: 'index',
             title: 'Archer\'s Hunt | Profile',
-            js: '../common/js/profile.js',
-            css: '../common/css/profile.css',
+            js: '/common/js/profile.js',
+            css: '/common/css/profile.css',
             islogin: true,
+            usernamesession: req.session.login_username,
+            userID: req.session.login_user,
             isOwner: isOwner,
             user: {
                 profileimg: profile.profileimg,
@@ -72,12 +74,12 @@ async function findUserProfile(req, resp, templateName, isOwner) {
 }
 
 async function findOwnerProfile(req, resp, templateName, isOwner) {
-    let query;
-    if (isOwner) {
-        query = { owner: req.body.owner };
-    } else {
-        query = { user: req.body.user };
-    }
+    let query = {_id: req.session.login_owner};
+    // if (isOwner) {
+    //     query = { owner: req.body.owner };
+    // } else {
+    //     query = { user: req.body.user };
+    // }
 
     let searchModel = isOwner ? schemas.ownerModel : schemas.userModel;
 
@@ -105,6 +107,7 @@ async function findOwnerProfile(req, resp, templateName, isOwner) {
             js: '../common/js/profile.js',
             css: '../common/css/profile.css',
             islogin: true,
+            username: req.session.login_username,
             isOwner: isOwner,
             owner: {
                 profileimg: profile.profileimg,

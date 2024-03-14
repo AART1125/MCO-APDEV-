@@ -1,6 +1,5 @@
 //server specific functions
 
-const profileDB = require('../Model/profileModel');
 const restaurantDB = require('../Model/restaurantModel');
 
 function add(server){
@@ -15,27 +14,34 @@ function add(server){
                 restaurants: restaurants
             });
     });
-    
-    server.get('/login',(req, resp) => {
-        resp.render('login', {
-            layout  :   'index',
-            title   :   'Archer\'s Hunts | Login',
-            js      :   '/common/js/loginFunc.js',
-            css     :   '/common/css/login.css',
-        })
+
+    server.get('/main-user', async (req,resp) => {
+        const restaurants = await restaurantDB.getRestaurantData();
+        console.log(req.session.login_user);
+        console.log(req.session.login_username);
+        resp.render('main', {
+            layout: 'index',
+            username: req.session.login_username,
+            title: 'Archer\'s Hunt',
+            js: '/common/js/mainFunc.js',
+            css: '/common/css/main.css',
+            islogin: true,
+            isOwner: false,
+            restaurants: restaurants,
+        });
     });
 
-    server.get('/establishments',(req, resp) => {
-        resp.render('establishments', {
-            layout  :   'index',
-            title   :   'Archer\'s Hunts | Listings',
-            js      :   '/common/js/establishments.js',
-            css     :   '/common/css/establishments.css',
-        })
-    });
-
-    server.get('/profile', (req, resp) => {
-        profileDB.findProfile(req, resp);
+    server.get('/main-owner', async (req,resp) => {
+        const restaurants = await restaurantDB.getRestaurantData();
+        resp.render('main', {
+            layout: 'index',
+            title: 'Archer\'s Hunt',
+            js: '/common/js/mainFunc.js',
+            css: '/common/css/main.css',
+            islogin: true,
+            isOwner: true,
+            restaurants: restaurants
+        });
     });
 
 }
