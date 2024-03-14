@@ -58,7 +58,12 @@ const Register = async e => {
         ) {
           alert("Something went wrong please check all inputs.");
         } else {
-          window.location.href = "/";
+          if(response.isOwner){
+            window.location.href = "/main-user";
+          } else {
+            window.location.href = "/main-owner";
+          }
+          
         }
       })
       .catch(err => {

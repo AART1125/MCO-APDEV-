@@ -38,6 +38,7 @@ function add(server) {
           } catch (error) {}
           res.status(201).json({
             success: "Created Successfully",
+            isOwner: true,
             payload: item,
           });
         })
@@ -59,6 +60,7 @@ function add(server) {
           } catch (error) {}
           res.status(201).json({
             success: "Created Successfully",
+            isOwner: false,
             payload: item,
           });
         })
