@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var recommendationValue = document.querySelector('input[name="recommendation"]:checked') ? document.querySelector('input[name="recommendation"]:checked').value : '';
         var textReviewValue = document.querySelector('textarea[name="text-review"]').value;
 
-        alert('Your review is submitted successfully!');
+        alert('Adding a review feature is not yet available :(');
         window.history.back();
     });
 
