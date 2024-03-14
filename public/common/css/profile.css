@@ -101,11 +101,18 @@ a:hover {
 }
 
 .profile-section3 {
-    padding: 30px;
+    padding: 20px;
     width: 20%;
     background-color: #FAF6DF;
     display: block; 
-       
+    list-style-type: none;  
+}
+
+.profile-section3 li {
+    padding: .5em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
 }
 
 .profile-section4 {
@@ -149,8 +156,8 @@ a:hover {
 .edit-profile {
     background-color: #FAF6DF;
     padding: 2em;
-    width: 71%;
-    display: block;
+    width: 90%;
+    padding-bottom: 8em;
 }
 
 .edit-form-table {
@@ -161,7 +168,8 @@ a:hover {
 
 .edit-form1 {
     padding-top: 1em;
-    line-height: 2;
+    line-height: 2.2;
+    width: 30em;
 }
 
 .edit-form2 {
@@ -173,8 +181,8 @@ a:hover {
 /* -- FOR INPUTS */
 
 .edit-input {
-    padding: 1%;
-    font: 'Poppins';
+    padding: .5%;
+    font-family: 'Poppins';
     border: 1px solid #191F24;
     border-radius: 30px;
 }
