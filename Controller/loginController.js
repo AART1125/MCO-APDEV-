@@ -15,6 +15,17 @@ function add(server){
         })
     });
 
+    server.get('/logout',(req, resp) => {
+        req.session.destroy((err) => {
+            if(err){
+                console.log(err);
+                res.status(500).send('Error ending session');
+            } else {
+                resp.redirect('/');
+            }
+        })
+    });
+
 }
 
 module.exports = {

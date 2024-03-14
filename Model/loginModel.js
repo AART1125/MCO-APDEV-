@@ -16,7 +16,7 @@ async function loginToWebsite(req, resp){
         
     } else if (!user && owner){
         req.session.login_user = owner._id;
-        req.session.login_username = user.username;
+        req.session.login_username = owner.username;
         req.session.login_id = req.sessionID;
         console.log("Owner found!");
         response = {doesExist : true, isOwner : true};

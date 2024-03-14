@@ -1,6 +1,6 @@
 const schemas = require('./schemaModels');
 
-async function findUserProfile(req, resp, templateName, isOwner) {
+async function findUserProfile(req, resp, templateName) {
     let query = {_id: req.session.login_user};
     
     // if (isOwner) {
@@ -9,7 +9,7 @@ async function findUserProfile(req, resp, templateName, isOwner) {
     //     query = { user: req.body.user };
     // }
 
-    let searchModel = isOwner ? schemas.ownerModel : schemas.userModel;
+    let searchModel = schemas.userModel;
 
     try {
         const profile = await searchModel.findOne(query)
@@ -24,7 +24,7 @@ async function findUserProfile(req, resp, templateName, isOwner) {
         }
 
         console.log('Profile found:', profile);
-        console.log('Friends found:', profile.friend);
+        console.log('Friends found:', profile.friends);
 
         const userId = profile._id;
 
@@ -42,7 +42,7 @@ async function findUserProfile(req, resp, templateName, isOwner) {
             islogin: true,
             usernamesession: req.session.login_username,
             userID: req.session.login_user,
-            isOwner: isOwner,
+            isOwner: false,
             user: {
                 profileimg: profile.profileimg,
                 fullname: profile.fullname,
@@ -84,18 +84,22 @@ async function findUserProfile(req, resp, templateName, isOwner) {
     }
 }
 
-async function findOwnerProfile(req, resp, templateName, isOwner) {
-    let query = {_id: req.session.login_owner};
+async function findOwnerProfile(req, resp, templateName) {
+    let query = {_id: req.session.login_user};
     // if (isOwner) {
     //     query = { owner: req.body.owner };
     // } else {
     //     query = { user: req.body.user };
     // }
 
-    let searchModel = isOwner ? schemas.ownerModel : schemas.userModel;
+    let searchModel = schemas.ownerModel;
 
     try {
-        const profile = await searchModel.findOne(query);
+        const profile = await searchModel.findOne(query)
+                              .populate({
+                                path: 'restaurants',
+                                select: 'restoimg restoname restodesc stars'
+                              });
 
         if (!profile) {
             console.log('No profiles found');
@@ -106,11 +110,7 @@ async function findOwnerProfile(req, resp, templateName, isOwner) {
 
         const ownerId = profile._id;
 
-        const restaurants = await schemas.restaurantModel.find({ owner_id: ownerId })
-            .populate({
-                path: 'owner_id',
-                select: 'restoimg.0 restoname rname restodesc stars'
-            });
+        
 
         resp.render(templateName, {
             layout: 'index',
@@ -119,7 +119,7 @@ async function findOwnerProfile(req, resp, templateName, isOwner) {
             css: '../common/css/profile.css',
             islogin: true,
             username: req.session.login_username,
-            isOwner: isOwner,
+            isOwner: true,
             owner: {
                 profileimg: profile.profileimg,
                 fullname: profile.fullname,
@@ -130,7 +130,7 @@ async function findOwnerProfile(req, resp, templateName, isOwner) {
                     titles: profile.contactinfo.title,
                     links: profile.contactinfo.links
                 },
-                restaurants: restaurants.map(restaurants => ({
+                restaurants: profile.restaurants.map(restaurants => ({
                     restoimg: restaurants.restoimg[0],
                     restoname: restaurants.restoname,
                     rname: restaurants.restoname.toUpperCase(),
@@ -179,7 +179,7 @@ async function deleteUserProfile(req, resp, templateName, isOwner) {
             title: 'Archer\'s Hunt | Delete Profile',
             css: '../common/css/delete_account.css',
             islogin: true,
-            isOwner: isOwner,
+            isOwner: true,
             user: {
                 profileimg: profile.profileimg,
                 fullname: profile.fullname,
@@ -248,7 +248,7 @@ async function deleteOwnerProfile(req, resp, templateName, isOwner) {
             title: 'Archer\'s Hunt | Delete',
             css: '../common/css/delete_account.css',
             islogin: true,
-            isOwner: isOwner,
+            isOwner: false,
             owner: {
                 profileimg: profile.profileimg,
                 fullname: profile.fullname,

@@ -5,7 +5,7 @@ const replySchema = new mongoose.Schema({
     owner_id    :   {type: mongoose.Types.ObjectId, ref: 'owners'},
     resto_id    :   {type: mongoose.Types.ObjectId, ref: 'restaurants'},
     reviewofR   :   {type: mongoose.Types.ObjectId, ref: 'reviews'},
-    reply       :   {type: String},
+    reply       :   {type: String, default: ""},
     datemade    :   {type: Date}
 },{versionKey: false})
 
@@ -67,8 +67,8 @@ const ownerSchema = new mongoose.Schema({
         title       : { type: [String], default: [] }, 
         links       : { type: [String], default: [] } 
     },
-    replies     :   {type: [mongoose.Types.ObjectId], default : []},
-    restaurants :   {type: [mongoose.Types.ObjectId], default: []}
+    replies     :   {type: [mongoose.Types.ObjectId], ref: 'replies'},
+    restaurants :   {type: [mongoose.Types.ObjectId], ref: 'restaurants'}
 },{versionKey: false});
 
 const replyModel = mongoose.model('replies', replySchema);
