@@ -5,17 +5,20 @@ const restaurantDB = require('../Model/restaurantModel');
 function add(server){
     server.get('/', async (req, res) => {
             const restaurants = await restaurantDB.getRestaurantData();
+            console.log(req.session.login_username);
             res.render('main', {
                 layout: 'index',
                 title: 'Archer\'s Hunts',
                 js: '/common/js/mainFunc.js',
                 css: '/common/css/main.css',
-                islogin: false,
+                islogin: req.session.login_id != undefined,
+                isOwner: req.session.login_isOwner,
+                username: req.session.login_username,
                 restaurants: restaurants
             });
     });
 
-    server.get('/main-user', async (req,resp) => {
+    server.get('/main', async (req,resp) => {
         const restaurants = await restaurantDB.getRestaurantData();
         console.log(req.session.login_user);
         console.log(req.session.login_username);
@@ -26,7 +29,7 @@ function add(server){
             js: '/common/js/mainFunc.js',
             css: '/common/css/main.css',
             islogin: true,
-            isOwner: false,
+            isOwner: req.session.login_isOwner,
             restaurants: restaurants,
         });
     });

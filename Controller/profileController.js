@@ -11,6 +11,15 @@ function add(server) {
         }
     });
 
+    server.get('/other-profile/:username', async (req, resp) => {
+        try {
+            await findUserProfile(req, resp, 'otherprofile');
+        } catch (error) {
+            console.error('Error getting profile:', error);
+            resp.status(500).send('Error getting profile');
+        }
+    });
+
     server.get('/user-profile/:username/edit-user-profile', async (req, resp) => {
         try {
             await UserProfileEdit(req, resp, 'editprofile');

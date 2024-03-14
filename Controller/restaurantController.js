@@ -4,16 +4,15 @@ function add(server) {
     server.get('/restaurant/:restoname', async (req, resp) => {
         try {
             const [restodata, reviewdata] = await restaurantModel.getSpecificRestaurantData(req.params.restoname);
-            console.log(restodata);
-            console.log(reviewdata);
             if (restodata) {
                 resp.render('restaurant', {
                     layout: 'index',
                     title: 'Archer\'s Hunt',
                     js: '/common/js/restaurant.js', 
                     css: '/common/css/restaurant.css', 
-                    islogin: false,
-                    isOwner: false,
+                    islogin: true,
+                    isOwner: req.session.login_isOwner,
+                    username: req.session.login_username,
                     restaurant: restodata,
                     reviewsdata: reviewdata,
                     isReviewEmpty: reviewdata.length === 0

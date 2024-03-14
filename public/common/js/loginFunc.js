@@ -12,14 +12,15 @@ $(document).ready(function () {
                         $('#password').css("border","2px solid #EE6958");
                         $('#username').val('');
                         $('#password').val('');
-                    } else if (data.doesExist && !data.isOwner){
+                    } 
+                    else if (data.doesExist && !data.isOwner){
                         $('#username').val('');
                         $('#password').val('');
-                        window.location.href = '/main-user';
+                        window.location.href = '/';
                     } else if (data.doesExist && data.isOwner) {
                         $('#username').val('');
                         $('#password').val('');
-                        window.location.href = '/main-owner';
+                        window.location.href = '/';
                     }
                 }
             },

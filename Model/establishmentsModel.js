@@ -1,53 +1,59 @@
 const schemas = require('./schemaModels');
 
-async function initGen(){
+async function initGen(req){
     let dict = [];
-
-    try {
-        const restaurants = await schemas.restaurantModel.find();
-        for(const restaurant of restaurants){
-            let stars = [];
-            for (let i = 0; i < 5; i++) {
-                stars.push({
-                    isStar: i < restaurant.stars
+    if(req.session.login_isOwner){
+        console.log(req.session.login_user)
+        try {
+            const restaurants = await schemas.restaurantModel.find({owner_id: req.session.login_user});
+            console.log("results of find" + restaurants);
+            for(const restaurant of restaurants){
+                let stars = [];
+                for (let i = 0; i < 5; i++) {
+                    stars.push({
+                        isStar: i < restaurant.stars
+                    });
+                }
+                dict.push({
+                    'resto-img'     : restaurant.restoimg[0],
+                    'resto-name'    : restaurant.restoname,
+                    'resto-desc'    : restaurant.restodesc,
+                    star            : stars
                 });
             }
-            dict.push({
-                'resto-img'     : restaurant.restoimg[0],
-                'resto-name'    : restaurant.restoname,
-                'resto-desc'    : restaurant.restodesc,
-                star            : stars
-            });
+        } catch (error) {
+            console.error("Error fetching restaurants:", error);
         }
-    } catch (error) {
-        console.error("Error fetching restaurants:", error);
+    } else {
+        try {
+            const restaurants = await schemas.restaurantModel.find();
+            for(const restaurant of restaurants){
+                let stars = [];
+                for (let i = 0; i < 5; i++) {
+                    stars.push({
+                        isStar: i < restaurant.stars
+                    });
+                }
+                dict.push({
+                    'resto-img'     : restaurant.restoimg[0],
+                    'resto-name'    : restaurant.restoname,
+                    'resto-desc'    : restaurant.restodesc,
+                    star            : stars
+                });
+            }
+        } catch (error) {
+            console.error("Error fetching restaurants:", error);
+        }
+    
     }
-
+    
     return dict;
 }
 
 async function ownerGen(){
     let dict = [];
 
-    try {
-        const restaurants = await schemas.restaurantModel.find({owner_id: '65ec4aa1b70e1d93b43c9993'});
-        for(const restaurant of restaurants){
-            let stars = [];
-            for (let i = 0; i < 5; i++) {
-                stars.push({
-                    isStar: i < restaurant.stars
-                });
-            }
-            dict.push({
-                'resto-img'     : restaurant.restoimg[0],
-                'resto-name'    : restaurant.restoname,
-                'resto-desc'    : restaurant.restodesc,
-                star            : stars
-            });
-        }
-    } catch (error) {
-        console.error("Error fetching restaurants:", error);
-    }
+    
 
     return dict;
 }
