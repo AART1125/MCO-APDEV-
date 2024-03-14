@@ -1,0 +1,81 @@
+{{#if islogin}}
+    {{#if isOwner}}
+        {{> ownernav}}
+    {{else}}
+        {{> usernav}}
+    {{/if}}
+
+    <div class="profile-main">
+        <div class="profile-section1">
+            <img class="profile-picture" src="../restaurant-review-replies/reviews_profile/profile1.jpg">
+            <h1>{{user.fullname}}</h1>
+            <p>{{user.username}}</p>
+            <span class="buttons">
+                <button>Add Friend</button>
+                <button class="del">Block</button>
+            </span>
+        </div>
+        
+        <div class="profile-section2">
+            <h1>Details</h1>
+            
+            <div class="likes">
+                <h2>LIKES</h2>
+                <ul>
+                    {{#each user.preferences.isLike}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            
+            <div class="dislikes">
+                <h2>DISLIKES</h2>
+                <ul>
+                    {{#each user.preferences.isDislike}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        
+        <div class="profile-section3">
+            <h1>Friends List</h1>
+            <ul>
+                {{#each user.friends}}
+                    <li>
+                        <img class="friend-picture" src="{{this.friendpic}}">
+                        <a href="/{{this.friendusername}}" class="linkz">
+                            <button>@{{this.friendusername}}</button>
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="divide2"></div>
+
+        {{#each user.reviews}}
+            <div class="profile-section4">
+                <h1>Reviews</h1>
+                <div class="reviews">
+                    <img class="restaurant" src="{{this.restaurantimg}}">
+                    <span class="review">
+                        <span class="head-review">
+                            <h2>{{this.rname}}</h2>
+                            {{#if this.showLike}}
+                                <img class="react" src="/common/images/like.png">
+                                {{#if this.showReco}}
+                                    <img class="react" src="/common/images/heart.png">
+                                {{/if}}
+                            {{/if}}
+                        </span>
+                        <p>"{{this.reviewText}}"</p>
+                        <a href="/restaurant/{{this.restaurant}}" class="linkz">
+                            <button>View Review</button>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/if}}
