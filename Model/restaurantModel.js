@@ -2,7 +2,17 @@ const {restaurantModel} = require('./schemaModels');
 
 async function getRestaurantData() {
     try {
-        const restaurants = await schema.restaurantModel.find({});
+        const restaurants = await restaurantModel.find({}).
+                            populate({path: 'owner_id',
+                                      select : 'profileimg fullname username'
+                                    }).
+                            populate({path: 'reviews',
+                                      populate:[
+                                        {path : 'users_id',
+                                         select : 'profileimg fullname username'},
+                                        {path : 'reply',
+                                         select : 'reply'}
+                                    ]})
         const restaurantDataArray = [];
 
         restaurants.forEach(restaurant => {
@@ -13,15 +23,17 @@ async function getRestaurantData() {
                 'location': restaurant.location,
                 'address': restaurant.address,
                 'opening-hours': restaurant.openingHours,
-                'reviews': restaurant.reviews.map(review => ({
-                    'user-profileimg': review.profileimg,
-                    'user-fullname': review.fullname,
-                    'user-username': review.username,
+                'reviews' : restaurant.reviews.map(review => ({
+                    // Assuming `review` has a property `user_id` that's populated
+                    'user-profileimg': review.users_id.profileimg,
+                    'user-fullname': review.users_id.fullname,
+                    'user-username': review.users_id.username,
                     'likes': review.likes,
                     'dislikes': review.dislikes,
                     'is-recommend': review.isRecommend,
                     'review': review.review,
-                    'reply': review.reply, 
+                    'reply': review.reply.reply,
+                    // Assuming the owner's data is required per review, which might be redundant
                     'owner-profileimg': restaurant.owner_id.profileimg,
                     'owner-fullname': restaurant.owner_id.fullname,
                     'owner-username': restaurant.owner_id.username,
