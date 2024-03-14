@@ -48,11 +48,11 @@ const userSchema = new mongoose.Schema({
     email       :   {type: String},
     contactnum  :   {type: Number},
     likedresto  :   {type: [String], default : []}, //names
-    preferences : {
+    preferences :   {
         isLike      : { type: [String], default: [] }, 
         isDislike   : { type: [String], default: [] } 
     },
-    reviews     :   {type: [mongoose.Types.ObjectId], default : [], ref: 'reviews'},
+    reviews     :   {type: [mongoose.Types.ObjectId], ref: 'reviews'},
     friends     :   {type: [mongoose.Types.ObjectId], default : []}
 },{versionKey: false});
 
