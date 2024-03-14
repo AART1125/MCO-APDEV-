@@ -43,19 +43,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
     deleteButtons.forEach(function (deleteButton) {
         deleteButton.addEventListener('click', function () {
-            var isConfirmed = confirm('Are you sure you want to delete this review?');
+            alert('Delete Review feature is not yet available :(');
+            /*var isConfirmed = confirm('Are you sure you want to delete this review?');
 
             if (isConfirmed) {
                 alert('Review deleted!');
-            } 
+            }  */
         });
     });
 });
 
-var editLinks = document.getElementsByClassName("edit");
+/* var editLinks = document.getElementsByClassName("edit");
 
 for (var i = 0; i < editLinks.length; i++) {
     editLinks[i].addEventListener("click", function() {
         window.location.href = "editreview.html";
     });
-}
+} */
+
+document.addEventListener('DOMContentLoaded', function () {
+    var editButtons = document.querySelectorAll('.edit');
+
+    editButtons.forEach(function (editButton) {
+        editButton.addEventListener('click', function () {
+            alert('Edit Review feature is not yet available :(');
+            /*var isConfirmed = confirm('Are you sure you want to delete this review?');
+
+            if (isConfirmed) {
+                alert('Review deleted!');
+            }  */
+        });
+    });
+});
