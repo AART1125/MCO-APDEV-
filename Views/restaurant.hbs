@@ -33,9 +33,9 @@
         </div>
     </div>
     {{/each}}
-    {{#each reviewsdata}}
     <div class="reviews">
         <div class="rev-scroll">
+        {{#each reviewsdata}}
         <div class="rev1">
             <div class="profile">
                 <div class="profile-picture">
@@ -84,9 +84,9 @@
                     <p>{{reply}}</p>
                 </div> 
             </div>
-        </div>   
+        </div> 
+        {{/each}}  
         </div>
-        {{/each}}
         {{#each restaurant}}
         <div class="leave-review-button">
             <a href="/restaurant/{{resto-name}}/reviews" class="button-link">Leave a Review</a>

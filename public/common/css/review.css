@@ -162,6 +162,7 @@ textarea {
 }
 
 .btn-group .btn {
+    font-family: 'Poppins';
     padding: .75rem 1rem;
     border-radius: .5rem;
     border: none;
