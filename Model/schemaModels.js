@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema({
         isDislike   : { type: [String], default: [] } 
     },
     reviews     :   {type: [mongoose.Types.ObjectId], ref: 'reviews'},
-    friends     :   {type: [mongoose.Types.ObjectId], default : []}
+    friends     :   {type: [mongoose.Types.ObjectId], ref: 'users'}
 },{versionKey: false});
 
 const ownerSchema = new mongoose.Schema({

@@ -12,7 +12,11 @@ async function findUserProfile(req, resp, templateName, isOwner) {
     let searchModel = isOwner ? schemas.ownerModel : schemas.userModel;
 
     try {
-        const profile = await searchModel.findOne(query);
+        const profile = await searchModel.findOne(query)
+                                         .populate({
+                                            path: 'friends',
+                                            select: 'profileimg fullname username'
+                                        }); 
 
         if (!profile) {
             console.log('No profiles found');
@@ -20,13 +24,14 @@ async function findUserProfile(req, resp, templateName, isOwner) {
         }
 
         console.log('Profile found:', profile);
+        console.log('Friends found:', profile.friend);
 
         const userId = profile._id;
 
         const reviews = await schemas.reviewModel.find({ users_id: userId })
             .populate({
                 path: 'users_id',
-                select: 'restoimg restaurant rname review likes dislikes isRecommend'
+                select: 'restoimg restaurant rname review likes dislikes isRecommend',
             });
 
         resp.render(templateName, {
@@ -48,11 +53,17 @@ async function findUserProfile(req, resp, templateName, isOwner) {
                     isLike: profile.preferences.isLike,
                     isDislike: profile.preferences.isDislike
                 },
-                friends: (profile.friends || []).map(friend => ({
+                friends: profile.friends.map(friend => ({
                     friendpic: friend.profileimg,
                     friendname: friend.fullname,
                     friendusername: friend.username
                 })),
+                
+                // (profile.friends || []).map(friend => ({
+                //     friendpic: friend.profileimg,
+                //     friendname: friend.fullname,
+                //     friendusername: friend.username
+                // })),
                 reviews: reviews.map(review => ({
                     restaurant      : review.restaurant,
                     rname           : review.restaurant.toUpperCase(),
