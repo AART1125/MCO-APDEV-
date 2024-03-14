@@ -1,45 +1,28 @@
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete Account</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,100&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/common/css/delete_account.css" />
-  </head>
-
-  <body>
-    <div id="modal-deletion" class="modal">
-      <div class="modal-value">
-        <div class="modal-header">
-          <p>Delete My Account</p>
-          <hr />
+<div id="modal-deletion" class="modal">
+        <div class="modal-value">
+            <div class="modal-header">
+                <p>Delete My Account</p>
+                <hr>
+            </div>
+            <div class="modal-content">
+                <p><span class="warning">WARNING!</span> You are about to delete your account. If you proceed
+                    with the deletion,
+                    your account and all associated information cannot not be retrieved.</p>
+                <p>If you are sure that you will not need this account in the future and wish to proceed, click the "<span
+                        class="bold">Delete Account</span>" button.</p>
+                <hr>
+            </div>
+            <div class="modal-footer">
+                <div class="right-align">
+                    <a href ="/"><button class="delete_account">Delete Account</button></a>
+                      {{#if islogin}}
+                          {{#if isOwner}}
+                            <a href ="/owner-profile"><button class="cancel">Cancel</button></a>
+                          {{else}}
+                            <a href ="/edit-user-profile"><button class="cancel">Cancel</button></a>
+                          {{/if}}
+                      {{/if}}
+                </div>
+            </div>
         </div>
-        <div class="modal-content">
-          <p><span class="warning">WARNING!</span>
-            You are about to delete your account. If you proceed with the
-            deletion, your account and all associated information cannot not be
-            retrieved.</p>
-          <p>If you are sure that you will not need this account in the future
-            and wish to proceed, click the "<span class="bold">Delete Account</span>"
-            button.</p>
-          <hr />
-        </div>
-        <div class="modal-footer">
-          <div class="right-align">
-            <button id="delete-btn" class="delete_account">Delete Account</button>
-            <button class="cancel">Cancel</button>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <script src="/common/js/delete_account.js"></script>
-  </body>
-
-</html>
