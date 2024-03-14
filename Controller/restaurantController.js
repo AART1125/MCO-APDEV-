@@ -26,6 +26,15 @@ function add(server) {
             resp.status(500).send('Internal Server Error');
         }
     });
+
+    server.get('/restaurant/:restoname/reviews', (req,resp) => {
+        resp.render('review', {
+            layout: 'index',
+            title: 'Leave a Review',
+            js: '/common/js/review.js',
+            css: '/common/css/review.css'
+        });
+    });
 }
 
 module.exports = {
