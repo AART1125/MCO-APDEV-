@@ -283,6 +283,7 @@ a:hover {
 }
 
 .reply-button-containers {
+    font-family: 'Poppins';
     display: flex;
     align-items: center;
     justify-content: center;
