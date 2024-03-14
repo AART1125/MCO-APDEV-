@@ -5,7 +5,7 @@ function add(server) {
         try {
             const [restodata, reviewdata] = await restaurantModel.getSpecificRestaurantData(req.params.restoname);
             console.log(restodata);
-            console.log(reviewdata);
+            console.log(reviewdata[0]);
             if (restodata) {
                 resp.render('restaurant', {
                     layout: 'index',
@@ -15,7 +15,7 @@ function add(server) {
                     islogin: false,
                     isOwner: false,
                     restaurant: restodata,
-                    reviews: reviewdata,
+                    reviewsdata: reviewdata,
                     isReviewEmpty: reviewdata.length === 0
                 });
             } else {

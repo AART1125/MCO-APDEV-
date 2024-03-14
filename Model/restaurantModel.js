@@ -91,8 +91,6 @@ async function getSpecificRestaurantData(restoname) {
                     'owner-username': restaurant.owner_id.username,
                 }))
             }
-            
-
 
             restaurantDataArr.push(restaurantData);
             reviewDataArr.push(reviewData);
