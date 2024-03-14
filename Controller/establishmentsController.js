@@ -8,7 +8,7 @@ function add(server) {
                 title               :   'Archer\'s Hunt',
                 js                  :   '/common/js/establishments.js',
                 css                 :   '/common/css/establishments.css',
-                islogin             :   false,
+                islogin             :   true,
                 isOwner             :   false,
                 'search-results'    :   dict
             });
@@ -36,7 +36,7 @@ function add(server) {
                 title               :   'Archer\'s Hunt',
                 js                  :   '/common/js/establishments.js',
                 css                 :   '/common/css/establishments.css',
-                islogin             :   false,
+                islogin             :   true,
                 isOwner             :   false,
                 'search-results'    :   dict,
                 isEmpty             :   dict.length === 0
@@ -51,7 +51,7 @@ function add(server) {
                 title               :   'Archer\'s Hunt',
                 js                  :   '/common/js/establishments.js',
                 css                 :   '/common/css/establishments.css',
-                islogin             :   false,
+                islogin             :   true,
                 isOwner             :   false,
                 'search-results'    :   dict,
                 isEmpty             :   dict.length === 0

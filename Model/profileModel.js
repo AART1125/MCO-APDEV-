@@ -2,6 +2,7 @@ const schemas = require('./schemaModels');
 
 async function findUserProfile(req, resp, templateName, isOwner) {
     let query;
+    console.log(req.body.owner);
     if (isOwner) {
         query = { owner: req.body.owner };
     } else {
