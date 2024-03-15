@@ -73,10 +73,13 @@
                     <span class="head-review">
                         <h2>{{this.rname}}</h2>
                         {{#if this.showLike}}
-                            <img class="react" src="/common/images/like.png">
-                                {{#if this.showReco}}
-                                    <img class="react" src="/common/images/heart.png">
-                                {{/if}}
+                            <img class="react" src="/common/images/like.png">{{this.likes}}
+                        {{/if}}
+                        {{#if this.showDislike}}
+                            <img class="react" src="/common/images/dislike.png">{{this.dislikes}}
+                        {{/if}}
+                        {{#if this.showReco}}
+                            <img class="react" src="/common/images/heart.png">
                         {{/if}}
                     </span>
                     <p>"{{this.reviewText}}"</p>
