@@ -4,10 +4,11 @@
     {{#if islogin}}
         {{#if isOwner}}
             {{> ownernav}}
+            {{> ownermain}}
         {{else}}
             {{> usernav}}
+            {{> usermain}}
         {{/if}}
-        {{>usermain}}
     {{else}}
         {{> guestnav}}
         {{> guestmain}}
