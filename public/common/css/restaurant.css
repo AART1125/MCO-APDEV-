@@ -318,6 +318,7 @@ a:hover {
 }
 
 .cancelbtn {
+    font-family: 'Poppins';
     padding: 1em;
     margin-right: 1em;
     margin-bottom: .5em;
@@ -327,6 +328,7 @@ a:hover {
 }
 
 .sendbtn {
+    font-family: 'Poppins';
     padding: 1em;
     margin-bottom: .5em;
     background-color: #F4F6DF;

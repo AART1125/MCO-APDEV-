@@ -10,14 +10,14 @@ function add(server) {
                 css                 :   '/common/css/establishments.css',
                 islogin             :   req.session.login_id != undefined,
                 isOwner             :   req.session.login_isOwner,
-                username            :   req.session.username,
+                username            :   req.session.login_username,
                 'search-results'    :   dict
             });
         }).catch();
     });
 
     server.get('/establishments-owner', (req, resp) => {
-        establishmentsModel.ownerGen().then((dict) => {
+        establishmentsModel.ownerGen(req).then((dict) => {
             resp.render('establishments',{
                 layout              :   'index',
                 title               :   'Archer\'s Hunt',
@@ -39,6 +39,7 @@ function add(server) {
                 css                 :   '/common/css/establishments.css',
                 islogin             :   req.session.login_id != undefined,
                 isOwner             :   req.session.login_isOwner,
+                username            :   req.session.login_username,
                 'search-results'    :   dict,
                 isEmpty             :   dict.length === 0
             });
@@ -54,6 +55,7 @@ function add(server) {
                 css                 :   '/common/css/establishments.css',
                 islogin             :   req.session.login_id != undefined,
                 isOwner             :   req.session.login_isOwner,
+                username            :   req.session.login_username,
                 'search-results'    :   dict,
                 isEmpty             :   dict.length === 0
             });
