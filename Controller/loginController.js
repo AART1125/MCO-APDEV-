@@ -18,7 +18,7 @@ function add(server){
     server.get('/logout',(req, resp) => {
         req.session.destroy((err) => {
             resp.redirect('/');
-        })
+        });
     });
 
 }
