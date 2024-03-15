@@ -38,7 +38,7 @@ function add(server) {
         }
     });
 
-    server.get('/owner-profile', async (req, resp) => {
+    server.get('/owner-profile/:username', async (req, resp) => {
         try {
             await findOwnerProfile(req, resp, 'profile');
         } catch (error) {
