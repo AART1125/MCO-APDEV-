@@ -11,6 +11,7 @@ Standard procedure are as follows in running a js code in cmd:
 -npm init
 -node app.js
 
+login instruction:
 Sample users:
 username: Art, password: ace
 
