@@ -3,8 +3,9 @@ const schemas = require('./schemaModels');
 async function findUserProfile(req, resp, templateName) {
     let query = {_id: req.session.login_user};
 
-    if(req.params.username != req.session.username){
+    if(req.params.username != req.session.login_username){
         query = {username: req.params.username};
+        templateName = 'otherprofile';
     }
     
     // if (isOwner) {
