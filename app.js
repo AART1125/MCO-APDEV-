@@ -1,7 +1,10 @@
 const express = require("express"); // express server
 const server = express();
-const mongoose = require('mongoose');
 const bodyParser = require("body-parser"); // body-parser
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt'); // Database Link
+
 server.use(
   express.urlencoded({
     extended: true,

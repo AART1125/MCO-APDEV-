@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "65f18cf7247cdf3a55643622"
+  },
+  "users_id": {
+    "$oid": "65ed511d7c14f533d99f2ab0"
+  },
+  "restaurant": "Bonchon",
+  "restoimg": "/common/assets/restaurant_pics/bonchon.webp",
+  "review": "The menu boasts a variety of crispy delights, from classic soy garlic to fiery hot. Each piece is impeccably crispy on the outside, juicy on the inside, and bursting with flavor. The sauces? A game-changer. Tangy sweetness, fiery kick – mix and match for your perfect combo. Service is friendly and attentive, adding to the overall enjoyment. In summary, if you're in the mood for crispy perfection, this chicken joint is a must-visit.",
+  "likes": 3,
+  "dislikes": 2,
+  "reply": {
+    "$oid": "65f1ad7c247cdf3a55643666"
+  },
+  "isRecommend": true,
+  "datemade": "2024-03-13T12:00:00Z"
+},
+{
+  "_id": {
+    "$oid": "65f319837e9168f5b0252d6d"
+  },
+  "users_id": {
+    "$oid": "65f32d6ba205f58652655336"
+  },
+  "restaurant": "Ate Rica's Bacsilog",
+  "restoimg": "/common/images/restaurants/ate-ricas-bacsilog-delivery.jpg",
+  "review": "It unfortunately, fails to live up to the hype, and the disappointment begins with the bacon. Whoever is in charge of cooking the bacon seems to have a wildly inconsistent approach. Some pieces are so overcooked they resemble brittle, tasteless strips, while others are undercooked and chewy.",
+  "likes": 0,
+  "dislikes": 1,
+  "reply": {
+    "$oid": "65f31a4f7e9168f5b0252d77"
+  },
+  "isRecommend": false,
+  "datemade": "2024-03-13T12:00:00Z"
+},
+{
+  "_id": {
+    "$oid": "65f32b417e9168f5b0252dc4"
+  },
+  "users_id": {
+    "$oid": "65f2fed08a57abfcfb71cd0e"
+  },
+  "restaurant": "Army Navy",
+  "restoimg": "/common/images/restaurants/army.jpg",
+  "review": "There's not a lot of people here when I took my late lunch, but I hope this place is doing well because it's the only burrito place in the area that has a wide ranger of vegetarian offerings. Though I'm not completely vegetarian, if you're working or studying in the area, you'd want palate cleansers. My favorites: Querida Mia Verde, Vegetable Burrito, and plant-based quesadilla.",
+  "likes": 4,
+  "dislikes": 0,
+  "reply": {
+    "$oid": "65f32d527e9168f5b0252dcb"
+  },
+  "isRecommend": true,
+  "datemade": "2024-03-13T12:00:00Z"
+},
+{
+  "_id": {
+    "$oid": "65f33126a205f58652655368"
+  },
+  "users_id": {
+    "$oid": "65f32dc8a205f58652655337"
+  },
+  "restaurant": "Jollibee",
+  "restoimg": "/common/images/restaurants/jabee.jpg",
+  "review": "Staffs were attentive and accommodating. My plastic spoon broke while eating, I and as I about to stand up and go to the counter to request a new one, a staff quickly volunteered to get me a new one.",
+  "likes": 2,
+  "dislikes": 3,
+  "reply": {
+    "$oid": "65f33d387e9168f5b0252e16"
+  },
+  "isRecommend": true,
+  "datemade": "2024-03-13T12:00:00Z"
+},
+{
+  "_id": {
+    "$oid": "65f331a1a205f58652655371"
+  },
+  "users_id": {
+    "$oid": "65f32e4aa205f58652655338"
+  },
+  "restaurant": "Jus & Jerry's",
+  "restoimg": "/common/images/restaurants/jj.jpg",
+  "review": "For the price, Jus & Jerry's offers the best Chinese food not just in La Salle or Taft area, but it's the best Chinese food for the price, period. While I wish the place was roomier, you can't really ask for more since they really get the food right. I highly recommend the Yang Chow, the Chow Mein, and their Garlicky Soy Garlic chicken.",
+  "likes": 5,
+  "dislikes": 0,
+  "reply": {
+    "$oid": "65f340b87e9168f5b0252e3e"
+  },
+  "isRecommend": true,
+  "datemade": "2024-03-13T12:00:00Z"
+}]

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose'); // Database
-mongoose.connect('mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt'); // Database Link
 
 const replySchema = new mongoose.Schema({
     owner_id    :   {type: mongoose.Types.ObjectId, ref: 'owners'},
