@@ -38,8 +38,8 @@ async function findUserProfile(req, resp, templateName) {
             title: 'Archer\'s Hunt | Profile',
             js: '/common/js/profile.js',
             css: '/common/css/profile.css',
-            islogin: true,
-            usernamesession: req.session.login_username,
+            islogin: req.session.login_user != undefined,
+            username: req.session.login_username,
             userID: req.session.login_user,
             isOwner: false,
             user: {
@@ -110,8 +110,8 @@ async function findOwnerProfile(req, resp, templateName) {
             title: 'Archer\'s Hunt | Profile',
             js: '/common/js/profile.js',
             css: '/common/css/profile.css',
-            islogin: true,
-            usernamesession: req.session.login_username,
+            islogin: req.session.login_user != undefined,
+            username: req.session.login_username,
             userID: req.session.login_user,
             isOwner: true,
             owner: {
