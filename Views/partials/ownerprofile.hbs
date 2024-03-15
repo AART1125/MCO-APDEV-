@@ -14,7 +14,7 @@
             <h2>CONTACT INFORMATION</h2>
                 {{#each owner.contactinfo.titles}}
                     {{#with (lookup ../owner.contactinfo.links @index)}}
-                        <a href="{{this}}" class="linkz">
+                        <a href="{{this}}" target="_blank" class="linkz">
                         <button class="linkzers">{{../this}}</button>
                         </a>
                     {{/with}}
