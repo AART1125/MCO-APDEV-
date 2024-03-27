@@ -6,6 +6,8 @@ function add(server) {
     res.render("register", {
       layout: "index",
       title: "Archer's Hunts",
+      js: "/common/js/register.js",
+      css: "/common/css/register.css",
       islogin: false,
     });
   });

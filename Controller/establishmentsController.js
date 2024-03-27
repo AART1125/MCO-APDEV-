@@ -23,6 +23,9 @@ function add(server) {
                 title               :   'Archer\'s Hunt',
                 js                  :   '/common/js/establishments.js',
                 css                 :   '/common/css/establishments.css',
+                islogin             :   req.session.login_id != undefined,
+                isOwner             :   req.session.login_isOwner,
+                username            :   req.session.login_username,
                 islogin             :   true,
                 isOwner             :   true,
                 'search-results'    :   dict

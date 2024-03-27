@@ -1,170 +1,151 @@
-{{>guestnav}}
 
-<html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,100&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/common/css/register.css" />
-  </head>
-
-  <body>
-    <div class="container">
-      <div class="register-card" id="formHeight">
-        <div class="row">
-          <div class="col-6">
-            <div>
+<div class="container">
+  <div class="register-card" id="formHeight">
+    <div class="row">
+      <div class="col-6">
+        <div>
+          <img
+            src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+            class="img-left"
+            id="imgLeft"
+          />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="content-padding" id="content-padding">
+          <div class="row">
+            <div class="logo-container">
               <img
-                src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt=""
-                class="img-left"
-                id="imgLeft"
+                src="/common/images/logo_b.png"
+                alt="logo"
+                class="logo"
               />
             </div>
+            <p class="register-lbl main-color">REGISTER</p>
           </div>
-          <div class="col-6">
-            <div class="content-padding" id="content-padding">
-              <div class="row">
-                <div class="logo-container">
-                  <img
-                    src="/common/images/logo_b.png"
-                    alt="logo"
-                    class="logo"
-                  />
-                </div>
-                <p class="register-lbl main-color">REGISTER</p>
-              </div>
-              <hr />
-              <p class="subtitle">CHOOSE YOUR DESIRED ACCOUNT BELOW</p>
-              <div class="row">
-                <div class="col-6">
-                  <a class="choice" id="user" href="#user">
-                    <p>USER</p>
-                  </a>
-                </div>
-                <div class="col-6">
-                  <a class="choice" id="owner" href="#owner">
-                    <p>OWNER</p>
-                  </a>
-                </div>
-              </div>
-              <form id="user-form" class="form">
-                <div class="input-group">
-                  <p class="form-label">Profile Picture
-                    <span class="required">*</span></p>
-                  <input
-                    required
-                    type="file"
-                    id="profileimg"
-                    name="avatar"
-                    accept="image/png"
-                  />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Username
-                    <span class="required">*</span></p>
-                  <input required name="username" id="username" type="text" />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Fullname
-                    <span class="required">*</span></p>
-                  <input required name="fullname" id="fullname" type="text" />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Email
-                    <span class="required">*</span></p>
-                  <input required name="email" id="email" type="email" />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Contact Number
-                    <span class="required">*</span></p>
-                  <input
-                    pattern="09[0-9]{9}"
-                    required
-                    name="contactnum"
-                    id="contactnum"
-                    type="number"
-                  />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Password
-                    <span class="required">*</span></p>
-                  <input id="password" type="password" />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Confirm Password
-                    <span class="required">*</span></p>
-                  <input id="cpassword" type="password" />
-                </div>
-                <div class="form-action">
-                  <button>REGISTER</button>
-                </div>
-              </form>
-              <div id="owner-form" class="form">
-                <div class="input-group">
-                  <p class="form-label">Profile Picture
-                    <span class="required">*</span></p>
-                  <input
-                    type="file"
-                    id="profileimg"
-                    name="profileimg"
-                    accept="image/png, image/jpeg"
-                  />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Username
-                    <span class="required">*</span></p>
-                  <input required name="username" id="username" type="text" />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Fullname
-                    <span class="required">*</span></p>
-                  <input required name="fullname" id="fullname" type="text" />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Email
-                    <span class="required">*</span></p>
-                  <input required name="email" id="email" type="email" />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Contact Number
-                    <span class="required">*</span></p>
-                  <input
-                    pattern="09[0-9]{9}"
-                    required
-                    name="contactnum"
-                    id="contactnum"
-                    type="number"
-                  />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Password
-                    <span class="required">*</span></p>
-                  <input id="password" type="password" />
-                </div>
-                <div class="input-group">
-                  <p class="form-label">Confirm Password
-                    <span class="required">*</span></p>
-                  <input id="cpassword" type="password" />
-                </div>
-                <div class="form-action">
-                  <button>REGISTER</button>
-                </div>
-              </div>
+          <hr />
+          <p class="subtitle">CHOOSE YOUR DESIRED ACCOUNT BELOW</p>
+          <div class="row">
+            <div class="col-6">
+              <a class="choice" id="user" href="#user">
+                <p>USER</p>
+              </a>
+            </div>
+            <div class="col-6">
+              <a class="choice" id="owner" href="#owner">
+                <p>OWNER</p>
+              </a>
+            </div>
+          </div>
+          <form id="user-form" class="form">
+            <div class="input-group">
+              <p class="form-label">Profile Picture
+                <span class="required">*</span></p>
+              <input
+                required
+                type="file"
+                id="profileimg"
+                name="avatar"
+                accept="image/png"
+              />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Username
+                <span class="required">*</span></p>
+              <input required name="username" id="username" type="text" />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Fullname
+                <span class="required">*</span></p>
+              <input required name="fullname" id="fullname" type="text" />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Email
+                <span class="required">*</span></p>
+              <input required name="email" id="email" type="email" />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Contact Number
+                <span class="required">*</span></p>
+              <input
+                pattern="09[0-9]{9}"
+                required
+                name="contactnum"
+                id="contactnum"
+                type="number"
+              />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Password
+                <span class="required">*</span></p>
+              <input id="password" type="password" />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Confirm Password
+                <span class="required">*</span></p>
+              <input id="cpassword" type="password" />
+            </div>
+            <div class="form-action">
+              <button>REGISTER</button>
+            </div>
+          </form>
+          <div id="owner-form" class="form">
+            <div class="input-group">
+              <p class="form-label">Profile Picture
+                <span class="required">*</span></p>
+              <input
+                type="file"
+                id="profileimg"
+                name="profileimg"
+                accept="image/png, image/jpeg"
+              />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Username
+                <span class="required">*</span></p>
+              <input required name="username" id="username" type="text" />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Fullname
+                <span class="required">*</span></p>
+              <input required name="fullname" id="fullname" type="text" />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Email
+                <span class="required">*</span></p>
+              <input required name="email" id="email" type="email" />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Contact Number
+                <span class="required">*</span></p>
+              <input
+                pattern="09[0-9]{9}"
+                required
+                name="contactnum"
+                id="contactnum"
+                type="number"
+              />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Password
+                <span class="required">*</span></p>
+              <input id="password" type="password" />
+            </div>
+            <div class="input-group">
+              <p class="form-label">Confirm Password
+                <span class="required">*</span></p>
+              <input id="cpassword" type="password" />
+            </div>
+            <div class="form-action">
+              <button>REGISTER</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <script src="/common/js/register.js"></script>
-  </body>
-
-</html>
+    
