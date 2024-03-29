@@ -31,7 +31,10 @@ function add(server) {
             layout: 'index',
             title: 'Leave a Review',
             js: '/common/js/review.js',
-            css: '/common/css/review.css'
+            css: '/common/css/review.css',
+            islogin: req.session.login_id != undefined,
+            isOwner: req.session.login_isOwner,
+            username: req.session.login_username,
         });
     });
 }
