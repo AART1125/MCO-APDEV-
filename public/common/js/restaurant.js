@@ -61,6 +61,7 @@ for (var i = 0; i < editLinks.length; i++) {
     });
 } */
 
+/*
 document.addEventListener('DOMContentLoaded', function () {
     var editButtons = document.querySelectorAll('.edit');
 
@@ -71,10 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (isConfirmed) {
                 alert('Review deleted!');
-            }  */
+            }  
         });
     });
-});
+}); */
 
 document.addEventListener('DOMContentLoaded', function () {
     var replyButton1 = document.getElementById('reply1');
