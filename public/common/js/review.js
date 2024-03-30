@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please fill out all required fields.');
             return; 
         }
+
+        var fileInput = document.getElementById('myFile');
+        
+        if (fileInput.files.length > 2) {
+            alert('You can only upload a maximum of 2 files.');
+            return;
+        }
         
         var formData = new FormData(reviewForm); 
         
