@@ -1,17 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
     var reviewForm = document.querySelector('.text-header form');
-    var submitBtn = document.querySelector('.btn.submit');
-    var cancelBtn = document.querySelector('.btn.cancel');
 
-    submitBtn.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        var recommendationValue = document.querySelector('input[name="recommendation"]:checked') ? document.querySelector('input[name="recommendation"]:checked').value : '';
-        var textReviewValue = document.querySelector('textarea[name="text-review"]').value;
-
-        alert('Adding a review feature is not yet available :(');
-        window.history.back();
+    reviewForm.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+        
+        var formData = new FormData(reviewForm); 
+        
+        fetch(reviewForm.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Review submitted successfully');
+                window.location.href = '/restaurant/' + encodeURIComponent(formData.get('resto-name')) + '/reviews';
+            } else {
+                console.error('Failed to submit review');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     });
+
+    var cancelBtn = document.querySelector('.btn.cancel');
 
     cancelBtn.addEventListener('click', function (event) {
         event.preventDefault();
