@@ -112,7 +112,7 @@ a:hover {
 }
 
 .rev-scroll{
-    max-height: 40em;
+    max-height: 45em;
     overflow-y: auto; 
     margin-bottom: 1em;
 }
