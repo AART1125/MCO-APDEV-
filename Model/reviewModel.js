@@ -3,7 +3,7 @@ const { reviewModel } = require('./schemaModels');
 async function addReview(req, resp) {
     const reviewInstance = reviewModel({
         users_id: req.body.userid,
-        restuarant: req.params.restoname,
+        restaurant: req.params.restoname,
         review: req.body.review,
         isRecommend: req.body.isRecommend
     });
@@ -20,4 +20,4 @@ async function addReview(req, resp) {
 
 module.exports = {
     addReview
-}
+};

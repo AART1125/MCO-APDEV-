@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
     reviewForm.addEventListener('submit', function (event) {
         event.preventDefault(); 
         
+        var recommendationChecked = document.querySelector('input[name="recommendation"]:checked');
+        var textReviewValue = document.querySelector('textarea[name="text-review"]').value.trim();
+        
+        if (!recommendationChecked || textReviewValue === '') {
+            alert('Please fill out all required fields.');
+            return; 
+        }
+        
         var formData = new FormData(reviewForm); 
         
         fetch(reviewForm.action, {
