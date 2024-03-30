@@ -12,14 +12,27 @@ document.addEventListener('DOMContentLoaded', function () {
             return; 
         }
 
-        var fileInput = document.getElementById('myFile');
-        
-        if (fileInput.files.length > 2) {
+        var fileInputs = document.querySelectorAll('.file-input');
+
+        var files = [];
+        fileInputs.forEach(function(fileInput) {
+            if (fileInput.files.length > 0) {
+                for (var i = 0; i < fileInput.files.length; i++) {
+                    files.push(fileInput.files[i]);
+                }
+            }
+        });
+
+        if (files.length > 2) {
             alert('You can only upload a maximum of 2 files.');
             return;
         }
         
-        var formData = new FormData(reviewForm); 
+        var formData = new FormData(reviewForm);
+
+        files.forEach(function(file, index) {
+            formData.append('file' + (index + 1), file);
+        });
         
         fetch(reviewForm.action, {
             method: 'POST',
