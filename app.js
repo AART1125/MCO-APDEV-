@@ -3,7 +3,8 @@ const server = express();
 const bodyParser = require("body-parser"); // body-parser
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt'); // Database Link
+// mongoose.connect('mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt'); // Database Link
+mongoose.connect('mongodb://localhost:27017/archer\'s_hunts'); // Database Link
 
 server.use(
   express.urlencoded({
@@ -36,7 +37,8 @@ server.use(session({
   saveUninitialized: true, 
   resave: false,
   store: new mongoStore({ 
-    uri: 'mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt',
+    // uri: 'mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt',
+    uri: 'mongodb://localhost:27017/archer\'s_hunts',
     collection: 'mySession',
     expires: 1000*60*60 // 1 hour
   })

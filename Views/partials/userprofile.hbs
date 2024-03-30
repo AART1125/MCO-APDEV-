@@ -51,9 +51,13 @@
 
 <div class="divide2"></div>
 
-{{#each user.reviews}}
+
     <div class="profile-section4">
         <h1>Reviews</h1>
+    </div>
+    
+    {{#each user.reviews}}
+    <div class="profile-section4">
         <div class="reviews">
             <img class="restaurant" src="{{this.restaurantimg}}">
             <span class="review">

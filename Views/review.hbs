@@ -1,22 +1,23 @@
+<input type="hidden" name="hiddenval" id="hiddenval" value="{{restoname}}">
 <div class = "main">
     <div class="text-header">
-        <h3>How was your experience?</h3>
-        <div class="recommendation">
-            <input type="radio" id="recommend" name="recommendation" value="recommended">
-            <label for="recommend">Recommended</label>
-            <input type="radio" id="not-recommend" name="recommendation" value="not-recommended">
-            <label for="not-recommend">Not Recommended</label>
-        </div>
-        <form action="/restaurant/{{resto-name}}/reviews" method="POST"> 
-            <textarea name="text-review" cols="30" rows="5" placeholder="Share your  experience to help others!"></textarea>
+        <h3>How was your experience with {{restoname}}?</h3>
+        <form action="/restaurant/{{restoname}}/post-reviews" method="post" id="reviewform"> 
+            <div class="recommendation">
+                <input type="radio" id="recommend" name="recommendation" value="recommended">
+                <label for="recommend">Recommended</label>
+                <input type="radio" id="not-recommend" name="recommendation" value="not-recommended">
+                <label for="not-recommend">Not Recommended</label>
+            </div>
+            <textarea name="text-review" cols="30" rows="5" placeholder="Share your  experience to help others!" id="review"></textarea>
             <div class="upload">
                 You can upload photos or videos here!
                 <input type="file" id="myFile" name="filename" multiple>
             </div>
+            <div class="btn-group">
+                <button type="submit" class="btn submit" id="submit">Submit</button>
+                <button class="btn cancel" id="cancel">Cancel</button>
+            </div>
         </form>
-        <div class="btn-group">
-            <button type="submit" class="btn submit">Submit</button>
-            <button class="btn cancel">Cancel</button>
-        </div>
     </div>
 </div>

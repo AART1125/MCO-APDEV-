@@ -83,6 +83,7 @@
                         <a href="/restaurant/{{resto-name}}/editreview">Edit Review</a>
                 </div>                                              
             </div>
+            {{#if replyexists}}
             <div class="replies">
                 <div class="profile">
                     <div class="profile-picture">
@@ -99,6 +100,7 @@
                     <p>{{reply}}</p> 
                 </div> 
             </div>
+            {{/if}}
         </div> 
         {{/each}}  
         </div>

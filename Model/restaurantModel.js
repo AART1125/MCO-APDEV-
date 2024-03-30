@@ -57,11 +57,12 @@ async function getSpecificRestaurantData(restoname) {
             'dislikes': review.dislikes,
             'is-recommend': review.isRecommend,
             'review': review.review,
-            'reply': review.reply.reply,
+            'reply': review.reply ? review.reply.reply : null,
             // Assuming the owner's data is required per review, which might be redundant
-            'owner-profileimg': restaurants[0].owner_id.profileimg,
-            'owner-fullname': restaurants[0].owner_id.fullname,
-            'owner-username': restaurants[0].owner_id.username,
+            'owner-profileimg': review.reply ? restaurants[0].owner_id.profileimg : null,
+            'owner-fullname': review.reply ? restaurants[0].owner_id.fullname : null,
+            'owner-username': review.reply ? restaurants[0].owner_id.username : null,
+            'replyexists' : review.reply ? true:false
         }));
 
         return [restaurantDataArr, reviewData];
