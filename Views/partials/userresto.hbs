@@ -57,16 +57,7 @@
                     {{/if}}
                 </div>
                 <p>{{review}}</p>
-                <!-- IF THE REVIEW HAS A PICTURE/VIDEO 
-                <div class="grid-container">
-                    <div class="grid-item">
-                    <img src="/common/assets/restoweb_pics/bonchon.png" alt="Image 1">
-                    </div>
-                    <div class="grid-item">
-                    <img src="/common/assets/restoweb_pics/bonchon.png" alt="Image 2">
-                    </div>
-                </div>
-
+                <!-- IF THE REVIEW HAS PICTURE/S
                 <div class="grid-container">
                     <div class="grid-item">
                         <input type="file" id="file1" name="files[]" class="file-input">
@@ -74,6 +65,14 @@
                     <div class="grid-item">
                         <input type="file" id="file2" name="files[]" class="file-input">
                     </div>
+                </div>
+                {{#if review-pictures.length}}
+                <div class="grid-container">
+                    {{#each review-pictures}}
+                    <div class="grid-item">
+                        <input type="file" id="file{{@index}}" name="files[]" class="file-input">
+                    </div>
+                    {{/each}}
                 </div>
                 -->
                 <div class="delete">
