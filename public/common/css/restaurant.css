@@ -123,7 +123,7 @@ a:hover {
 }
 */
 
-.rev1{
+.rev1, .rev2{
     background-color: #FAF6DF;
     padding: 1em;
     display:flex;

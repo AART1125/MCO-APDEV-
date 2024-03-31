@@ -66,13 +66,10 @@
                         <input type="file" id="file2" name="files[]" class="file-input">
                     </div>
                 </div>
-                {{#if review-pictures.length}}
                 <div class="grid-container">
-                    {{#each review-pictures}}
                     <div class="grid-item">
                         <input type="file" id="file{{@index}}" name="files[]" class="file-input">
                     </div>
-                    {{/each}}
                 </div>
                 -->
                 <div class="delete">
@@ -101,7 +98,7 @@
             </div>
             {{/if}}
         </div> 
-        {{/each}}  
+        {{/each}} 
         </div>
         {{#each restaurant}}
         <div class="leave-review-button">
