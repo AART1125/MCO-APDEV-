@@ -100,7 +100,37 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
             textAreas[index].value = "";
             popUps[index].style.display = 'none';
-            alert('Add Reply feature is not yet available :(');
+            
+            var textReplyValue = document.getElementById("reply-txtarea").value;
+        
+            if (textReplyValue === '') {
+                alert('You cannot submit an empty reply.');
+                return false; 
+            }
+
+            fetch('post-replies', 
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    reply        :  textReplyValue,
+                    restoname     :  document.getElementById("hiddenval").value
+                })
+            })
+            .then(response => {
+                console.log(response)
+                if (response.ok) {
+                    console.log('Reply submitted successfully');
+                    window.location.href = '/restaurant/' + document.getElementById("hiddenval").value;
+                } else {
+                    console.error('Failed to submit reply');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         });
     });
 });

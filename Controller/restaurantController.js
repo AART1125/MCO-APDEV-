@@ -38,6 +38,11 @@ function add(server) {
             username: req.session.login_username,
         });
     });
+
+    server.post('/restaurant/:restoname/post-replies', (req,resp) => {
+        console.log('Connection Successful 1');
+        review.addReply(req,resp);
+    });
 }
 
 module.exports = {
