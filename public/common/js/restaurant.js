@@ -78,28 +78,29 @@ document.addEventListener('DOMContentLoaded', function () {
 }); */
 
 document.addEventListener('DOMContentLoaded', function () {
-    var replyButton1 = document.getElementById('reply1');
-    var cancelButton1 = document.getElementById('cancel-1');
-    var sendButton1 = document.getElementById('send-1');
-    var textarea1 = document.getElementById('reply-txtarea-1');
+    var replyButtons = document.querySelectorAll('.reply');
+    var cancelButtons = document.querySelectorAll('.cancelbtn');
+    var sendButtons = document.querySelectorAll('.sendbtn');
+    var textAreas = document.querySelectorAll('.text-area');
+    var popUps = document.querySelectorAll('.reply-pop-up');
 
-    replyButton1.addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('reply-pop-up-1').style.display = 'block';
+    replyButtons.forEach(function(replyButton, index) {
+        replyButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            popUps[index].style.display = 'block';
+        });
 
-    })
+        cancelButtons[index].addEventListener('click', function(event) {
+            event.preventDefault();
+            textAreas[index].value = "";
+            popUps[index].style.display = 'none';
+        });
 
-    cancelButton1.addEventListener('click', function(event) {
-        event.preventDefault();
-        textarea1.value = "";
-        document.getElementById('reply-pop-up-1').style.display = 'none';
-    })
-
-    sendButton1.addEventListener('click', function(event) {
-        event.preventDefault();
-        textarea1.value = "";
-        document.getElementById('reply-pop-up-1').style.display = 'none';
-        alert('Add Reply feature is not yet available :(');
-    })
+        sendButtons[index].addEventListener('click', function(event) {
+            event.preventDefault();
+            textAreas[index].value = "";
+            popUps[index].style.display = 'none';
+            alert('Add Reply feature is not yet available :(');
+        });
+    });
 });
-
