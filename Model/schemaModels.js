@@ -5,7 +5,8 @@ const replySchema = new mongoose.Schema({
     resto_id    :   {type: mongoose.Types.ObjectId, ref: 'restaurants'},
     reviewofR   :   {type: mongoose.Types.ObjectId, ref: 'reviews'},
     reply       :   {type: String, default: ""},
-    datemade    :   {type: Date}
+    datemade    :   {type: Date},
+    isDeleted   :   {type: Boolean, def: false}
 },{versionKey: false})
 
 const reviewSchema = new mongoose.Schema({
@@ -17,7 +18,8 @@ const reviewSchema = new mongoose.Schema({
     dislikes    :   {type: Number, default: 0},
     reply       :   {type: mongoose.Schema.ObjectId, ref: 'replies'},
     isRecommend :   {type: Boolean},
-    datemade    :   {type: Date, default: Date.now}
+    datemade    :   {type: Date, default: Date.now},
+    isDeleted   :   {type: Boolean, def: false}
 },{versionKey: false});
 
 const restaurantSchema = new mongoose.Schema({
@@ -36,7 +38,8 @@ const restaurantSchema = new mongoose.Schema({
     likes           :   {type: Number, default: 0},
     dislikes        :   {type: Number, default: 0},
     stars           :   {type: Number, default: 0},
-    reviews         :   {type: [mongoose.Types.ObjectId], ref: 'reviews'}
+    reviews         :   {type: [mongoose.Types.ObjectId], ref: 'reviews'},
+    isDeleted   :   {type: Boolean, def: false}
 },{versionKey: false});
 
 const userSchema = new mongoose.Schema({
@@ -52,7 +55,8 @@ const userSchema = new mongoose.Schema({
         isDislike   : { type: [String], default: [] } 
     },
     reviews     :   {type: [mongoose.Types.ObjectId], ref: 'reviews'},
-    friends     :   {type: [mongoose.Types.ObjectId], ref: 'users'}
+    friends     :   {type: [mongoose.Types.ObjectId], ref: 'users'},
+    isDeleted   :   {type: Boolean, def: false}
 },{versionKey: false});
 
 const ownerSchema = new mongoose.Schema({
@@ -67,7 +71,8 @@ const ownerSchema = new mongoose.Schema({
         links       : { type: [String], default: [] } 
     },
     replies     :   {type: [mongoose.Types.ObjectId], ref: 'replies'},
-    restaurants :   {type: [mongoose.Types.ObjectId], ref: 'restaurants'}
+    restaurants :   {type: [mongoose.Types.ObjectId], ref: 'restaurants'},
+    isDeleted   :   {type: Boolean, def: false}
 },{versionKey: false});
 
 const replyModel = mongoose.model('replies', replySchema);
