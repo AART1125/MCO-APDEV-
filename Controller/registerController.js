@@ -3,7 +3,7 @@ const fs = require("fs");
 
 function add(server) {
   server.get("/register", (req, res) => {
-    res.render("register.hbs", {
+    res.render("register", {
       layout: "index",
       title: "Archer's Hunts",
       js: "/common/js/register.js",
@@ -13,7 +13,7 @@ function add(server) {
   });
 
   server.get("/deleteProfile/:id", (req, resp) => {
-    resp.render("delete_account.hbs", {
+    resp.render("delete_account", {
       layout: "index",
       title: "Archer's Hunts",
       islogin      :   req.session.login_id != undefined,

@@ -2,7 +2,7 @@ const review = require('../Model/editReviewModel');
 
 function add(server) {
     server.get('/restaurant/:restoname/editreview', (req,resp) => {
-        resp.render('editreview.hbs', {
+        resp.render('editreview', {
             layout: 'index',
             title: 'Edit a Review',
             js: '/common/js/editreview.js',

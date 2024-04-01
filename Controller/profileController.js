@@ -4,7 +4,7 @@ function add(server) {
     
     server.get('/user-profile/:username', async (req, resp) => {
         try {
-            await findUserProfile(req, resp, 'profile.hbs');
+            await findUserProfile(req, resp, 'profile');
         } catch (error) {
             console.error('Error getting profile:', error);
             resp.status(500).send('Error getting profile');
@@ -22,7 +22,7 @@ function add(server) {
 
     server.get('/user-profile/:username/edit-user-profile', async (req, resp) => {
         try {
-            await UserProfileEdit(req, resp, 'editprofile.hbs');
+            await UserProfileEdit(req, resp, 'editprofile');
         } catch (error) {
             console.error('Error getting profile:', error);
             resp.status(500).send('Error getting profile');
@@ -31,7 +31,7 @@ function add(server) {
 
     server.get('/user-profile/:username/edit-owner-profile', async (req, resp) => {
         try {
-            await OwnerProfileEdit(req, resp, 'editprofile.hbs');
+            await OwnerProfileEdit(req, resp, 'editprofile');
         } catch (error) {
             console.error('Error getting profile:', error);
             resp.status(500).send('Error getting profile');
@@ -40,7 +40,7 @@ function add(server) {
 
     server.get('/owner-profile/:username', async (req, resp) => {
         try {
-            await findOwnerProfile(req, resp, 'profile.hbs');
+            await findOwnerProfile(req, resp, 'profile');
         } catch (error) {
             console.error('Error getting profile:', error);
             resp.status(500).send('Error getting profile');

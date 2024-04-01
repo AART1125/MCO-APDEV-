@@ -3,7 +3,7 @@ const establishmentsModel = require('../Model/establishmentsModel');
 function add(server) {
     server.get('/establishments', (req, resp) => {
         establishmentsModel.initGen(req).then((dict) => {
-            resp.render('establishments.hbs',{
+            resp.render('establishments',{
                 layout              :   'index',
                 title               :   'Archer\'s Hunt',
                 js                  :   '/common/js/establishments.js',
@@ -18,7 +18,7 @@ function add(server) {
 
     server.get('/establishments-owner', (req, resp) => {
         establishmentsModel.ownerGen(req).then((dict) => {
-            resp.render('establishments.hbs',{
+            resp.render('establishments',{
                 layout              :   'index',
                 title               :   'Archer\'s Hunt',
                 js                  :   '/common/js/establishments.js',
@@ -35,7 +35,7 @@ function add(server) {
 
     server.get('/search', (req, resp) => {
         establishmentsModel.search(req.query.query).then((dict) => {
-            resp.render('establishments.hbs',{
+            resp.render('establishments',{
                 layout              :   'index',
                 title               :   'Archer\'s Hunt',
                 js                  :   '/common/js/establishments.js',
@@ -51,7 +51,7 @@ function add(server) {
 
     server.get('/search/:foodtype', (req, resp) => {
         establishmentsModel.searchFoodType(req.params.foodtype).then((dict) => {
-            resp.render('establishments.hbs',{
+            resp.render('establishments',{
                 layout              :   'index',
                 title               :   'Archer\'s Hunt',
                 js                  :   '/common/js/establishments.js',
