@@ -6,7 +6,7 @@ function add(server) {
             const [restodata, reviewdata] = await restaurantModel.getSpecificRestaurantData(req.params.restoname, req);
             console.log(reviewdata);
             if (restodata) {
-                resp.render('restaurant', {
+                resp.render('restaurant.hbs', {
                     layout: 'index',
                     title: 'Archer\'s Hunt',
                     js: '/common/js/restaurant.js', 
@@ -28,7 +28,7 @@ function add(server) {
     });
 
     server.get('/restaurant/:restoname/editreview', (req,resp) => {
-        resp.render('editreview', {
+        resp.render('editreview.hbs', {
             layout: 'index',
             title: 'Edit a Review',
             js: '/common/js/editreview.js',

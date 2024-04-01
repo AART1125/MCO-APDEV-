@@ -7,7 +7,7 @@ function add(server){
     });
 
     server.get('/login',(req, resp) => {
-        resp.render('login', {
+        resp.render('login.hbs', {
             layout  :   'index',
             title   :   'Archer\'s Hunts | Login',
             js      :   '/common/js/loginFunc.js',

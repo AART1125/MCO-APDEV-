@@ -13,7 +13,7 @@ function add(server){
             restaurants = await restaurantDB.getRestaurantData();
         }
         
-        res.render('main', {
+        res.render('main.hbs', {
             layout: 'index',
             title: 'Archer\'s Hunts',
             js: '/common/js/mainFunc.js',

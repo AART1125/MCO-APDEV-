@@ -2,7 +2,7 @@ const review = require('../Model/reviewModel');
 
 function add(server) {
     server.get('/restaurant/:restoname/reviews', (req,resp) => {
-        resp.render('review', {
+        resp.render('review.hbs', {
             layout: 'index',
             title: 'Leave a Review',
             js: '/common/js/review.js',
