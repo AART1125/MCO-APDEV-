@@ -16,9 +16,9 @@ function add(server) {
     resp.render("delete_account", {
       layout: "index",
       title: "Archer's Hunts",
-      islogin             :   req.session.login_id != undefined,
-      isOwner             :   req.session.login_isOwner,
-      username            :   req.session.login_username,
+      islogin      :   req.session.login_id != undefined,
+      isOwner      :   req.session.login_isOwner,
+      username     :   req.session.login_username,
       js: "/common/js/delete_account.js",
       css: "/common/css/delete_account.css",
       islogin: false,

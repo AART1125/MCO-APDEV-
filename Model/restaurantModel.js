@@ -23,7 +23,7 @@ async function getRestaurantData() {
     }
 }
 
-async function getSpecificRestaurantData(restoname) {
+async function getSpecificRestaurantData(restoname, req) {
     try {
         const restaurants = await restaurantModel.find({restoname : restoname}).
                             populate({path: 'owner_id',
@@ -55,6 +55,7 @@ async function getSpecificRestaurantData(restoname) {
             'user-profileimg': review.users_id.profileimg,
             'user-fullname': review.users_id.fullname,
             'user-username': review.users_id.username,
+            'isUser': req.session.login_username === review.users_id.username,
             'likes': review.likes,
             'dislikes': review.dislikes,
             'is-recommend': review.isRecommend,

@@ -72,12 +72,14 @@
                     </div>
                 </div>
                 -->
-                <div class="delete">
-                    <p>Delete Review</p>
-                </div>
-                <div class="edit">
+                {{#if isUser}}
+                    <div class="delete">
+                        <p>Delete Review</p>
+                    </div>
+                    <div class="edit">
                         <a href="/restaurant/{{resto-name}}/editreview">Edit Review</a>
-                </div>                                              
+                    </div>
+                {{/if}}                                      
             </div>
             {{#if replyexists}}
             <div class="replies">
