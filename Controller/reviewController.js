@@ -1,4 +1,4 @@
-const review = require('../Model/reviewModel');
+const review = require('../model/reviewModel');
 
 function add(server) {
     server.get('/restaurant/:restoname/reviews', (req,resp) => {

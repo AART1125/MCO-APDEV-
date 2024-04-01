@@ -1,4 +1,4 @@
-const { findUserProfile, findOwnerProfile, UserProfileEdit, OwnerProfileEdit, deleteUserProfile, deleteOwnerProfile } = require('../Model/profileModel');
+const { findUserProfile, findOwnerProfile, UserProfileEdit, OwnerProfileEdit, deleteUserProfile, deleteOwnerProfile } = require('../model/profileModel');
 
 function add(server) {
     

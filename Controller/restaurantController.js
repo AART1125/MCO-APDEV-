@@ -1,4 +1,4 @@
-const restaurantModel = require('../Model/restaurantModel'); 
+const restaurantModel = require('../model/restaurantModel'); 
 
 function add(server) {
     server.get('/restaurant/:restoname', async (req, resp) => {

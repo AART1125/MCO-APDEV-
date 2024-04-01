@@ -1,4 +1,4 @@
-const establishmentsModel = require('../Model/establishmentsModel');
+const establishmentsModel = require('../model/establishmentsModel');
 
 function add(server) {
     server.get('/establishments', (req, resp) => {

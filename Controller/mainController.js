@@ -1,7 +1,7 @@
 //server specific functions
 
-const restaurantDB = require('../Model/restaurantModel');
-const establishmentsDB = require('../Model/establishmentsModel');
+const restaurantDB = require('../model/restaurantModel');
+const establishmentsDB = require('../model/establishmentsModel');
 
 function add(server){
     server.get('/', async (req, res) => {
