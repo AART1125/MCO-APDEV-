@@ -49,6 +49,8 @@ async function getSpecificRestaurantData(restoname) {
         const restaurantDataArr = [restaurantData];
 
         const reviewData = restaurants[0].reviews.map(review => ({
+            // Populate `resto-name` for each review
+            'resto-name': restaurants[0].restoname,
             // Assuming `review` has a property `user_id` that's populated
             'user-profileimg': review.users_id.profileimg,
             'user-fullname': review.users_id.fullname,
