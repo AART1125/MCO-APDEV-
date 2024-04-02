@@ -19,16 +19,21 @@ function add(server) {
         review.addReview(req,resp);
     });
 
-    server.get('/restaurant/:restoname/editreview', (req,resp) => {
+    server.get('/restaurant/:restoname/editreview/:reviewId', (req, resp) => {
         resp.render('editreview', {
             layout: 'index',
             title: 'Edit a Review',
             js: '/common/js/editreview.js',
             css: '/common/css/review.css',
-            islogin: req.session.login_id != undefined,
+            islogin: req.session.login_id !== undefined,
             isOwner: req.session.login_isOwner,
             username: req.session.login_username,
         });
+    });
+
+    server.post('/restaurant/:restoname/editreview/:reviewId', (req, resp) => {
+        const reviewId = req.params.reviewId;
+        review.editReview(req, resp, reviewId);
     });
 
     server.post('/restaurant/:restoname/post-replies', (req,resp) => {

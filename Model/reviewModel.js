@@ -32,7 +32,7 @@ async function addReply(req, resp) {
     console.log("Connection Successful 2");
     const restoname = await schemas.restaurantModel.findOne({ restoname: req.params.restoname });
     const owner = await schemas.ownerModel.findOne({ _id: req.session.login_owner });
-    const replyInstance = schemas.restaurantModel({
+    const replyInstance = schemas.replyModel({
         owner_id: req.session.login_owner,
         resto_id: restoname._id,
         reviewofR: req.body.reviewId, 
@@ -53,8 +53,24 @@ async function addReply(req, resp) {
     }
 }
 
+async function editReview(req, resp, reviewId) {
+    const updatedReviewContent = req.body.review;
+
+    // Find the existing review by ID
+    const existingReview = await schemas.reviewModel.findByIdAndUpdate(reviewId, { review: updatedReviewContent }, { new: true });
+
+    if (!existingReview) {
+        return resp.status(404).json({ message: 'Review not found' });
+    }
+
+    // Handle success
+    resp.status(200).json({ message: 'Review updated successfully', review: existingReview });
+}
+
+
 
 module.exports = {
     addReview,
-    addReply
+    addReply,
+    editReview
 };
