@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return false; 
         }
 
-        fetch('update-reviews', {
+        fetch(`/restaurant/${restoname}/update-reviews`, { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return Promise.reject(response)
             }
         }).then(data => {
-            //Add post function for client side
+            window.location.href = '/restaurant/' + document.getElementById("hiddenval").value;
         })
         .catch(error => {
             console.error('Error:', error);

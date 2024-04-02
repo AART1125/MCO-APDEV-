@@ -57,8 +57,10 @@ async function searchReview(reviewId) {
     return reviewDoc;
 }
 
-async function editReview(req, resp, reviewId) {
+async function editReview(req, resp) {
+    const reviewId = req.body.reviewId;
     const updatedReviewContent = req.body.textReview;
+    const updatedRecommendation = req.body.isRecommend; // Extract isRecommend from the request body
 
     try {
         // Find the existing review by ID
@@ -70,6 +72,8 @@ async function editReview(req, resp, reviewId) {
 
         // Update the review content
         existingReview.review = updatedReviewContent;
+        // Update the recommendation status
+        existingReview.isRecommend = updatedRecommendation;
 
         // Save the updated review
         const updatedReview = await existingReview.save();
@@ -80,8 +84,6 @@ async function editReview(req, resp, reviewId) {
         resp.status(500).json({ message: 'Failed to update review', error: error });
     }
 }
-
-
 
 module.exports = {
     addReview,

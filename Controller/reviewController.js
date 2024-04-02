@@ -39,7 +39,7 @@ function add(server) {
     });
 
     server.post('/restaurant/:restoname/update-reviews', (req, resp) => {
-        const reviewId = req.params.reviewId;
+        const reviewId = req.body.reviewId;
         review.editReview(req, resp, reviewId); 
     });
 
