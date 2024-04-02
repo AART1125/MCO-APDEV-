@@ -1,8 +1,7 @@
 const schemas = require('./schemaModels');
 
 async function addReview(req, resp) {
-    console.log("Connection Successful 2");
-    const restoname = await schemas.restaurantModel.findOne({restoname : req.params.restoname});
+    const restoname = await schemas.restaurantModel.findOne({restoname : req.params.restoname, isDeleted : false});
     const user = await schemas.userModel.findOne({_id : req.session.login_user});
     const reviewInstance = schemas.reviewModel({
         users_id: req.session.login_user,
@@ -28,7 +27,7 @@ async function addReview(req, resp) {
 }
 
 async function searchReview(reviewId) {
-    const reviewDoc = await schemas.reviewModel.findOne({_id : reviewId});
+    const reviewDoc = await schemas.reviewModel.findOne({_id : reviewId, isDeleted : false});
     return reviewDoc;
 }
 
@@ -39,7 +38,7 @@ async function editReview(req, resp) {
 
     try {
         // Find the existing review by ID
-        const existingReview = await schemas.reviewModel.findById(reviewId);
+        const existingReview = await schemas.reviewModel.findOne({_id : reviewId, isDeleted : false});
 
         if (!existingReview) {
             return resp.status(404).json({ message: 'Review not found' });

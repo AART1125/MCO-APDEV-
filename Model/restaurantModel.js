@@ -2,7 +2,7 @@ const {restaurantModel} = require('./schemaModels');
 
 async function getRestaurantData() {
     try {
-        const restaurants = await restaurantModel.find({});
+        const restaurants = await restaurantModel.find({isDeleted : false});
         const restaurantDataArray = [];
 
         restaurants.forEach(restaurant => {
@@ -25,15 +25,19 @@ async function getRestaurantData() {
 
 async function getSpecificRestaurantData(restoname, req) {
     try {
-        const restaurants = await restaurantModel.find({restoname : restoname}).
+        const restaurants = await restaurantModel.find({restoname : restoname, isDeleted : false}).
                             populate({path: 'owner_id',
+                                      match: {isDeleted : false},
                                       select : 'profileimg fullname username'
                                     }).
                             populate({path: 'reviews',
+                                      match: {isDeleted : false},
                                       populate:[
                                         {path : 'users_id',
+                                         match: {isDeleted : false},
                                          select : 'profileimg fullname username'},
                                         {path : 'reply',
+                                         match: {isDeleted : false},
                                          select : 'reply'}
                                     ]})
 
@@ -66,7 +70,7 @@ async function getSpecificRestaurantData(restoname, req) {
             'owner-profileimg': review.reply ? restaurants[0].owner_id.profileimg : null,
             'owner-fullname': review.reply ? restaurants[0].owner_id.fullname : null,
             'owner-username': review.reply ? restaurants[0].owner_id.username : null,
-            'replyexists' : review.reply ? true:false
+            'replyexists' : (review.reply && !review.reply.isDeleted) ? true:false
         }));
 
         return [restaurantDataArr, reviewData];

@@ -4,7 +4,6 @@ function add(server) {
     server.get('/restaurant/:restoname', async (req, resp) => {
         try {
             const [restodata, reviewdata] = await restaurantModel.getSpecificRestaurantData(req.params.restoname, req);
-            console.log(reviewdata);
             if (restodata) {
                 resp.render('restaurant', {
                     layout: 'index',

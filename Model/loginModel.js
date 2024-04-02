@@ -3,7 +3,7 @@ const schemas = require('./schemaModels');
 const bcrypt = require('bcrypt');
 
 async function loginToWebsite(req, resp){
-    const query = {username : req.body.username};
+    const query = {username : req.body.username, isDeleted : false};
     let response = {doesExist : true, isOwner : false};
 
     const user = await schemas.userModel.findOne(query);
@@ -11,7 +11,6 @@ async function loginToWebsite(req, resp){
 
     if(user && !owner){
         bcrypt.compare(req.body.password, user.password).then(out => {
-            console.log(out)
             if (!out) {
                 resp.send({doesExist : false});
                 console.log("Wrong Password!");
@@ -20,7 +19,6 @@ async function loginToWebsite(req, resp){
                 req.session.login_username = user.username;
                 req.session.login_isOwner = false;
                 req.session.login_id = req.sessionID;
-                console.log("Status: Success");
                 resp.send(response);
             }
         }).catch();
