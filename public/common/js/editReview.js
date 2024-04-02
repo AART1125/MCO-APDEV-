@@ -43,10 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(response)
             if (response.ok) {
                 console.log('Review submitted successfully');
-                window.location.href = '/restaurant/' + restoname;
+                return response.json();
             } else {
                 console.error('Failed to submit review');
+                return Promise.reject(response)
             }
+        }).then(data => {
+            //Add post function for client side
         })
         .catch(error => {
             console.error('Error:', error);
