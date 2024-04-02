@@ -66,15 +66,23 @@
                         <input type="file" id="file2" name="files[]" class="file-input">
                     </div>
                 </div>
+
                 <div class="grid-container">
                     <div class="grid-item">
                         <input type="file" id="file{{@index}}" name="files[]" class="file-input">
                     </div>
                 </div>
+                
+                <div class="img">
+                    
+                </div>
+                <div class="vid">
+
+                </div>
                 -->
                 {{#if isUser}}
                     <div class="delete">
-                        <p>Delete Review</p>
+                        <a href="#">Delete Review</a>
                     </div>
                     <div class="edit">
                         <a href="/restaurant/{{resto-name}}/editreview/{{reviewId}}">Edit Review</a>
