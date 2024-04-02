@@ -1,4 +1,4 @@
-const Entity = require("../model/schemaModels");
+const Entity = require("../Model/schemaModels");
 const fs = require("fs");
 
 function add(server) {

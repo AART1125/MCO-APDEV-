@@ -1,5 +1,4 @@
-const loginModel = require('../model/loginModel');
-const { getRestaurantData } = require('../model/restaurantModel');
+const loginModel = require('../Model/loginModel');
 
 function add(server){
     server.post('/post-login', (req, resp) => {
