@@ -22,6 +22,7 @@ server.engine(
     extname: "hbs",
   })
 );
+server.set('views', __dirname + '/Views');
 
 server.use(express.static("public")); // static fils in public folder
 
