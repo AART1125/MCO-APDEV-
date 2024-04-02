@@ -47,19 +47,7 @@
                         <strong>Not Recommended</strong>
                     {{/if}}
                 </div>
-                <p>{{review}}</p>                                             
-                    <div class="reply" id="reply">
-                        <p>Reply</p>
-                    </div>                                             
-                    <div class="reply-pop-up" id="reply-pop-up">
-                        <div class="pop-up-container animate">
-                            <textarea name="reply-txtarea" id="reply-txtarea" class="text-area" cols="30" rows="10" ></textarea>
-                            <div class="reply-button-containers">
-                                <button id="cancel" class="cancelbtn">Cancel</button>
-                                <button id="send" class="sendbtn">Send</button>
-                            </div>
-                        </div>
-                    </div>                                             
+                <p>{{review}}</p>                                                                                                                                    
                 </div>
                 {{#if replyexists}}
                 <div class="replies">
@@ -84,6 +72,10 @@
                         <p>Edit Reply</p>
                     </div>
             </div>
+            {{else}}
+                <div class="reply">
+                        <a href="/restaurant/{{resto-name}}/reply/{{reviewId}}">Reply</a>
+                </div>
             {{/if}}
             </div>
             {{/each}}
