@@ -9,7 +9,8 @@ async function addReview(req, resp) {
         restoimg: restoname.restoimg[0],
         review: req.body.review,
         isRecommend: req.body.isRecommend,
-        reply : null
+        reply : null,
+        isDeleted : false
     });
 
     const res = await reviewInstance.save().catch((error) => {
