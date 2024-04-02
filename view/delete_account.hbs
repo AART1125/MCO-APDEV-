@@ -1,0 +1,28 @@
+<div id="modal-deletion" class="modal">
+        <div class="modal-value">
+            <div class="modal-header">
+                <p>Delete My Account</p>
+                <hr>
+            </div>
+            <div class="modal-content">
+                <p><span class="warning">WARNING!</span> You are about to delete your account. If you proceed
+                    with the deletion,
+                    your account and all associated information cannot not be retrieved.</p>
+                <p>If you are sure that you will not need this account in the future and wish to proceed, click the "<span
+                        class="bold">Delete Account</span>" button.</p>
+                <hr>
+            </div>
+            <div class="modal-footer">
+                <div class="right-align">
+                    <a href ="/"><button class="delete_account">Delete Account</button></a>
+                      {{#if islogin}}
+                          {{#if isOwner}}
+                            <a href ="/owner-profile"><button class="cancel">Cancel</button></a>
+                          {{else}}
+                            <a href ="/edit-user-profile"><button class="cancel">Cancel</button></a>
+                          {{/if}}
+                      {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
