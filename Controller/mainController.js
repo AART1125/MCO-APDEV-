@@ -6,7 +6,7 @@ const establishmentsDB = require('../Model/establishmentsModel');
 function add(server){
     server.get('/', async (req, res) => {
         let restuarants;
-        
+        console.log("Trying to render main")
         if(req.session.login_isOwner) {
             restaurants = await establishmentsDB.ownerGen(req);
         } else {
