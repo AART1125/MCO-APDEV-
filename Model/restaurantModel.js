@@ -27,13 +27,17 @@ async function getSpecificRestaurantData(restoname, req) {
     try {
         const restaurants = await restaurantModel.find({restoname : restoname, isDeleted : false}).
                             populate({path: 'owner_id',
+                                      match: {isDeleted : false},
                                       select : 'profileimg fullname username'
                                     }).
                             populate({path: 'reviews',
+                                      match: {isDeleted : false},
                                       populate:[
                                         {path : 'users_id',
+                                         match: {isDeleted : false},
                                          select : 'profileimg fullname username'},
                                         {path : 'reply',
+                                         match: {isDeleted : false},
                                          select : 'reply'}
                                     ]})
 

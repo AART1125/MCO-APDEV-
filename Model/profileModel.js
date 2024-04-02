@@ -14,6 +14,7 @@ async function findUserProfile(req, resp, templateName) {
         const profile = await searchModel.findOne(query)
                                          .populate({
                                             path: 'friends',
+                                            match: {isDeleted : false},
                                             select: 'profileimg fullname username'
                                         }); 
 
@@ -30,6 +31,7 @@ async function findUserProfile(req, resp, templateName) {
         const reviews = await schemas.reviewModel.find({ users_id: userId })
             .populate({
                 path: 'users_id',
+                match: {isDeleted : false},
                 select: 'restoimg restaurant rname review likes dislikes isRecommend',
             });
 
@@ -86,7 +88,7 @@ async function findUserProfile(req, resp, templateName) {
 async function findOwnerProfile(req, resp, templateName) {
     let query = {_id: req.session.login_user, isDeleted : false};
     if(req.params.username != req.session.username){
-        query = {username: req.params.username};
+        query = {username: req.params.username, isDeleted : false};
     }
 
     let searchModel = schemas.ownerModel;
@@ -95,6 +97,7 @@ async function findOwnerProfile(req, resp, templateName) {
         const profile = await searchModel.findOne(query)
                               .populate({
                                 path: 'restaurants',
+                                match: {isDeleted : false},
                                 select: 'restoimg restoname restodesc stars'
                               });
 
