@@ -24,8 +24,7 @@ async function addReview(req, resp) {
         user.reviews.push(res._id);
         user.save();
         resp.status(201).json({ message: 'Review submitted successfully', review: res });
-    }
-        
+    }     
 }
 
 async function addReply(req, resp) {
@@ -54,17 +53,27 @@ async function addReply(req, resp) {
 }
 
 async function editReview(req, resp, reviewId) {
-    const updatedReviewContent = req.body.review;
+    const updatedReviewContent = req.body.textReview;
 
-    // Find the existing review by ID
-    const existingReview = await schemas.reviewModel.findByIdAndUpdate(reviewId, { review: updatedReviewContent }, { new: true });
+    try {
+        // Find the existing review by ID
+        const existingReview = await schemas.reviewModel.findById(reviewId);
 
-    if (!existingReview) {
-        return resp.status(404).json({ message: 'Review not found' });
+        if (!existingReview) {
+            return resp.status(404).json({ message: 'Review not found' });
+        }
+
+        // Update the review content
+        existingReview.review = updatedReviewContent;
+
+        // Save the updated review
+        const updatedReview = await existingReview.save();
+
+        resp.status(200).json({ message: 'Review updated successfully', review: updatedReview });
+    } catch (error) {
+        console.error('Error:', error);
+        resp.status(500).json({ message: 'Failed to update review', error: error });
     }
-
-    // Handle success
-    resp.status(200).json({ message: 'Review updated successfully', review: existingReview });
 }
 
 

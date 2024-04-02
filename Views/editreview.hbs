@@ -1,7 +1,8 @@
 <input type="hidden" name="hiddenval" id="hiddenval" value="{{restoname}}">
+<input type="hidden" name="reviewId" id="hiddenrev" value="{{reviewId}}">
 <div class = "main">
     <div class="text-header">
-        <h3>Has your experience with {{restoname}}changed?</h3>
+        <h3>Has your experience with {{restoname}} changed?</h3>
         <form action="/restaurant/{{restoname}}/post-reviews" method="post" id="reviewform"> 
             <div class="recommendation">
                 <input type="radio" id="recommend" name="recommendation" value="recommended">
@@ -9,7 +10,7 @@
                 <input type="radio" id="not-recommend" name="recommendation" value="not-recommended">
                 <label for="not-recommend">Not Recommended</label>
             </div>
-            <textarea name="text-review" cols="30" rows="5" placeholder="Loading previous review..." id="review"></textarea>
+            <textarea name="text-review" cols="30" rows="5" id="review"></textarea>
             <div class="upload">
                 You can upload photos or videos here!
                 <input type="file" id="myFile" name="filename" multiple>

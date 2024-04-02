@@ -20,22 +20,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         var textReviewValue = document.getElementById("review").value;
         var restoname = document.getElementById("hiddenval").value; 
+        var reviewId = document.getElementById("hiddenrev").value; 
         
         if (checked === "" || textReviewValue === '') {
             alert('Please fill out all required fields.' + checked);
             return false; 
         }
 
-        var reviewId = window.location.pathname.split('/').pop();
-
-        fetch(`/restaurant/${restoname}/editreview/${reviewId}`, {
+        fetch('update-reviews', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                reviewId: reviewId,
+                restoname: restoname,
                 isRecommend: checked,
-                review: textReviewValue
+                textReview: textReviewValue 
             })
         })
         .then(response => {
