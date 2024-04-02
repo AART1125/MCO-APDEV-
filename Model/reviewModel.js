@@ -1,7 +1,6 @@
 const schemas = require('./schemaModels');
 
 async function addReview(req, resp) {
-    console.log("Connection Successful 2");
     const restoname = await schemas.restaurantModel.findOne({restoname : req.params.restoname, isDeleted : false});
     const user = await schemas.userModel.findOne({_id : req.session.login_user});
     const reviewInstance = schemas.reviewModel({

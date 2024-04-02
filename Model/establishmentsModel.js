@@ -35,7 +35,6 @@ async function ownerGen(req){
 
     try {
         const restaurants = await schemas.restaurantModel.find({owner_id: req.session.login_user, isDeleted : false});
-        console.log("results of find" + restaurants);
         for(const restaurant of restaurants){
             let stars = [];
             for (let i = 0; i < 5; i++) {

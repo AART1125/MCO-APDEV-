@@ -5,8 +5,6 @@ const establishmentsDB = require('../Model/establishmentsModel');
 
 function add(server){
     server.get('/', async (req, res) => {
-        let restuarants;
-        console.log("Trying to render main")
         if(req.session.login_isOwner) {
             restaurants = await establishmentsDB.ownerGen(req);
         } else {
@@ -24,36 +22,6 @@ function add(server){
             restaurants: restaurants
         });
     });
-
-    // server.get('/main', async (req,resp) => {
-    //     const restaurants = await restaurantDB.getRestaurantData();
-    //     console.log(req.session.login_user);
-        
-    //     resp.render('main', {
-    //         layout: 'index',
-    //         username: req.session.login_username,
-    //         title: 'Archer\'s Hunt',
-    //         js: '/common/js/mainFunc.js',
-    //         css: '/common/css/main.css',
-    //         islogin: true,
-    //         isOwner: req.session.login_isOwner,
-    //         restaurants: restaurants,
-    //     });
-    // });
-
-    // server.get('/main-owner', async (req,resp) => {
-    //     const restaurants = await restaurantDB.getRestaurantData();
-    //     resp.render('main', {
-    //         layout: 'index',
-    //         title: 'Archer\'s Hunt',
-    //         js: '/common/js/mainFunc.js',
-    //         css: '/common/css/main.css',
-    //         islogin: true,
-    //         isOwner: true,
-    //         restaurants: restaurants
-    //     });
-    // });
-
 }
 
 module.exports = {

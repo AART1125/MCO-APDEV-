@@ -2,7 +2,6 @@ const review = require('../Model/reviewModel');
 
 function add(server) {
     server.get('/restaurant/:restoname/reply/:reviewId', (req, resp) => {
-        console.log('test');
         resp.render('reply', {
             layout: 'index',
             title: 'Reply to a Review',

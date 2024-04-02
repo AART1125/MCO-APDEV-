@@ -15,14 +15,11 @@ function add(server) {
     });
 
     server.post('/restaurant/:restoname/post-reviews', (req, resp) => {
-        console.log('Connection Successful 1');
         review.addReview(req, resp);
     });
 
     server.get('/restaurant/:restoname/editreview/:reviewId', async (req, resp) => {
         const reviewDoc = await review.searchReview(req.params.reviewId);
-        console.log(reviewDoc.isRecommend);
-        console.log(reviewDoc.review);
         resp.render('editreview', {
             layout: 'index',
             title: 'Edit a Review',

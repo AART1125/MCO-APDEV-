@@ -23,9 +23,6 @@ async function findUserProfile(req, resp, templateName) {
             return resp.status(404).send('No profiles found');
         }
 
-        console.log('Profile found:', profile);
-        console.log('Friends found:', profile.friends);
-
         const userId = profile._id;
 
         const reviews = await schemas.reviewModel.find({ users_id: userId })
@@ -105,8 +102,6 @@ async function findOwnerProfile(req, resp, templateName) {
             console.log('No profiles found');
             return resp.status(404).send('No profiles found');
         }
-
-        console.log('Profile found:', profile);
 
         resp.render(templateName, {
             layout: 'index',
