@@ -1,11 +1,10 @@
-const review = require('../Model/reviewModel');
+const reply = require('../Model/replyModel');
 
 function add(server) {
     server.get('/restaurant/:restoname/reply/:reviewId', (req, resp) => {
-        console.log('test');
         resp.render('reply', {
             layout: 'index',
-            title: 'Reply to a Review',
+            title: 'Owner Reply',
             js: '/common/js/reply.js',
             css: '/common/css/review.css',
             restoname: req.params.restoname,
@@ -13,6 +12,11 @@ function add(server) {
             isOwner: req.session.login_isOwner,
             username: req.session.login_username,
         });
+    });
+
+    server.post('/restaurant/:restoname/post-replies', (req, resp) => {
+        console.log('Connection Successful 1');
+        reply.addReply(req, resp);
     });
 }
 

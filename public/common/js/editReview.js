@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => {
             console.log(response)
             if (response.ok) {
-                console.log('Review submitted successfully');
+                console.log('Review edited successfully');
                 return response.json();
             } else {
-                console.error('Failed to submit review');
+                console.error('Failed to edit review');
                 return Promise.reject(response)
             }
         }).then(data => {

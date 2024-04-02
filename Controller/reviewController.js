@@ -42,11 +42,6 @@ function add(server) {
         const reviewId = req.body.reviewId;
         review.editReview(req, resp, reviewId); 
     });
-
-    server.post('/restaurant/:restoname/post-replies', (req, resp) => {
-        console.log('Connection Successful 1');
-        review.addReply(req, resp);
-    });
 }
 
 module.exports = {
