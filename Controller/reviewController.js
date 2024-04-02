@@ -19,7 +19,10 @@ function add(server) {
         review.addReview(req, resp);
     });
 
-    server.get('/restaurant/:restoname/editreview/:reviewId', (req, resp) => {
+    server.get('/restaurant/:restoname/editreview/:reviewId', async (req, resp) => {
+        const reviewDoc = await review.searchReview(req.params.reviewId);
+        console.log(reviewDoc.isRecommend);
+        console.log(reviewDoc.review);
         resp.render('editreview', {
             layout: 'index',
             title: 'Edit a Review',
@@ -30,7 +33,8 @@ function add(server) {
             username: req.session.login_username,
             reviewId: req.params.reviewId,
             restoname: req.params.restoname,
-            review: req.params.review
+            review: reviewDoc.review,
+            isRecommend: reviewDoc.isRecommend
         });
     });
 

@@ -52,6 +52,11 @@ async function addReply(req, resp) {
     }
 }
 
+async function searchReview(reviewId) {
+    const reviewDoc = await schemas.reviewModel.findOne({_id : reviewId});
+    return reviewDoc;
+}
+
 async function editReview(req, resp, reviewId) {
     const updatedReviewContent = req.body.textReview;
 
@@ -81,5 +86,6 @@ async function editReview(req, resp, reviewId) {
 module.exports = {
     addReview,
     addReply,
-    editReview
+    editReview,
+    searchReview
 };
