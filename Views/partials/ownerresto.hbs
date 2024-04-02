@@ -1,3 +1,4 @@
+<input type="hidden" name="hiddenval" id="hiddenval" value="{{restoname}}">
 <div class = "main">
     {{#each restaurant}}
     <div class="restaurant">
@@ -76,6 +77,12 @@
                 <div class="comment">
                     <p>{{reply}}</p> 
                 </div> 
+                    <div class="delete">
+                        <p>Delete Reply</p>
+                    </div>
+                    <div class="edit">
+                        <p>Edit Reply</p>
+                    </div>
             </div>
             {{/if}}
             </div>

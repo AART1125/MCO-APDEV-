@@ -101,22 +101,24 @@ document.addEventListener('DOMContentLoaded', function () {
             textAreas[index].value = "";
             popUps[index].style.display = 'none';
             
-            var textReplyValue = document.getElementById("reply-txtarea").value;
+            var textReplyValue = textAreas[index].value; 
+            /*
+            console.log("Text Reply Value:", textReplyValue); // For checking
         
-            if (textReplyValue === '') {
+            if (textReplyValue.trim() === '') { 
                 alert('You cannot submit an empty reply.');
                 return false; 
             }
-
-            fetch('post-replies', 
-            {
+            */
+        
+            fetch('post-replies', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    reply        :  textReplyValue,
-                    restoname     :  document.getElementById("hiddenval").value
+                    reply: textReplyValue,
+                    restoname: document.getElementById("hiddenval").value
                 })
             })
             .then(response => {

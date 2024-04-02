@@ -1,17 +1,63 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var reviewForm = document.querySelector('.text-header form');
-    var submitBtn = document.querySelector('.btn.submit');
-    var cancelBtn = document.querySelector('.btn.cancel');
+    console.log("DOM Content Loaded");
+    var reviewForm = document.getElementById("reviewform");
 
-    submitBtn.addEventListener('click', function (event) {
-        event.preventDefault();
+    if (!reviewForm) {
+        console.error("Review form element not found");
+        return;
+    }
 
-        var recommendationValue = document.querySelector('input[name="recommendation"]:checked') ? document.querySelector('input[name="recommendation"]:checked').value : '';
-        var textReviewValue = document.querySelector('textarea[name="text-review"]').value;
+    reviewForm.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+        
+        var recommendations = document.getElementsByName("recommendation");
+        var checked = "";
+        for(const reco of recommendations){
+            if(reco.checked){
+                checked = reco.value === "recommended";
+                break;
+            }
+        }
+        var textReviewValue = document.getElementById("review").value;
+        var restoname = document.getElementById("hiddenval").value; 
+        
+        if (checked === "" || textReviewValue === '') {
+            alert('Please fill out all required fields.' + checked);
+            return false; 
+        }
 
-        alert('Your review is edited successfully!');
-        window.history.back();
+        var reviewId = window.location.pathname.split('/').pop();
+
+        fetch(`/restaurant/${restoname}/editreview/${reviewId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                isRecommend: checked,
+                review: textReviewValue
+            })
+        })
+        .then(response => {
+            console.log(response)
+            if (response.ok) {
+                console.log('Review submitted successfully');
+                window.location.href = '/restaurant/' + restoname;
+            } else {
+                console.error('Failed to submit review');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     });
+
+    var cancelBtn = document.getElementById('cancel');
+
+    if (!cancelBtn) {
+        console.error("Cancel button element not found");
+        return;
+    }
 
     cancelBtn.addEventListener('click', function (event) {
         event.preventDefault();
