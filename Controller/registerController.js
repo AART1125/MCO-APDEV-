@@ -98,5 +98,5 @@ function add(server) {
 }
 
 module.exports = {
-  add,
+  add
 };

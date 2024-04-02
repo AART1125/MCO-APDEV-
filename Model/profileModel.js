@@ -4,7 +4,7 @@ async function findUserProfile(req, resp, templateName) {
     let query = {_id: req.session.login_user};
 
     if(req.params.username != req.session.login_username){
-        query = {username: req.params.username};
+        query = {username: req.params.username, isDeleted : false};
         templateName = 'otherprofile';
     }
     
@@ -84,7 +84,7 @@ async function findUserProfile(req, resp, templateName) {
 }
 
 async function findOwnerProfile(req, resp, templateName) {
-    let query = {_id: req.session.login_user};
+    let query = {_id: req.session.login_user, isDeleted : false};
     if(req.params.username != req.session.username){
         query = {username: req.params.username};
     }

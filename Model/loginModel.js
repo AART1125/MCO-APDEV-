@@ -3,7 +3,7 @@ const schemas = require('./schemaModels');
 const bcrypt = require('bcrypt');
 
 async function loginToWebsite(req, resp){
-    const query = {username : req.body.username};
+    const query = {username : req.body.username, isDeleted : false};
     let response = {doesExist : true, isOwner : false};
 
     const user = await schemas.userModel.findOne(query);

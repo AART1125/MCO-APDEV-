@@ -2,7 +2,7 @@ const {restaurantModel} = require('./schemaModels');
 
 async function getRestaurantData() {
     try {
-        const restaurants = await restaurantModel.find({});
+        const restaurants = await restaurantModel.find({isDeleted : false});
         const restaurantDataArray = [];
 
         restaurants.forEach(restaurant => {
@@ -25,7 +25,7 @@ async function getRestaurantData() {
 
 async function getSpecificRestaurantData(restoname, req) {
     try {
-        const restaurants = await restaurantModel.find({restoname : restoname}).
+        const restaurants = await restaurantModel.find({restoname : restoname, isDeleted : false}).
                             populate({path: 'owner_id',
                                       select : 'profileimg fullname username'
                                     }).
