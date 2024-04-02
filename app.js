@@ -16,12 +16,12 @@ server.use(express.json({ limit: "50mb" }));
 
 const handlebars = require("express-handlebars"); // handlebars compatability
 server.set("view engine", "hbs");
-server.engine(
-  "hbs",
-  handlebars.engine({
-    extname: "hbs",
-  })
-);
+// server.engine(
+//   "hbs",
+//   handlebars.engine({
+//     extname: "hbs",
+//   })
+// );
 
 server.use(express.static("public")); // static fils in public folder
 
