@@ -11,29 +11,28 @@
     <div class = "edit-profile">
         <h1>Edit Profile</h1>
         <div class = "edit-form-table">
-            <div class = "edit-form1">
-                <form>
-                    Profile Picture <input type ="file" id = "password"><br>
-                    First Name <input type ="text" id = "fname" class = "edit-input"><br>
-                    Last Name <input type ="text" id = "lname" class = "edit-input"><br>
-                    Username <input type ="text" id = "username" class = "edit-input"><br>
-                    Email <input type ="email" id = "username" class = "edit-input"><br>
-                    Password <input type ="text" id = "password" class = "edit-input"><br>     
-                </form>
-            </div>
-            
-            <div class = "edit-form2">
-                <form>
-                    Likes <br><textarea name="paragraph_text" cols="70" rows="3" class = "edit-input"></textarea><br>
-                    Dislikes <br><textarea name="paragraph_text" cols="70" rows="3" class = "edit-input"></textarea>
-                </form>
-                
-            </div>
+            <div class="edit-form1">
+            <form action="/user-profile/{{username}}/edit-user-profile" method="POST">
+                Profile Picture <input type="file" id="profile"><br>
+                Full Name <input type="text" name="fullname" class="edit-input" value="{{ user.fullname }}"><br>
+                Username <input type="text" name="username" class="edit-input" value="{{ user.username }}"><br>
+                Email <input type="email" name="email" class="edit-input" value="{{ user.email }}"><br>
+                Password <input type="password" name="password" class="edit-input" value="{{ user.password }}"><br>
+        </div>
+
+        <div class="edit-form2">
+                Likes: 
+                <input type="text" class="edit-input" name="likes" value="{{#each user.preferences.isLike}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"><br>
+
+                Dislikes: 
+                <input type="text" class="edit-input" name="dislikes" value="{{#each user.preferences.isDislike}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"><br>
+        </div>
             
         </div>
         <br>
         <span class = "sub">
-            <a href="/user-profile/{{user.username}}"> <input type="submit" id="submit" value="Submit"> </a>
+            <input type="submit" id="submit" value="Submit"> </a>
+            </form>
     </span>            
     </div>
     
