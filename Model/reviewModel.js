@@ -35,22 +35,18 @@ async function searchReview(reviewId) {
 async function editReview(req, resp) {
     const reviewId = req.body.reviewId;
     const updatedReviewContent = req.body.textReview;
-    const updatedRecommendation = req.body.isRecommend; // Extract isRecommend from the request body
+    const updatedRecommendation = req.body.isRecommend; 
 
     try {
-        // Find the existing review by ID
         const existingReview = await schemas.reviewModel.findOne({_id : reviewId, isDeleted : false});
 
         if (!existingReview) {
             return resp.status(404).json({ message: 'Review not found' });
         }
 
-        // Update the review content
         existingReview.review = updatedReviewContent;
-        // Update the recommendation status
         existingReview.isRecommend = updatedRecommendation;
 
-        // Save the updated review
         const updatedReview = await existingReview.save();
 
         resp.status(200).json({ message: 'Review updated successfully', review: updatedReview });
@@ -60,8 +56,52 @@ async function editReview(req, resp) {
     }
 }
 
+async function likeReview(req, resp) {
+    const reviewId = req.params.reviewId;
+
+    try {
+        const existingReview = await schemas.reviewModel.findOne({ _id: reviewId, isDeleted: false });
+
+        if (!existingReview) {
+            return resp.status(404).json({ message: 'Review not found' });
+        }
+
+        existingReview.likes += 1;
+        existingReview.action = 'like'; 
+        const updatedReview = await existingReview.save();
+
+        resp.status(200).json({ message: 'Liked review successfully', review: updatedReview });
+    } catch (error) {
+        console.error('Error:', error);
+        resp.status(500).json({ message: 'Failed to like review', error: error });
+    }
+}
+
+async function dislikeReview(req, resp) {
+    const reviewId = req.params.reviewId;
+
+    try {
+        const existingReview = await schemas.reviewModel.findOne({ _id: reviewId, isDeleted: false });
+
+        if (!existingReview) {
+            return resp.status(404).json({ message: 'Review not found' });
+        }
+
+        existingReview.dislikes += 1;
+        existingReview.action = 'dislike'; 
+        const updatedReview = await existingReview.save();
+
+        resp.status(200).json({ message: 'Disliked review successfully', review: updatedReview });
+    } catch (error) {
+        console.error('Error:', error);
+        resp.status(500).json({ message: 'Failed to dislike review', error: error });
+    }
+}
+
 module.exports = {
     addReview,
     editReview,
-    searchReview
+    searchReview,
+    likeReview,
+    dislikeReview
 };

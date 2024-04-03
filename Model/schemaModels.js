@@ -17,6 +17,7 @@ const reviewSchema = new mongoose.Schema({
     review      :   {type: String},
     likes       :   {type: Number, default: 0},
     dislikes    :   {type: Number, default: 0},
+    action      :   {type: String, enum: ['like', 'dislike', null]},
     reply       :   {type: mongoose.Schema.ObjectId, ref: 'replies'},
     isRecommend :   {type: Boolean},
     datemade    :   {type: Date, default: Date.now},

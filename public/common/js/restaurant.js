@@ -1,79 +1,58 @@
-window.onload = function () {
+window.onload = async function () {
     document.body.style.zoom = "100%";
-};
+    
+    function handleReview(review) {
+        const reviewId = review.dataset.reviewId;
+        const ratings = review.querySelectorAll(".post-rating");
+        const likeRating = ratings[0];
+        const restoname = document.getElementById("hiddenval").value;
 
-function handleReview(review) {
-    const reviewId = review.dataset.reviewId;
-    const ratings = review.querySelectorAll(".post-rating");
-    const likeRating = ratings[0];
+        ratings.forEach(rating => {
+            const button = rating.querySelector(".post-rating-button");
+            const count = rating.querySelector(".post-rating-count");
 
-    ratings.forEach(rating => {
-        const button = rating.querySelector(".post-rating-button");
-        const count = rating.querySelector(".post-rating-count");
+            button.addEventListener("click", async () => {
+                if (rating.classList.contains("post-rating-selected")) {
+                    return;
+                }
 
-        button.addEventListener("click", async () => {
-            if (rating.classList.contains("post-rating-selected")) {
-                return;
-            }
+                count.textContent = Number(count.textContent) + 1;
 
-            count.textContent = Number(count.textContent) + 1;
+                ratings.forEach(otherRating => {
+                    if (otherRating !== rating && otherRating.classList.contains("post-rating-selected")) {
+                        const otherCount = otherRating.querySelector(".post-rating-count");
 
-            ratings.forEach(otherRating => {
-                if (otherRating.classList.contains("post-rating-selected")) {
-                    const count = otherRating.querySelector(".post-rating-count");
+                        otherCount.textContent = Math.max(0, Number(otherCount.textContent) - 1);
+                        otherRating.classList.remove("post-rating-selected");
+                    }
+                });
 
-                    count.textContent = Math.max(0, Number(count.textContent) - 1);
-                    otherRating.classList.remove("post-rating-selected");
+                rating.classList.add("post-rating-selected");
+
+                const action = likeRating === rating ? "like" : "dislike";
+                try {
+                    const response = await fetch(`/restaurant/${restoname}/reviews/${reviewId}/${action}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            reviewId: reviewId,
+                            action: action
+                        })
+                    });
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const { likes, dislikes, action: updatedAction } = await response.json();
+                    count.textContent = action === 'like' ? likes : dislikes;
+                    localStorage.setItem(`review_${reviewId}`, updatedAction);
+                } catch (error) {
+                    console.error('Error:', error);
                 }
             });
-
-            rating.classList.add("post-rating-selected");
-
-            const likeOrDislike = likeRating === rating ? "like" : "dislike";
-            const response = await fetch(`/reviews/${reviewId}/${likeOrDislike}`);
-            const body = await response.json();
         });
-    });
-}
+    }
 
-document.querySelectorAll(".rev1").forEach(handleReview);
-
-document.addEventListener('DOMContentLoaded', function () {
-    var deleteButtons = document.querySelectorAll('.delete');
-
-    deleteButtons.forEach(function (deleteButton) {
-        deleteButton.addEventListener('click', function () {
-            alert('Delete Review feature is not yet available :(');
-            /*var isConfirmed = confirm('Are you sure you want to delete this review?');
-
-            if (isConfirmed) {
-                alert('Review deleted!');
-            }  */
-        });
-    });
-});
-
-/* var editLinks = document.getElementsByClassName("edit");
-
-for (var i = 0; i < editLinks.length; i++) {
-    editLinks[i].addEventListener("click", function() {
-        window.location.href = "editreview.html";
-    });
-} */
-
-/*
-document.addEventListener('DOMContentLoaded', function () {
-    var editButtons = document.querySelectorAll('.edit');
-
-    editButtons.forEach(function (editButton) {
-        editButton.addEventListener('click', function () {
-            alert('Edit Review feature is not yet available :(');
-            /*var isConfirmed = confirm('Are you sure you want to delete this review?');
-
-            if (isConfirmed) {
-                alert('Review deleted!');
-            }  
-        });
-    });
-}); */
-
+    document.querySelectorAll(".rev1").forEach(handleReview);
+};

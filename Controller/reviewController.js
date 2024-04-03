@@ -1,6 +1,7 @@
 const review = require('../Model/reviewModel');
 
 function add(server) {
+    // Handle create review
     server.get('/restaurant/:restoname/reviews', (req, resp) => {
         resp.render('review', {
             layout: 'index',
@@ -18,6 +19,7 @@ function add(server) {
         review.addReview(req, resp);
     });
 
+    // Handle edit review
     server.get('/restaurant/:restoname/editreview/:reviewId', async (req, resp) => {
         const reviewDoc = await review.searchReview(req.params.reviewId);
         resp.render('editreview', {
@@ -39,6 +41,31 @@ function add(server) {
         const reviewId = req.body.reviewId;
         review.editReview(req, resp, reviewId); 
     });
+
+    // Handle like action
+    server.post('/restaurant/:restoname/reviews/:reviewId/like', async (req, resp) => {
+        try {
+            const reviewId = req.params.reviewId;
+            await review.findByIdAndUpdate(reviewId, { $inc: { likes: 1 }, action: 'like' });
+            resp.status(200).json({ message: 'Review liked successfully' });
+        } catch (error) {
+            console.error('Error:', error);
+            resp.status(500).json({ message: 'Failed to like review', error: error });
+        }
+    });
+
+    // Handle dislike action
+    server.post('/restaurant/:restoname/reviews/:reviewId/dislike', async (req, resp) => {
+        try {
+            const reviewId = req.params.reviewId;
+            await review.findByIdAndUpdate(reviewId, { $inc: { dislikes: 1 }, action: 'dislike' });
+            resp.status(200).json({ message: 'Review disliked successfully' });
+        } catch (error) {
+            console.error('Error:', error);
+            resp.status(500).json({ message: 'Failed to dislike review', error: error });
+        }
+    });
+
 }
 
 module.exports = {
