@@ -1,4 +1,4 @@
-const { findUserProfile, findOwnerProfile, UserProfileEdit, OwnerProfileEdit, deleteUserProfile, deleteOwnerProfile } = require('../Model/profileModel');
+const { findUserProfile, findOwnerProfile, findUserProfileEdit, UserProfileEdit, OwnerProfileEdit, deleteUserProfile, deleteOwnerProfile } = require('../Model/profileModel');
 
 function add(server) {
     
@@ -13,7 +13,16 @@ function add(server) {
 
     server.get('/user-profile/:username/edit-user-profile', async (req, resp) => {
         try {
-            await UserProfileEdit(req, resp, 'editprofile');
+            await findUserProfileEdit(req, resp, 'editprofile');
+        } catch (error) {
+            console.error('Error getting profile:', error);
+            resp.status(500).send('Error getting profile');
+        }
+    });
+
+    server.post('/user-profile/:username/edit-user-profile', async (req, resp) => {
+        try {
+            await UserProfileEdit(req, resp);
         } catch (error) {
             console.error('Error getting profile:', error);
             resp.status(500).send('Error getting profile');
