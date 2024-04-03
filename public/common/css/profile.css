@@ -116,7 +116,9 @@ a:hover {
 }
 
 .profile-section4 {
-    padding: 30px;
+    padding-left: 30px;
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
     background-color: #FAF6DF;
     display: block; 
 }
