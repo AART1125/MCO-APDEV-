@@ -154,7 +154,14 @@ textarea {
 
 .note {
     font-size: 1rem;
-    color: darkgray;
+    color:  rgb(118, 116, 116);
+}
+
+.prev{
+    padding: 1em;
+    background-color: #F4F6DF;
+    border: 1.5px solid #537A5A;
+    margin-bottom: 10px;
 }
 
 /* -- FOR A BUTTONS */

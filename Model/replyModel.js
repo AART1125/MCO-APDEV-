@@ -54,8 +54,27 @@ async function editReply(req, resp) {
     }
 }
 
+async function deleteReply(replyId) {
+    try {
+        const reply = await schemas.replyModel.findOne({ _id: replyId });
+
+        if (!reply) {
+            return false; 
+        }
+
+        reply.isDeleted = true;
+        await reply.save();
+        return true; 
+    } catch (error) {
+        console.error('Error:', error);
+        return false; 
+    }
+}
+
+
 module.exports = {
     addReply,
     searchReply,
-    editReply
+    editReply,
+    deleteReply
 };

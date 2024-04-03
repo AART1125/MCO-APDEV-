@@ -72,7 +72,8 @@ async function getSpecificRestaurantData(restoname, req) {
             'owner-profileimg': review.reply ? restaurants[0].owner_id.profileimg : null,
             'owner-fullname': review.reply ? restaurants[0].owner_id.fullname : null,
             'owner-username': review.reply ? restaurants[0].owner_id.username : null,
-            'replyexists' : (review.reply && !review.reply.isDeleted) ? true:false
+            'replyexists' : (review.reply && !review.reply.isDeleted) ? true:false,
+            'isDeleted': review.reply ? review.reply.isDeleted : false
         }));
 
         return [restaurantDataArr, reviewData];

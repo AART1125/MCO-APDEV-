@@ -59,6 +59,17 @@ function add(server) {
             reply: replyDoc.reply
         });
     });  
+
+    server.post('/restaurant/:restoname/delete-replies', async (req, resp) => {
+        const replyId = req.body.replyId;
+        const success = await reply.deleteReply(replyId);
+
+        if (success) {
+            resp.status(200).json({ message: 'Reply deleted successfully' });
+        } else {
+            resp.status(404).json({ message: 'Reply not found' });
+        }
+    });
 }
 
 module.exports = {
