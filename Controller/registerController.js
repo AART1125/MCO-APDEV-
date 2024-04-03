@@ -16,9 +16,9 @@ function add(server) {
     resp.render("delete_account", {
       layout: "index",
       title: "Archer's Hunts",
-      islogin      :   req.session.login_id != undefined,
-      isOwner      :   req.session.login_isOwner,
-      username     :   req.session.login_username,
+      islogin: req.session.login_id != undefined,
+      isOwner: req.session.login_isOwner,
+      username: req.session.login_username,
       js: "/common/js/delete_account.js",
       css: "/common/css/delete_account.css",
       islogin: false,
@@ -26,12 +26,12 @@ function add(server) {
   });
 
   server.post("/register", (req, res) => {
+    console.log(req.body.role);
     if (req.body.role === "owner") {
       Entity.ownerModel
         .create(req.body)
         .then(item => {
           const url = `/common/assets/avatars/owner`;
-          console.log(!fs.existsSync(url));
           if (!fs.existsSync(url)) {
             fs.mkdirSync(url, { recursive: true });
           }
@@ -77,7 +77,13 @@ function add(server) {
     const user = Entity.userModel.findById(req.params.id);
     if (user) {
       await Entity.userModel
-        .deleteOne({ _id: req.params.id })
+        .findByIdAndUpdate(
+          req.params.id,
+          { deleted: true },
+          {
+            new: true,
+          }
+        )
         .then(() => {
           res.status(204).json({
             status: "Deleted",
@@ -86,7 +92,7 @@ function add(server) {
         .catch(() => res.status(400).json({ error: "Error" }));
     } else {
       await Entity.ownerModel
-        .deleteOne({ _id: req.params.id })
+        .findByIdAndUpdate(req.params.id, { deleted: true }, { new: true })
         .then(() => {
           res.status(204).json({
             success: "Deleted",
@@ -98,5 +104,5 @@ function add(server) {
 }
 
 module.exports = {
-  add
+  add,
 };
