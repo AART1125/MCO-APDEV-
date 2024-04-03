@@ -27,6 +27,35 @@ async function addReply(req, resp, reviewId) {
     }
 }
 
+async function searchReply(replyId) {
+    const replyDoc = await schemas.replyModel.findOne({_id : replyId, isDeleted : false});
+    return replyDoc;
+}
+
+async function editReply(req, resp) {
+    const replyId = req.body.replyId;
+    const updatedReplyContent = req.body.textReply;
+
+    try {
+        const existingReply= await schemas.replyModel.findOne({_id : replyId, isDeleted : false});
+
+        if (!existingReply) {
+            return resp.status(404).json({ message: 'Reply not found' });
+        }
+
+        existingReply.reply = updatedReplyContent;
+
+        const updatedReply = await existingReply.save();
+
+        resp.status(200).json({ message: 'Reply updated successfully', reply: updatedReply });
+    } catch (error) {
+        console.error('Error:', error);
+        resp.status(500).json({ message: 'Failed to update reply', error: error });
+    }
+}
+
 module.exports = {
-    addReply
+    addReply,
+    searchReply,
+    editReply
 };

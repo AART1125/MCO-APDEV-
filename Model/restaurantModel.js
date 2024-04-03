@@ -66,6 +66,7 @@ async function getSpecificRestaurantData(restoname, req) {
             'is-recommend': review.isRecommend,
             'review': review.review,
             'reply': review.reply ? review.reply.reply : null,
+            'replyId': review.reply ? review.reply._id : null,
             // Assuming the owner's data is required per review, which might be redundant
             'owner-profileimg': review.reply ? restaurants[0].owner_id.profileimg : null,
             'owner-fullname': review.reply ? restaurants[0].owner_id.fullname : null,
