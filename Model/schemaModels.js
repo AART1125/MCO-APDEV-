@@ -47,9 +47,13 @@ const restaurantSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
     profileimg  :   {type: String},
     fullname    :   {type: String},
-    username    :   {type: String},
-    password    :   {type: String},
-    email       :   {type: String},
+    username    :   {type: String,
+                    required: true,
+                    unique: true},
+    password    :   {type: String,
+                    required: true},
+    email       :   {type: String,
+                    required: true},
     contactnum  :   {type: Number},
     likedresto  :   {type: [String], default : []}, //names
     preferences :   {
