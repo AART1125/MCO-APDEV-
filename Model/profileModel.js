@@ -135,11 +135,56 @@ async function findOwnerProfile(req, resp, templateName) {
         console.error('Error finding profile:', err);
         resp.status(500).send('Error finding profile');
     }
+
+
 }
 
-function UserProfileEdit(req, resp) {
+async function findUserProfileEdit(req, resp) {
     findUserProfile(req, resp, 'editprofile');
 }
+
+async function UserProfileEdit(req, resp) {
+    try {
+        const userModel = schemas.userModel;
+
+        let user = await userModel.findOne({ _id: req.session.login_user });
+
+        if (!user) {
+            return resp.status(404).send("User not found.");
+        }
+
+        user.fname = req.body.fullname;
+        user.username = req.body.username;
+        user.email = req.body.email;
+
+        user.preferences.isLike = req.body.likes.split(',').map(item => item.trim());
+        user.preferences.isDislike = req.body.dislikes.split(',').map(item => item.trim());
+
+        if (req.body.password) {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+            user.password = hashedPassword;
+        }
+
+        if (req.session.login_username !== req.body.username) {
+            req.session.login_username = req.body.username;
+        }
+
+
+        await user.save();
+
+        resp.redirect(`/user-profile/${user.username}`);
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        resp.status(500).send("Error updating profile.");
+    }
+}
+
+module.exports = {
+    findUserProfile,
+    UserProfileEdit,
+    findUserProfileEdit,
+};
+
 
 function OwnerProfileEdit(req, resp) {
     findOwnerProfile(req, resp, 'editprofile');
@@ -150,4 +195,5 @@ module.exports = {
     findOwnerProfile,
     OwnerProfileEdit,
     UserProfileEdit,
+    findUserProfileEdit,
 };
