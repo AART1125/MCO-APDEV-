@@ -25,7 +25,7 @@ window.onload = function (e) {
 
   const Register = async e => {
     e.preventDefault();
-    const buffer = Buffer.from(img, "base64"); //This is the buffer if you want to add this replace to profileImg
+    // const buffer = Buffer.from(img, "base64"); //This is the buffer if you want to add this replace to profileImg
     let model = {
       role,
       base64: img,
