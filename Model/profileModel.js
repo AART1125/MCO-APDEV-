@@ -162,7 +162,12 @@ async function UserProfileEdit(req, resp) {
         user.preferences.isDislike = req.body.dislikes.split(',').map(item => item.trim());
 
         if (req.body.password) {
-            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+            const passwordToHash = req.body.password.trim();
+            console.log("Original Password:", passwordToHash); // TO FIX for some reason whatever is being hashed once edited, doesn't match the words? UGH kainis
+
+            const hashedPassword = await bcrypt.hash(passwordToHash, 10);
+            console.log("Hashed Password:", hashedPassword); // TO FIX
+
             user.password = hashedPassword;
         }
 
