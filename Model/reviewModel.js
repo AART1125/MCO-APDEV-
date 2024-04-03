@@ -56,6 +56,23 @@ async function editReview(req, resp) {
     }
 }
 
+async function deleteReview(reviewId) {
+    try {
+        const review = await schemas.reviewModel.findOne({ _id: reviewId });
+
+        if (!review) {
+            return false; 
+        }
+
+        review.isDeleted = true;
+        await review.save();
+        return true; 
+    } catch (error) {
+        console.error('Error:', error);
+        return false; 
+    }
+}
+
 async function likeReview(req, resp) {
     const reviewId = req.params.reviewId;
 
@@ -102,6 +119,7 @@ module.exports = {
     addReview,
     editReview,
     searchReview,
+    deleteReview,
     likeReview,
     dislikeReview
 };

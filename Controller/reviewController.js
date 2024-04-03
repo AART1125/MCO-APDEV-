@@ -60,6 +60,17 @@ function add(server) {
         });
     });
 
+    server.post('/restaurant/:restoname/delete-reviews', async (req, resp) => {
+        const reviewId = req.body.reviewId;
+        const success = await review.deleteReview(reviewId);
+
+        if (success) {
+            resp.status(200).json({ message: 'Review deleted successfully' });
+        } else {
+            resp.status(404).json({ message: 'Review not found' });
+        }
+    });
+
     // Handle like action
     server.post('/restaurant/:restoname/reviews/:reviewId/like', async (req, resp) => {
         try {
