@@ -42,6 +42,23 @@ function add(server) {
         const replyId = req.body.replyId;
         reply.editReply(req, resp, replyId); 
     });
+
+    server.get('/restaurant/:restoname/deletereply/:replyId', async (req, resp) => {
+        const replyDoc = await reply.searchReply(req.params.replyId);
+        resp.render('deletereply', {
+            layout: 'index',
+            title: 'Delete Reply',
+            js: '/common/js/deleteReply.js',
+            css: '/common/css/review.css',
+            restoname: req.params.restoname,
+            replyId: req.params.replyId,
+            reviewId : req.params.reviewId,
+            islogin: req.session.login_id != undefined,
+            isOwner: req.session.login_isOwner,
+            username: req.session.login_username,
+            reply: replyDoc.reply
+        });
+    });  
 }
 
 module.exports = {

@@ -84,7 +84,7 @@
                 -->
                 {{#if isUser}}
                     <div class="delete">
-                        <a href="#">Delete Review</a>
+                        <a href="/restaurant/{{resto-name}}/deletereview/{{reviewId}}">Delete Review</a>
                     </div>
                     <div class="edit">
                         <a href="/restaurant/{{resto-name}}/editreview/{{reviewId}}">Edit Review</a>
@@ -105,7 +105,11 @@
                     </div>
                 </div> 
                 <div class="comment">
+                    {{#if isDeleted}}
+                    <i>Reply Deleted</i>
+                    {{else}}
                     <p>{{reply}}</p> 
+                    {{/if}}
                 </div> 
             </div>
             {{/if}}

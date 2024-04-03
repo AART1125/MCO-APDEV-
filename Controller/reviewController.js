@@ -42,6 +42,24 @@ function add(server) {
         review.editReview(req, resp, reviewId); 
     });
 
+    // Handle delete review
+    server.get('/restaurant/:restoname/deletereview/:reviewId', async (req, resp) => {
+        const reviewDoc = await review.searchReview(req.params.reviewId);
+        resp.render('deletereview', {
+            layout: 'index',
+            title: 'Delete a Review',
+            js: '/common/js/deleteReview.js',
+            css: '/common/css/review.css',
+            islogin: req.session.login_id !== undefined,
+            isOwner: req.session.login_isOwner,
+            username: req.session.login_username,
+            reviewId: req.params.reviewId,
+            restoname: req.params.restoname,
+            review: reviewDoc.review,
+            isRecommend: reviewDoc.isRecommend
+        });
+    });
+
     // Handle like action
     server.post('/restaurant/:restoname/reviews/:reviewId/like', async (req, resp) => {
         try {

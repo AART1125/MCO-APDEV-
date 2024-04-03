@@ -152,6 +152,10 @@ textarea {
     margin-top: 5px;
 }
 
+.note {
+    font-size: 1rem;
+    color: darkgray;
+}
 
 /* -- FOR A BUTTONS */
 
@@ -162,7 +166,6 @@ textarea {
 }
 
 .btn-group .btn {
-    font-family: 'Poppins';
     padding: .75rem 1rem;
     border-radius: .5rem;
     border: none;
@@ -178,6 +181,15 @@ textarea {
 }
 
 .btn-group .btn.submit:hover {
+    background: #537A5A;
+}
+
+.btn-group .btn.delete {
+    background: #191F24;
+    color: #F4F6DF;
+}
+
+.btn-group .btn.delete:hover {
     background: #537A5A;
 }
 
