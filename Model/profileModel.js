@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const schemas = require('./schemaModels');
 
 async function findUserProfile(req, resp, templateName) {
