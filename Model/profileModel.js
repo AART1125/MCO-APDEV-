@@ -140,7 +140,7 @@ async function findOwnerProfile(req, resp, templateName) {
 
 }
 
-async function findUserProfileEdit(req, resp) {
+function findUserProfileEdit(req, resp) {
     findUserProfile(req, resp, 'editprofile');
 }
 
@@ -154,7 +154,7 @@ async function UserProfileEdit(req, resp) {
             return resp.status(404).send("User not found.");
         }
 
-        user.fname = req.body.fullname;
+        user.fullname = req.body.fullname;
         user.username = req.body.username;
         user.email = req.body.email;
 
@@ -166,10 +166,7 @@ async function UserProfileEdit(req, resp) {
             user.password = hashedPassword;
         }
 
-        if (req.session.login_username !== req.body.username) {
-            req.session.login_username = req.body.username;
-        }
-
+        req.session.login_username = user.username;
 
         await user.save();
 
@@ -179,12 +176,6 @@ async function UserProfileEdit(req, resp) {
         resp.status(500).send("Error updating profile.");
     }
 }
-
-module.exports = {
-    findUserProfile,
-    UserProfileEdit,
-    findUserProfileEdit,
-};
 
 
 function OwnerProfileEdit(req, resp) {
