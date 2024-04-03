@@ -30,45 +30,54 @@ function add(server) {
     if (req.body.role === "owner") {
       Entity.ownerModel
         .create(req.body)
-        .then(item => {
-          const url = `/common/assets/avatars/owner`;
+        .then(async item => {
+          const url = /common/assets/avatars/owner;
           if (!fs.existsSync(url)) {
             fs.mkdirSync(url, { recursive: true });
           }
           try {
             fs.writeFileSync(
-              `${url}/${item.email}.png`,
+              ${url}/${item.email}.png,
               req.body.base64,
               "base64"
             );
           } catch (error) {}
-          res.status(201).json({
-            success: "Created Successfully",
-            isOwner: true,
-            payload: item,
-          });
+
+          let response = { doesExist: true, isOwner: false };
+
+          req.session.login_user = owner._id;
+          req.session.login_username = owner.username;
+          req.session.login_isOwner = true;
+          req.session.login_id = req.sessionID;
+          console.log("Owner Register!");
+          response = { doesExist: true, isOwner: true };
+
+          res.send(response);
         })
         .catch(error => res.status(400).json({ error: error }));
     } else {
       Entity.userModel
         .create(req.body)
-        .then(item => {
-          const url = `/common/assets/avatars/users`;
+        .then(user => {
+          const url = /common/assets/avatars/users;
           if (!fs.existsSync(url)) {
             fs.mkdirSync(url, { recursive: true });
           }
           try {
             fs.writeFileSync(
-              `${url}/${item.email}.png`,
+              ${url}/${item.email}.png,
               req.body.base64,
               "base64"
             );
           } catch (error) {}
-          res.status(201).json({
-            success: "Created Successfully",
-            isOwner: false,
-            payload: item,
-          });
+          let response = { doesExist: true, isOwner: false };
+          req.session.login_user = user._id;
+          req.session.login_username = user.username;
+          req.session.login_isOwner = false;
+          req.session.login_id = req.sessionID;
+          response = { doesExist: true, isOwner: true };
+          console.log("Register User");
+          res.send(response);
         })
         .catch(error => res.status(400).json({ error: error }));
     }
