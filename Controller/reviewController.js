@@ -46,8 +46,12 @@ function add(server) {
     server.post('/restaurant/:restoname/reviews/:reviewId/like', async (req, resp) => {
         try {
             const reviewId = req.params.reviewId;
-            await review.findByIdAndUpdate(reviewId, { $inc: { likes: 1 }, action: 'like' });
-            resp.status(200).json({ message: 'Review liked successfully' });
+            const updatedReview = await review.findByIdAndUpdate(
+                reviewId,
+                { $inc: { likes: 1 }, $set: { action: 'like' } },
+                { new: true }
+            );
+            resp.status(200).json({ message: 'Review liked successfully', review: updatedReview });
         } catch (error) {
             console.error('Error:', error);
             resp.status(500).json({ message: 'Failed to like review', error: error });
@@ -58,14 +62,17 @@ function add(server) {
     server.post('/restaurant/:restoname/reviews/:reviewId/dislike', async (req, resp) => {
         try {
             const reviewId = req.params.reviewId;
-            await review.findByIdAndUpdate(reviewId, { $inc: { dislikes: 1 }, action: 'dislike' });
-            resp.status(200).json({ message: 'Review disliked successfully' });
+            const updatedReview = await review.findByIdAndUpdate(
+                reviewId,
+                { $inc: { dislikes: 1 }, $set: { action: 'dislike' } },
+                { new: true }
+            );
+            resp.status(200).json({ message: 'Review disliked successfully', review: updatedReview });
         } catch (error) {
             console.error('Error:', error);
             resp.status(500).json({ message: 'Failed to dislike review', error: error });
         }
     });
-
 }
 
 module.exports = {

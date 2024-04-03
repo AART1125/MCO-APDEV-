@@ -63,6 +63,7 @@ async function getSpecificRestaurantData(restoname, req) {
             'isUser': req.session.login_username === review.users_id.username,
             'likes': review.likes,
             'dislikes': review.dislikes,
+            'action': review.action,
             'is-recommend': review.isRecommend,
             'review': review.review,
             'reply': review.reply ? review.reply.reply : null,

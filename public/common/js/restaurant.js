@@ -35,11 +35,7 @@ window.onload = async function () {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            reviewId: reviewId,
-                            action: action
-                        })
+                        }
                     });
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
