@@ -1,4 +1,5 @@
 const mongoose = require('mongoose'); // Database
+const bcrypt = require("bcrypt");
 
 const replySchema = new mongoose.Schema({
     owner_id    :   {type: mongoose.Types.ObjectId, ref: 'owners'},
@@ -79,6 +80,32 @@ const ownerSchema = new mongoose.Schema({
 const replyModel = mongoose.model('replies', replySchema);
 const reviewModel = mongoose.model('reviews', reviewSchema);
 const restaurantModel = mongoose.model('restaurants', restaurantSchema);
+userSchema.pre("save", async function (next) {
+  const user = this;
+  if (!user.isModified("password")) return next();
+
+  try {
+    const saltRounds = 10;
+    const hash = await bcrypt.hash(user.password, saltRounds);
+    user.password = hash; // Update the 'password' field, not 'user.password'
+    next();
+  } catch (err) {
+    return next(err);
+  }
+});
+ownerSchema.pre("save", async function (next) {
+  const user = this;
+  if (!user.isModified("password")) return next();
+
+  try {
+    const saltRounds = 10;
+    const hash = await bcrypt.hash(user.password, saltRounds);
+    user.password = hash; // Update the 'password' field, not 'user.password'
+    next();
+  } catch (err) {
+    return next(err);
+  }
+});
 const userModel = mongoose.model('users', userSchema);
 const ownerModel = mongoose.model('owners', ownerSchema);
 
