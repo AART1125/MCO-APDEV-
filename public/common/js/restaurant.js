@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded',async () => {
         const likedbutton = document.getElementById('likebutton'+reviewnum);
         const dislikedbutt = document.getElementById('dislikebutton'+reviewnum);
 
-        console.log(likedbutton);
-
         likedbutton.addEventListener('click', async () => {
             if(likerating.classList.contains("post-rating-selected")){
                 return;
