@@ -1,0 +1,116 @@
+[{
+  "_id": {
+    "$oid": "65ec4aa1b70e1d93b43c9993"
+  },
+  "fullname": "Bryan Shin",
+  "username": "bryanshin",
+  "password": "league",
+  "email": "bryanshin@gmail.com",
+  "contactnum": {
+    "$numberLong": "9123456780"
+  },
+  "replies": [],
+  "contactinfo": [
+    {
+      "links": [
+        "https://www.linkedin.com/in/bryan-shin-64786832"
+      ],
+      "title": [
+        "LinkedIn"
+      ]
+    }
+  ],
+  "restaurants": [
+    {
+      "$oid": "65ec528db70e1d93b43c9995"
+    }
+  ],
+  "profileimg": "https://media.licdn.com/dms/image/C5103AQHdgCTYvMzXMw/profile-displayphoto-shrink_800_800/0/1565684241401?e=2147483647&v=beta&t=ANl4-Uhx7y5-Xic_rB8_cqcgOHRWIf1h5-YiTm6RPn8"
+},
+{
+  "_id": {
+    "$oid": "65f31f307e9168f5b0252d9e"
+  },
+  "fullname": "Rica Penalosa",
+  "username": "ricapenalosa",
+  "password": "league",
+  "email": "ricapenalosa@gmail.com",
+  "contactnum": {
+    "$numberLong": "9123456781"
+  },
+  "replies": [],
+  "contactinfo": [],
+  "restaurants": [
+    {
+      "$oid": "65ec8c79b70e1d93b43c99a6"
+    }
+  ],
+  "profileimg": "/common/assets/owners_pics/owner_bacsilog.jpg"
+},
+{
+  "_id": {
+    "$oid": "65f32eee7e9168f5b0252dd7"
+  },
+  "fullname": "Eric Puno",
+  "username": "ericpuno",
+  "password": "league",
+  "email": "ericpuno@gmail.com",
+  "contactnum": {
+    "$numberLong": "9123456781"
+  },
+  "replies": [],
+  "contactinfo": [],
+  "restaurants": [
+    {
+      "$oid": "65ec8c79b70e1d93b43c99a6"
+    }
+  ],
+  "profileimg": "/common/assets/owners_pics/owner_an.png"
+},
+{
+  "_id": {
+    "$oid": "65f334bda205f5865265538e"
+  },
+  "fullname": "Tony Tan Caktiong",
+  "username": "tonytan",
+  "password": "jollibeeislife",
+  "email": "tonytan@gmail.com",
+  "contactnum": {
+    "$numberLong": "9123456781"
+  },
+  "replies": [],
+  "contactinfo": {
+    "title": [
+      "Wikipedia"
+    ],
+    "links": [
+      "https://en.wikipedia.org/wiki/Tony_Tan_Caktiong"
+    ]
+  },
+  "restaurants": [
+    {
+      "$oid": "65ec8c9bb70e1d93b43c99a9"
+    }
+  ],
+  "profileimg": "/common/assets/owners_pics/owner_jabee.png"
+},
+{
+  "_id": {
+    "$oid": "65f342337e9168f5b0252e50"
+  },
+  "fullname": "Justin",
+  "username": "jusnjerry",
+  "password": "league",
+  "email": "justin@gmail.com",
+  "contactnum": {
+    "$numberLong": "9123454781"
+  },
+  "replies": [],
+  "contactinfo": [],
+  "restaurants": [
+    {
+      "$oid": "65ec8c99b70e1d93b43c99a8"
+    }
+  ],
+  "profileimg": "/common/assets/owners_pics/owner_jj.png"
+}]

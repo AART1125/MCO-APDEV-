@@ -116,6 +116,25 @@ a {
     padding-bottom: 2%;
 }
 
+.reminder {
+    text-align: center;
+    background: #191F24;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-top:#FAF6DE 2px solid;
+    border-bottom:#FAF6DE 2px solid;
+}
+
+.reminder a {
+    padding-left: .2em;
+    padding-right: .2em;
+}
+
+
 
 
 /* -- FOR PICTURES */
@@ -298,7 +317,7 @@ p {
     width: 20em;
     background-color: #FAF6DE;
     padding: 5px;
-    padding-left: 15px;
+    padding-left: 10px;
     font-family: 'Poppins';
 }
 

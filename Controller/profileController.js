@@ -1,30 +1,50 @@
-const profileDB = require('../Model/profileModel');
+const { findUserProfile, findOwnerProfile, findUserProfileEdit, UserProfileEdit, OwnerProfileEdit, deleteUserProfile, deleteOwnerProfile } = require('../Model/profileModel');
 
 function add(server) {
-    server.post('/user-profile', (req, resp) => {
-        profileDB.findProfile(req, resp);
+    
+    server.get('/user-profile/:username', async (req, resp) => {
+        try {
+            await findUserProfile(req, resp, 'profile');
+        } catch (error) {
+            console.error('Error getting profile:', error);
+            resp.status(500).send('Error getting profile');
+        }
     });
 
-    server.get('/user-profile', (req, resp) => {
-        resp.render('main', {
-            layout: 'index',
-            title: 'Archer\'s Hunt',
-            js: '/common/js/mainFunc.js',
-            css: '/common/css/main.css',
-            islogin: true,
-            isUser: true
-        });
+    server.get('/user-profile/:username/edit-user-profile', async (req, resp) => {
+        try {
+            await findUserProfileEdit(req, resp, 'editprofile');
+        } catch (error) {
+            console.error('Error getting profile:', error);
+            resp.status(500).send('Error getting profile');
+        }
     });
 
-    server.get('/owner-profile', (req, resp) => {
-        resp.render('main', {
-            layout: 'index',
-            title: 'Archer\'s Hunt',
-            js: '/common/js/mainFunc.js',
-            css: '/common/css/main.css',
-            islogin: true,
-            isOwner: true
-        });
+    server.post('/user-profile/:username/edit-user-profile', async (req, resp) => {
+        try {
+            await UserProfileEdit(req, resp);
+        } catch (error) {
+            console.error('Error getting profile:', error);
+            resp.status(500).send('Error getting profile');
+        }
+    });
+
+    server.get('/user-profile/:username/edit-owner-profile', async (req, resp) => {
+        try {
+            await OwnerProfileEdit(req, resp, 'editprofile');
+        } catch (error) {
+            console.error('Error getting profile:', error);
+            resp.status(500).send('Error getting profile');
+        }
+    });
+
+    server.get('/owner-profile/:username', async (req, resp) => {
+        try {
+            await findOwnerProfile(req, resp, 'profile');
+        } catch (error) {
+            console.error('Error getting profile:', error);
+            resp.status(500).send('Error getting profile');
+        }
     });
 }
 

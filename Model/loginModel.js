@@ -1,34 +1,52 @@
 //Database Functions
 const schemas = require('./schemaModels');
+const bcrypt = require('bcrypt');
 
-
-function loginToWebsite(req, resp){
-    const query = {username : req.body.username, password : req.body.password};
+async function loginToWebsite(req, resp){
+    const query = {username : req.body.username, isDeleted : false};
     let response = {doesExist : true, isOwner : false};
 
-    console.log('Trying to Login');
-    schemas.userModel.findOne(query).then((login) => {
-        console.log('Finding user');
-        if (login != undefined && login._id != null) {
-            console.log("User found!");
-            resp.send(response);
-        } else {
-            console.log("User not found!");
-            schemas.ownerModel.findOne(query).then((owner) => {
-                console.log('Finding owner');
-                if (owner != undefined && owner._id != null) {
-                    console.log("Owner found!");
-                    response = {doesExist : true, isOwner : true};
-                    resp.send(response);
-                } else {
-                    console.log('Owner not found!');
-                    console.log('No information in Database!');
-                    response = {doesExist : false};
-                    resp.send(response);
-                };
-            }).catch();
-        };
-    }).catch();
+    const user = await schemas.userModel.findOne(query);
+    const owner = await schemas.ownerModel.findOne(query);
+
+    if(user && !owner){
+        bcrypt.compare(req.body.password, user.password).then(out => {
+            if (!out) {
+                resp.send({doesExist : false});
+                console.log("Wrong Password!");
+            } else {
+                req.session.login_user = user._id;
+                req.session.login_username = user.username;
+                req.session.login_isOwner = false;
+                req.session.login_id = req.sessionID;
+                resp.send(response);
+            }
+        }).catch();
+
+        
+    
+    } else if (!user && owner){
+        bcrypt.compare(req.body.password, owner.password).then(out => {
+            if (!out) {
+                resp.send({doesExist : false});
+                console.log("Wrong Password!");
+            } else {
+                req.session.login_user = owner._id;
+                req.session.login_username = owner.username;
+                req.session.login_isOwner = true;
+                req.session.login_id = req.sessionID;
+                console.log("Owner found!");
+                resp.send({doesExist : true, isOwner : true});
+            }
+        }).catch();
+
+        
+    } else {
+        console.log('No information in Database!');
+        resp.send({doesExist : false});
+        
+    }
+
 }
 
 module.exports = {

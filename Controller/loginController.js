@@ -5,29 +5,23 @@ function add(server){
         loginModel.loginToWebsite(req, resp);
     });
 
-    server.get('/main-user', (req,resp) => {
-        resp.render('main',{
-            layout      :   'index',
-            title       :   'Archer\'s Hunt',
-            js          :   '/common/js/mainFunc.js',
-            css         :   '/common/css/main.css',
-            islogin     :   true,
-            isOwner     :   false
+    server.get('/login',(req, resp) => {
+        resp.render('login', {
+            layout  :   'index',
+            title   :   'Archer\'s Hunts | Login',
+            js      :   '/common/js/loginFunc.js',
+            css     :   '/common/css/login.css',
+        })
+    });
+
+    server.get('/logout',(req, resp) => {
+        req.session.destroy((err) => {
+            resp.redirect('/');
         });
     });
 
-    server.get('/main-owner', (req,resp) => {
-        resp.render('main',{
-            layout      :   'index',
-            title       :   'Archer\'s Hunt',
-            js          :   '/common/js/main.js',
-            css         :   '/common/css/main.css',
-            islogin     :   true,
-            isOwner     :   true
-        });
-    });
 }
 
 module.exports = {
     add
-}
+};

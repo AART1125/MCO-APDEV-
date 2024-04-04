@@ -1,0 +1,163 @@
+[{
+  "_id": {
+    "$oid": "65ec528db70e1d93b43c9995"
+  },
+  "restoimg": [
+    "/common/assets/restaurant_pics/bonchon.webp"
+  ],
+  "restoimg2": [
+    "/common/assets/restoweb_pics/bonchon.png"
+  ],
+  "restoname": "Bonchon",
+  "restodesc": "Discover the delicious journey of BonChon! From its humble beginnings to worldwide success, founder Jinduk Seh's passion for Korean comfort food led him to craft the ultimate crispy, tender, and flavorful Korean Fried Chicken. Aside from the delicious Korean meals, BonChon brings people together to celebrate culture and tradition with every delectable bite.",
+  "owner_id": {
+    "$oid": "65ec4aa1b70e1d93b43c9993"
+  },
+  "contactnum": 1111111111,
+  "foodtype": [
+    "Chicken",
+    "Korean"
+  ],
+  "restotype": "Korean Restaurant",
+  "address": "University Mall, 2057 Taft Ave",
+  "likes": 0,
+  "dislikes": 0,
+  "stars": 5,
+  "reviews": [
+    {
+      "$oid": "65f18cf7247cdf3a55643622"
+    }
+  ],
+  "location": "University Mall",
+  "openingHours": "10:00 AM - 9:00 PM"
+},
+{
+  "_id": {
+    "$oid": "65ec8c79b70e1d93b43c99a6"
+  },
+  "restoimg": [
+    "/common/images/restaurants/ate-ricas-bacsilog-delivery.jpg"
+  ],
+  "restoimg2": [
+    "/common/assets/restoweb_pics/bacsi.png"
+  ],
+  "restoname": "Ate Rica's Bacsilog",
+  "restodesc": "Ate Rica, along with her business partners, just recently incorporated the company, Baconnoisseur Corporation, in order to open its franchise operations. After more than a decade of providing delicious and budget-friendly food to students of DLSU and UST, Ate Rica's is now poised to take off and open itself to franchise partners so that more people on-the-go can enjoy the Ate Rica's Bacsilog experience all over the Philippines and beyond!",
+  "owner_id": {
+    "$oid": "65f31f307e9168f5b0252d9e"
+  },
+  "contactnum": 1111111111,
+  "foodtype": [
+    "Breakfast"
+  ],
+  "restotype": "Quick Bites",
+  "address": "2305 Fidel A.Reyes, Malate",
+  "likes": 0,
+  "dislikes": 0,
+  "stars": 3,
+  "reviews": [
+    {
+      "$oid": "65f319837e9168f5b0252d6d"
+    }
+  ],
+  "location": "Agno Food Court",
+  "openingHours": "7:00 AM - 7:00 PM"
+},
+{
+  "_id": {
+    "$oid": "65ec8c93b70e1d93b43c99a7"
+  },
+  "restoimg": [
+    "/common/images/restaurants/army.jpg"
+  ],
+  "restoimg2": [
+    "/common/assets/restoweb_pics/army navy.png"
+  ],
+  "restoname": "Army Navy",
+  "restodesc": "#Delicious is more than a just a word to describe our burgers and burritos. We strive to give you the dining experience you deserve from the moment you step into any of our more than 80 stores nationwide and up until you walk out with a smile of sure satisfaction on your face. Grab a burger. Or a burrito. Or both – because you deserve it!",
+  "owner_id": {
+    "$oid": "65f32eee7e9168f5b0252dd7"
+  },
+  "contactnum": 1111111111,
+  "foodtype": [
+    "Mexican",
+    "Quickbites"
+  ],
+  "restotype": "Mexican Restaurant",
+  "address": "Burgundy Transpacific Place Unit G6",
+  "likes": 0,
+  "dislikes": 0,
+  "stars": 4,
+  "reviews": [
+    {
+      "$oid": "65f32b417e9168f5b0252dc4"
+    }
+  ],
+  "location": "Burgundy Transpacific Place",
+  "openingHours": "7:30 AM - 4:30 AM"
+},
+{
+  "_id": {
+    "$oid": "65ec8c99b70e1d93b43c99a8"
+  },
+  "restoimg": [
+    "/common/images/restaurants/jj.jpg"
+  ],
+  "restoimg2": [
+    "/common/assets/restoweb_pics/jusnjerry.png"
+  ],
+  "restoname": "Jus & Jerry's",
+  "restodesc": "Jus & Jerry’s Food Corp. was founded by identical twin brothers Justin and Jeremy as a small cafeteria-style back in 2010. Their first store was located along Tolentino St., Manila near UST. A year later, they moved to a bigger location in Taft Ave., Manila to cater to more patrons. It has now grown into a full quick service restaurant operating with 4 branches. Growing up in a family with a restaurant background, most of their menu started at home in their small kitchen and has evolved to what it has now been known for – fried chicken, noodles, dimsum and milk teas. Despite the unfavorable support from their family and with limited startup capital, they pursued their passion and love for food, cooking and creative new ideas.",
+  "owner_id": {
+    "$oid": "65f342337e9168f5b0252e50"
+  },
+  "contactnum": 1111111111,
+  "foodtype": [
+    "Chicken",
+    "Chinese"
+  ],
+  "restotype": "Chinese Restaurant",
+  "address": " EGI Taft Tower, Unit 112 G/F",
+  "likes": 0,
+  "dislikes": 0,
+  "stars": 3,
+  "reviews": [
+    {
+      "$oid": "65f331a1a205f58652655371"
+    }
+  ],
+  "location": " EGI Taft Tower",
+  "openingHours": "10:30 AM - 7:00 PM"
+},
+{
+  "_id": {
+    "$oid": "65ec8c9bb70e1d93b43c99a9"
+  },
+  "restoimg": [
+    "/common/images/restaurants/jabee.jpg"
+  ],
+  "restoimg2": [
+    "/common/assets/restoweb_pics/jabee.png"
+  ],
+  "restoname": "Jollibee",
+  "restodesc": "Jollibee is the largest fast food chain brand in the Philippines, operating a network of more than 1,500 stores in 17 countries. A dominant market leader in the Philippines, Jollibee enjoys the lion’s share of the local market that is more than all the other multinational fast food brands in PH combined. With a strict adherence to the highest standards of food quality, service and cleanliness, Jollibee serves great-tasting, high-quality and affordable food products to include its superior-tasting Chickenjoy, mouth-watering Yumburger, and deliciously satisfying Jolly Spaghetti among other delicious products.",
+  "owner_id": {
+    "$oid": "65f334bda205f5865265538e"
+  },
+  "contactnum": 1111111111,
+  "foodtype": [
+    "Chicken"
+  ],
+  "restotype": "Fast Food Restaurant",
+  "address": "855 Taft Avenue, cor P.Ocampo St.",
+  "likes": 0,
+  "dislikes": 0,
+  "stars": 2,
+  "reviews": [
+    {
+      "$oid": "65f33126a205f58652655368"
+    }
+  ],
+  "location": "Across Br. Andrew Building Hall",
+  "openingHours": "6:00 AM - 10:00 PM"
+}]

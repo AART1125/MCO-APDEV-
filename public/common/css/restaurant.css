@@ -71,8 +71,8 @@ a:hover {
     flex-shrink: 0;
     max-width: 1200px; 
     max-height: 100%;
-    overflow: auto;
     flex-grow: 1; 
+    border-radius: 1em;
 }
 
 .restaurant-text{
@@ -108,17 +108,20 @@ a:hover {
     width: 38%;
     display:flex;
     flex-direction: column;
+    border-radius: 1em;
 }
 
 .rev-scroll{
-    max-height: 40em;
+    max-height: 42em;
     overflow-y: auto; 
     margin-bottom: 1em;
 }
 
+/*
 ::-webkit-scrollbar {
     display: none;
 }
+*/
 
 .rev1, .rev2{
     background-color: #FAF6DF;
@@ -126,6 +129,7 @@ a:hover {
     display:flex;
     flex-direction: column;
     margin-bottom: 20px;
+    border-radius: 1em;
 }
 
 .profile{
@@ -156,6 +160,7 @@ a:hover {
 
 .name{
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .username{
@@ -281,6 +286,7 @@ a:hover {
 }
 
 .reply-button-containers {
+    font-family: 'Poppins';
     display: flex;
     align-items: center;
     justify-content: center;
@@ -315,6 +321,7 @@ a:hover {
 }
 
 .cancelbtn {
+    font-family: 'Poppins';
     padding: 1em;
     margin-right: 1em;
     margin-bottom: .5em;
@@ -324,6 +331,7 @@ a:hover {
 }
 
 .sendbtn {
+    font-family: 'Poppins';
     padding: 1em;
     margin-bottom: .5em;
     background-color: #F4F6DF;
@@ -334,3 +342,20 @@ a:hover {
 .cancelbtn:hover, .sendbtn:hover {
     opacity: 0.9;
 }
+
+.grid-container {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+  }
+  
+  .grid-item {
+    max-width: 100%;
+  }
+  
+  img {
+    width: 100%; 
+    height: auto; 
+  }
+  

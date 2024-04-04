@@ -1,0 +1,238 @@
+[{
+  "_id": {
+    "$oid": "65ed511d7c14f533d99f2ab0"
+  },
+  "username": "Art",
+  "password": "ace",
+  "email": "mongo@gmail.com",
+  "contactnum": 917823983,
+  "likedresto": [
+    "Bonchon",
+    "Chowking"
+  ],
+  "reviews": [
+    {
+      "$oid": "65f18cf7247cdf3a55643622"
+    }
+  ],
+  "friends": [
+    {
+      "$oid": "65f2f86b71ed8133e0751c84"
+    },
+    {
+      "$oid": "65f32f09a205f58652655346"
+    },
+    {
+      "$oid": "65f32d6ba205f58652655336"
+    },
+    {
+      "$oid": "65f32dc8a205f58652655337"
+    }
+  ],
+  "profileimg": "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg",
+  "preferences": [
+    {
+      "isLike": [
+        "Chinese"
+      ],
+      "isDislike": [
+        "Chicken"
+      ]
+    }
+  ],
+  "fullname": "Aaron Ace R. Toledo"
+},
+{
+  "_id": {
+    "$oid": "65f2f86b71ed8133e0751c84"
+  },
+  "profileimg": "/common/assets/users_pics/user_anton.jpg",
+  "fullname": "Anton Lee",
+  "username": "antonlee",
+  "password": "lovelee",
+  "email": "antonlee@gmail.com",
+  "contactnum": {
+    "$numberLong": "95463456789"
+  },
+  "likedresto": [],
+  "preferences": {
+    "isLike": [],
+    "isDislike": []
+  },
+  "reviews": [
+    {
+      "$oid": "65f319837e9168f5b0252d6d"
+    }
+  ],
+  "friends": [
+    {
+      "$oid": "65ed511d7c14f533d99f2ab0"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f2fed08a57abfcfb71cd0e"
+  },
+  "profileimg": "/common/assets/users_pics/user_hanni.jpg",
+  "fullname": "Hanni Pham",
+  "username": "hannipham",
+  "password": "123",
+  "email": "123@123.com",
+  "contactnum": {
+    "$numberLong": "9123456789"
+  },
+  "likedresto": [],
+  "preferences": {
+    "isLike": [],
+    "isDislike": []
+  },
+  "reviews": [
+    {
+      "$oid": "65f32b417e9168f5b0252dc4"
+    }
+  ],
+  "friends": [
+    {
+      "$oid": "65ed511d7c14f533d99f2ab0"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f313b92c678cf0f09b06ff"
+  },
+  "profileimg": "/assets/avatars/user/dlus@gmail.com.png",
+  "fullname": "dlsu",
+  "username": "dlsu",
+  "password": "dlsu",
+  "email": "dlus@gmail.com",
+  "contactnum": {
+    "$numberLong": "9123456789"
+  },
+  "likedresto": [],
+  "preferences": {
+    "isLike": [],
+    "isDislike": []
+  },
+  "reviews": [],
+  "friends": []
+},
+{
+  "_id": {
+    "$oid": "65f32d6ba205f58652655336"
+  },
+  "profileimg": "/common/assets/users_pics/user_janina.jpg",
+  "fullname": "Janina Esteban",
+  "username": "janinaesteban",
+  "password": "jesteban",
+  "email": "janina_esteban@dlsu.com",
+  "contactnum": {
+    "$numberLong": "9199202997"
+  },
+  "likedresto": [],
+  "preferences": {
+    "isLike": [
+      "Chicken",
+      "Eggs"
+    ],
+    "isDislike": [
+      "Overly-sweet foods"
+    ]
+  },
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "65f319837e9168f5b0252d6d"
+      },
+      "users_id": {
+        "$oid": "65f32d6ba205f58652655336"
+      },
+      "restaurant": "Ate Rica's Bacsilog",
+      "restoimg": "/common/images/restaurants/ate-ricas-bacsilog-delivery.jpg",
+      "review": "It unfortunately, fails to live up to the hype, and the disappointment begins with the bacon. Whoever is in charge of cooking the bacon seems to have a wildly inconsistent approach. Some pieces are so overcooked they resemble brittle, tasteless strips, while others are undercooked and chewy.",
+      "likes": 0,
+      "dislikes": 0,
+      "reply": {
+        "$oid": "65f31a4f7e9168f5b0252d77"
+      },
+      "isRecommend": false,
+      "datemade": "2024-03-13T12:00:00Z"
+    }
+  ],
+  "friends": [
+    {
+      "$oid": "65ed511d7c14f533d99f2ab0"
+    },
+    {
+      "$oid": "65f2fed08a57abfcfb71cd0e"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f32dc8a205f58652655337"
+  },
+  "profileimg": "/common/assets/users_pics/user_kween.jpg",
+  "fullname": "Yasmin Asistido",
+  "username": "kweenyasmin",
+  "password": "slayage",
+  "email": "kweenyasmin@gmail.com",
+  "contactnum": {
+    "$numberLong": "9184245529"
+  },
+  "likedresto": [],
+  "preferences": {
+    "isLike": [
+      "Clout",
+      "Pink",
+      "DLSU"
+    ],
+    "isDislike": [
+      "GBFs"
+    ]
+  },
+  "reviews": [
+    {
+      "$oid": "65f33126a205f58652655368"
+    }
+  ],
+  "friends": [
+    {
+      "$oid": "65ed511d7c14f533d99f2ab0"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f32e4aa205f58652655338"
+  },
+  "profileimg": "/common/assets/users_pics/user_sungchan.jpg",
+  "fullname": "Sungchan Kim",
+  "username": "sungchankim",
+  "password": "riizeforever",
+  "email": "seungchan_sm_ent@gmail.com",
+  "contactnum": {
+    "$numberLong": "9184265359"
+  },
+  "likedresto": [],
+  "preferences": {
+    "isLike": [
+      "Soccer",
+      "Sohee"
+    ],
+    "isDislike": [
+      "Vegetables"
+    ]
+  },
+  "reviews": [
+    {
+      "$oid": "65f331a1a205f58652655371"
+    }
+  ],
+  "friends": [
+    {
+      "$oid": "65ed511d7c14f533d99f2ab0"
+    }
+  ]
+}]

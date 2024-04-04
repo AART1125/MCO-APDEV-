@@ -9,15 +9,38 @@ body {
     background-image: url('../assets/backgroundimgs/pizza.gif');/*This gif came from this site https://youtu.be/sv3TXMSv6Lw*/
     background-size: cover;
     background-position: top;
-    position: relative;
     overflow: hidden;
-    margin: 0;
     font-family: 'Poppins';
     font-size: 2.1vh;
-    display: block;
+    display: flex;
+    position: absolute;
     justify-content: center;
-    align-content: center;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4); /* Adjust the color and opacity here */
+    }
 }
+
+.center {
+    display: block;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
 
 a {
     all: unset;
@@ -44,15 +67,15 @@ header {
 
 .title {
     display: flex;
+    justify-content: center;
+    align-items: center;
     color: #FAF6DE;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    position: absolute;
-    right: 37em;
-    transform: translateY(8em);
+    z-index: 9;
 }
 
 .logo > img {
@@ -81,15 +104,13 @@ header {
 }
 
 .login-container {
-    position: absolute;
-    right: 40%;
-    transform: translateY(15em);
+    position: relative;
     width: 420px;
     background-color: #FAF6DE;
-    color: black;
+    color: #191F24;
     padding: 30px 30px 30px 30px;
     border-radius: 3vh;
-    border: 5px solid #191F24;
+    border: 2px solid #191F24;
 }
 
 .login-container h1 {
@@ -141,6 +162,8 @@ header {
 
 .input-box {
     border-radius: 5vh;
+    display: flex;
+    align-items: center;
 }
 
 .input-box input {
@@ -160,11 +183,9 @@ header {
 }
 
 .input-box i {
-    position: absolute;
-    right: 5.5vh;
-    transform: translateY(1.5vh);
-    font-size: 20px;
+    margin: -10%;
 }
+
 
 .register-container {
     position: absolute;

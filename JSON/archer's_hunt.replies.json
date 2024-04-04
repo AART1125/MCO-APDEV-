@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "65f1ad7c247cdf3a55643666"
+  },
+  "owner_id": {
+    "$oid": "65ec4aa1b70e1d93b43c9993"
+  },
+  "resto_id": {
+    "$oid": "65ec528db70e1d93b43c9995"
+  },
+  "reviewofR": {
+    "$oid": "65f18cf7247cdf3a55643622"
+  },
+  "reply": "Thank you for your fantastic feedback! We're delighted you enjoyed our crispy delights and flavorful sauces. Our team is thrilled to provide friendly and attentive service. Looking forward to welcoming you back for more crispy perfection!",
+  "datemade": "2024-03-14T12:00:00Z"
+},
+{
+  "_id": {
+    "$oid": "65f31a4f7e9168f5b0252d77"
+  },
+  "owner_id": {
+    "$oid": "65f31f307e9168f5b0252d9e"
+  },
+  "resto_id": {
+    "$oid": "65ec8c79b70e1d93b43c99a6"
+  },
+  "reviewofR": {
+    "$oid": "65f319837e9168f5b0252d6d"
+  },
+  "reply": "We appreciate your feedback and apologize for the inconsistency with our bacon. Your comments are valuable, and we assure you that we are addressing this issue internally to ensure a more consistent and enjoyable experience for our guests!",
+  "datemade": "2024-03-14T12:00:00Z"
+},
+{
+  "_id": {
+    "$oid": "65f32d527e9168f5b0252dcb"
+  },
+  "owner_id": {
+    "$oid": "65f32eee7e9168f5b0252dd7"
+  },
+  "resto_id": {
+    "$oid": "65ec8c93b70e1d93b43c99a7"
+  },
+  "reviewofR": {
+    "$oid": "65f32b417e9168f5b0252dc4"
+  },
+  "reply": "Thank you so much for taking the time to share your thoughts with us! We truly appreciate your feedback and are thrilled to hear that you enjoyed our vegetarian offerings during your visit!",
+  "datemade": "2024-03-14T12:00:00Z"
+},
+{
+  "_id": {
+    "$oid": "65f33d387e9168f5b0252e16"
+  },
+  "owner_id": {
+    "$oid": "65f334bda205f5865265538e"
+  },
+  "resto_id": {
+    "$oid": "65ec8c9bb70e1d93b43c99a9"
+  },
+  "reviewofR": {
+    "$oid": "65f33126a205f58652655368"
+  },
+  "reply": "Thank you for your kind words! We're pleased to hear that our attentive and accommodating staff promptly addressed your broken spoon issue. We appreciate your understanding and hope to welcome you back for a seamless dining experience!",
+  "datemade": "2024-03-14T12:00:00Z"
+},
+{
+  "_id": {
+    "$oid": "65f340b87e9168f5b0252e3e"
+  },
+  "owner_id": {
+    "$oid": "65f342337e9168f5b0252e50"
+  },
+  "resto_id": {
+    "$oid": "65ec8c99b70e1d93b43c99a8"
+  },
+  "reviewofR": {
+    "$oid": "65f331a1a205f58652655371"
+  },
+  "reply": "Thank you for your glowing recommendation! We're thrilled to be recognized for offering the best Chinese food, especially considering the value for money. We appreciate your feedback and are delighted that you enjoyed our Yang Chow, Chow Mein, and Garlicky Soy Garlic chicken. Looking forward to serving you again soon!",
+  "datemade": "2024-03-14T12:00:00Z"
+}]
