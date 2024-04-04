@@ -17,6 +17,7 @@ function add(server) {
 
     server.post('/restaurant/:restoname/post-reviews', (req, resp) => {
         review.addReview(req, resp);
+        review.computeRatings(req);
     });
 
     // Handle edit review

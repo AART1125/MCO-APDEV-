@@ -115,11 +115,36 @@ async function dislikeReview(req, resp) {
     }
 }
 
+//function computes the rating of the restaurant
+async function computeRatings(req){
+    const resto = await schemas.restaurantModel.findOne({restoname : req.params.restoname}).populate({
+                                                                                        path: "reviews",
+                                                                                        match: {isDeleted : false},
+                                                                                        select: "isRecommend"
+                                                                                        });
+
+    let liked = 0;
+    let stars = 0;
+    
+    for(const review of resto.reviews){
+        if(review.isRecommend) liked++;
+    };
+
+    if (resto.reviews.length > 0) {
+        stars = Math.round((liked/resto.reviews.length) * 5)
+    }
+
+    resto.stars = Math.max(0, Math.min(stars, 5));
+
+    await resto.save();
+}
+
 module.exports = {
     addReview,
     editReview,
     searchReview,
     deleteReview,
     likeReview,
-    dislikeReview
+    dislikeReview,
+    computeRatings
 };

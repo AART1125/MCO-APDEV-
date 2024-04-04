@@ -1,6 +1,6 @@
 const schemas = require('./schemaModels');
 
-async function initGen(req){
+async function initGen(){
     let dict = [];
     
     try {
