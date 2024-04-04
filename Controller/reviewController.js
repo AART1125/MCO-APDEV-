@@ -1,11 +1,11 @@
 const review = require('../Model/reviewModel');
+const schema = require('../Model/schemaModels.js')
 
 function add(server) {
     // Handle create review
     server.get('/restaurant/:restoname/reviews', (req, resp) => {
         resp.render('review', {
             layout: 'index',
-            title: 'Leave a Review',
             js: '/common/js/review.js',
             css: '/common/css/review.css',
             restoname: req.params.restoname,
@@ -73,15 +73,14 @@ function add(server) {
     });
 
     // Handle like action
-    server.post('/restaurant/:restoname/reviews/:reviewId/like', async (req, resp) => {
+    server.post('/restaurant/:restoname/reviews/:reviewnum/like', async (req, resp) => {
+        console.log("Likes : " + req.body.likes);
         try {
-            const reviewId = req.params.reviewId;
-            const updatedReview = await review.findByIdAndUpdate(
-                reviewId,
-                { $inc: { likes: 1 }, $set: { action: 'like' } },
-                { new: true }
-            );
-            resp.status(200).json({ message: 'Review liked successfully', review: updatedReview });
+            const reviewfind = await schema.reviewModel.findOne({restaurant : req.params.restoname, reviewnum: req.params.reviewnum});
+            reviewfind.likes = req.body.likes; 
+            const updatedReview = await reviewfind.save();
+            console.log("update successful")
+            resp.status(200).json({ message: 'Review liked successfully'});
         } catch (error) {
             console.error('Error:', error);
             resp.status(500).json({ message: 'Failed to like review', error: error });
@@ -89,14 +88,13 @@ function add(server) {
     });
 
     // Handle dislike action
-    server.post('/restaurant/:restoname/reviews/:reviewId/dislike', async (req, resp) => {
+    server.post('/restaurant/:restoname/reviews/:reviewnum/dislike', async (req, resp) => {
+        console.log("Dislikes : " + req.body.dislikes);
         try {
-            const reviewId = req.params.reviewId;
-            const updatedReview = await review.findByIdAndUpdate(
-                reviewId,
-                { $inc: { dislikes: 1 }, $set: { action: 'dislike' } },
-                { new: true }
-            );
+            const reviewfind = await schema.reviewModel.findOne({restaurant : req.params.restoname, reviewnum: req.params.reviewnum});
+            reviewfind.dislikes = req.body.dislikes; 
+            const updatedReview = await reviewfind.save();
+            console.log("update successful")
             resp.status(200).json({ message: 'Review disliked successfully', review: updatedReview });
         } catch (error) {
             console.error('Error:', error);

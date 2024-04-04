@@ -11,13 +11,13 @@ const replySchema = new mongoose.Schema({
 },{versionKey: false})
 
 const reviewSchema = new mongoose.Schema({
+    reviewnum   :   {type: Number},
     users_id    :   {type: mongoose.Types.ObjectId, ref: 'users'},
     restaurant  :   {type: String, ref: 'restaurants'},
     restoimg    :   {type: String},
     review      :   {type: String},
-    likes       :   {type: Number, default: 0},
-    dislikes    :   {type: Number, default: 0},
-    action      :   {type: String, enum: ['like', 'dislike', null]},
+    likes       :   {type: Object, default: 0},
+    dislikes    :   {type: Object, default: 0},
     reply       :   {type: mongoose.Schema.ObjectId, ref: 'replies'},
     isRecommend :   {type: Boolean},
     datemade    :   {type: Date, default: Date.now},
@@ -37,8 +37,6 @@ const restaurantSchema = new mongoose.Schema({
     foodtype        :   {type: [String]},
     restotype       :   {type: String},
     address         :   {type: String},
-    likes           :   {type: Number, default: 0},
-    dislikes        :   {type: Number, default: 0},
     stars           :   {type: Number, default: 0},
     reviews         :   {type: [mongoose.Types.ObjectId], ref: 'reviews'},
     isDeleted       :   {type: Boolean, default: false}
@@ -119,5 +117,5 @@ module.exports = {
     reviewModel,
     restaurantModel,
     userModel,
-    ownerModel
+    ownerModel,
 }
