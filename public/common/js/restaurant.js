@@ -61,12 +61,10 @@ document.addEventListener('DOMContentLoaded',async () => {
 
         dislikedbutt.addEventListener('click', async () => {
             if(dislikerating.classList.contains("post-rating-selected")){
-                console.log("1 dislike");
                 return;
             } 
             
             if (likerating.classList.contains("post-rating-selected") && !dislikerating.classList.contains("post-rating-selected")){
-                console.log("2 dislike");
                 disliketext.textContent = Number(disliketext.textContent) + 1;
                 liketext.textContent = Number(liketext.textContent) - 1;
                 likerating.classList.remove("post-rating-selected");
