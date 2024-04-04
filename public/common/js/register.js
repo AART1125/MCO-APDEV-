@@ -61,9 +61,9 @@ window.onload = function (e) {
             alert("Something went wrong please check all inputs.");
           } else {
             if (response.isOwner) {
-              window.location.href = "/main-owner";
+              window.location.href = "/";
             } else {
-              window.location.href = "/main-user";
+              window.location.href = "/";
             }
           }
         })
