@@ -75,9 +75,7 @@
 document.addEventListener('DOMContentLoaded',async () => {
     const restoname = document.getElementById("hiddenval").value;
     for (const review of document.getElementsByClassName('rev1')){
-        const i = review.id.charAt(review.id.length - 1);
-
-        const reviewnum = document.getElementById('hiddenrev' + i).value;
+        const reviewnum = review.id.match(/\d+$/)[0];
         const likerating = document.getElementById('liked'+reviewnum);
         const dislikerating = document.getElementById('disliked'+reviewnum);
         const liketext = document.getElementById('liketext'+reviewnum);
@@ -121,8 +119,6 @@ document.addEventListener('DOMContentLoaded',async () => {
             } else if (!likerating.classList.contains("post-rating-selected") && !dislikerating.classList.contains("post-rating-selected")){
                 liketext.textContent = Number(liketext.textContent) + 1;
                 likerating.classList.add("post-rating-selected");
-
-                console.log(`/restaurant/${restoname}/reviews/${reviewnum}/like`)
 
                 const response = await fetch(`/restaurant/${restoname}/reviews/${reviewnum}/like`,
                                             {

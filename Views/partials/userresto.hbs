@@ -28,13 +28,12 @@
         <div class="rev-scroll">
         {{#each reviewsdata}}
         <div class="rev1" id="rev{{reviewnum}}">
-            <input type="hidden" name="reviewId" id="hiddenrev{{reviewnum}}" value="{{reviewnum}}">
             <div class="profile">
                 <div class="profile-picture">
                     <img src="{{user-profileimg}}">
                 </div>
                 <div class="name">
-                    <strong><a href="/user-profile/{{user-username}}" class="linkz">{{user-fullname}}| Reviewum:{{reviewnum}}</a></strong>
+                    <strong><a href="/user-profile/{{user-username}}" class="linkz">{{user-fullname}}</a></strong>
                     <div class="username">
                         <p>@{{user-username}}</p>
                     </div>
