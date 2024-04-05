@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded',async () => {
     const restoname = document.getElementById("hiddenval").value;
     for (const review of document.getElementsByClassName('rev1')){
+        console.log(review.id);
         const reviewnum = review.id.match(/\d+$/)[0];
         const likerating = document.getElementById('liked'+reviewnum);
         const dislikerating = document.getElementById('disliked'+reviewnum);

@@ -365,7 +365,7 @@ async function OwnerProfileEdit(req, resp) {
             const hashedPassword = await bcrypt.hash(passwordToHash, 10);
             console.log("Hashed Password:", hashedPassword); // TO FIX
 
-            user.password = hashedPassword;
+            owner.password = hashedPassword;
         }
 
         req.session.login_username = owner.username;
