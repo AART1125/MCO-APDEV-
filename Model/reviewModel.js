@@ -83,48 +83,6 @@ async function deleteReview(reviewId) {
     }
 }
 
-async function likeReview(req, resp) {
-    const reviewId = req.params.reviewId;
-
-    try {
-        const existingReview = await schemas.reviewModel.findOne({ _id: reviewId, isDeleted: false });
-
-        if (!existingReview) {
-            return resp.status(404).json({ message: 'Review not found' });
-        }
-
-        existingReview.likes += 1;
-        existingReview.action = 'like'; 
-        const updatedReview = await existingReview.save();
-
-        resp.status(200).json({ message: 'Liked review successfully', review: updatedReview });
-    } catch (error) {
-        console.error('Error:', error);
-        resp.status(500).json({ message: 'Failed to like review', error: error });
-    }
-}
-
-async function dislikeReview(req, resp) {
-    const reviewId = req.params.reviewId;
-
-    try {
-        const existingReview = await schemas.reviewModel.findOne({ _id: reviewId, isDeleted: false });
-
-        if (!existingReview) {
-            return resp.status(404).json({ message: 'Review not found' });
-        }
-
-        existingReview.dislikes += 1;
-        existingReview.action = 'dislike'; 
-        const updatedReview = await existingReview.save();
-
-        resp.status(200).json({ message: 'Disliked review successfully', review: updatedReview });
-    } catch (error) {
-        console.error('Error:', error);
-        resp.status(500).json({ message: 'Failed to dislike review', error: error });
-    }
-}
-
 //function computes the rating of the restaurant
 async function computeRatings(req){
     const resto = await schemas.restaurantModel.findOne({restoname : req.params.restoname}).populate({
@@ -154,7 +112,5 @@ module.exports = {
     editReview,
     searchReview,
     deleteReview,
-    likeReview,
-    dislikeReview,
     computeRatings
 };
