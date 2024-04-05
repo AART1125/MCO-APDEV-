@@ -51,6 +51,10 @@ a:hover {
 
 /* -- FOR A DIVIDERS */
 
+.deletemsg {
+    text-align: justify;
+}
+
 .header {
     padding: 5%;
     padding-bottom: 1%;
@@ -170,7 +174,7 @@ a:hover {
 .edit-form1 {
     padding-top: 1em;
     line-height: 2.2;
-    width: 30em;
+    width: 100%;
 }
 
 .edit-form2 {
@@ -199,6 +203,17 @@ a:hover {
     cursor: pointer;
  }
 
+ #delete {
+    all: unset;
+    font-family: 'Poppins';
+    border-radius: 30px;
+    background-color: #EE6958;
+    color: #F4F6DF;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+ }
+
 
 /* -- FOR A SPANS */
 
@@ -215,8 +230,15 @@ a:hover {
 
 .sub {
     display: block;
-    text-align: center;
+    text-align: left;
 }
+
+.resto {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
 /* -- FOR A TEXTS */
 .logo_text p {
     margin-left: .5em;

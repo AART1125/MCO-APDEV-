@@ -7,7 +7,8 @@ const replySchema = new mongoose.Schema({
     reviewofR   :   {type: mongoose.Types.ObjectId, ref: 'reviews'},
     reply       :   {type: String, default: ""},
     datemade    :   {type: Date, default: Date.now},
-    isDeleted   :   {type: Boolean, default: false}
+    isDeleted   :   {type: Boolean, default: false},
+    isEdited  :   {type: Boolean, default: false}
 },{versionKey: false})
 
 const reviewSchema = new mongoose.Schema({
@@ -21,7 +22,8 @@ const reviewSchema = new mongoose.Schema({
     reply       :   {type: mongoose.Schema.ObjectId, ref: 'replies'},
     isRecommend :   {type: Boolean},
     datemade    :   {type: Date, default: Date.now},
-    isDeleted   :   {type: Boolean, default: false}
+    isDeleted   :   {type: Boolean, default: false},
+    isEdited  :   {type: Boolean, default: false}
 },{versionKey: false});
 
 const restaurantSchema = new mongoose.Schema({

@@ -22,6 +22,17 @@ function add(server){
             restaurants: restaurants
         });
     });
+    
+    server.get('/about', (req, res) => {
+        res.render('about', {
+            layout: 'index',
+            title: 'Archer\'s Hunts',
+            css: '/common/css/main.css',
+            islogin: req.session.login_id !== undefined,
+            isOwner: req.session.login_isOwner,
+            username: req.session.login_username,
+        });
+    });
 }
 
 module.exports = {

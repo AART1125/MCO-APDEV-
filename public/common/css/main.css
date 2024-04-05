@@ -8,14 +8,17 @@ body {
 /* -- FOR A HREF */
 a {
     all: unset;
+    cursor: pointer !important;
 }
 
 .category-items a {
     all: unset;
+    cursor: pointer !important;
 }
 
 .category-items-2 a {
     all: unset;
+    cursor: pointer !important;
 }
 
 .category-items a:hover {
@@ -70,6 +73,12 @@ a {
     padding-bottom: 10%;
 }
 
+.body1 {
+    margin-top: -3.5em;
+    display: block;
+    text-align: center;
+}
+
 .body {
     display: block;
     text-align: center;
@@ -116,6 +125,26 @@ a {
     padding-bottom: 2%;
 }
 
+.uno1 {
+    background-color: #537A5A;
+    opacity: 1;
+    background-image: radial-gradient(circle at center center, #FAF6DE, #EE6958), repeating-radial-gradient(circle at center center, #FAF6DE, #FAF6DE, 40px, transparent 80px, transparent 40px);
+    background-blend-mode: multiply;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.dos2 {
+    background-color: #EE6958;
+    opacity: 1;
+    background-image:  radial-gradient(#FAF6DE 1px, transparent 1px), radial-gradient(#FAF6DE 1px, #EE6958 2px);
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin: 0;
+}
+
 .reminder {
     text-align: center;
     background: #191F24;
@@ -134,8 +163,12 @@ a {
     padding-right: .2em;
 }
 
-
-
+.about1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 
 /* -- FOR PICTURES */
 
@@ -196,6 +229,7 @@ a {
     align-content: center;
     position: relative;
     z-index: 9;
+    cursor: pointer !important;
 }
 
 .categories {
@@ -207,6 +241,12 @@ a {
 }
 
 .cursive {
+    font-family: 'Ballet';
+    font-size: 1.7em;
+    color: #191F24;
+}
+
+.cursive1 {
     font-family: 'Ballet';
     font-size: 1.7em;
     color: #191F24;
@@ -234,8 +274,21 @@ a {
     margin-bottom: 1.5%;
     font-family: Verdana;
     font-weight: bold;
+    cursor: pointer !important;
 }
 
+.about-img {
+    border: 5px solid #FAF6DE;
+    margin: 2em;
+    border-radius: 2em;
+}
+
+.about-img-profile {
+    border: 5px solid #FAF6DE;
+    margin: 2em;
+    border-radius: 2em;
+    width: 20em;
+}
 
 /* -- FOR TEXTS */
 
@@ -261,6 +314,52 @@ p {
     padding: 0;
 }
 
+.uno1 p {
+    text-align: justify;
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+.about1 h2 {
+    text-align: right;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+    background-color: #FAF6DE;
+    padding-right: 2em;
+    color: #537A5A;
+    margin-bottom: .5em;
+    font-size: 2em;
+}
+
+.dos .text {
+    text-align: center;
+    color: #191F24;
+    padding: 0;
+    margin-top: -1em;
+    font-size: 1.3em;
+}
+
+.about1 .two {
+    color: #EE6958;
+    text-align: center;
+    margin-top: 2em !important;
+    margin: .5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    font-size: 1.2em;
+}
+
+.about1 a {
+    text-decoration: none;
+    transition: transform 0.15s ease;
+}
+
+.about1 a:hover {
+    all: unset;
+    transform: scale(1.1, 1.1);
+}
+
 /* -- FOR BUTTONS */
 
 .categories_buttons {
@@ -276,6 +375,7 @@ p {
     font-family: 'Helvetica';
     font-size: .7em;
     font-weight: bold;
+    cursor: pointer !important;
 }
 
 .restaurant_buttons {
@@ -288,6 +388,7 @@ p {
     margin-left: 0.5em;
     margin-right: 0.5em;
     background: #FAF6DE;
+    cursor: pointer !important;
 }
 
 @media screen and (max-width: 600px) {

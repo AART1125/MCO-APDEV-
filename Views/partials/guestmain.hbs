@@ -82,13 +82,15 @@
           <div class="category-items-2">
 
     {{#each restaurants}}
-        <a href="/login">
-            <button class="restaurant_buttons">
-                <img class="restaurants_pic" src="{{resto-img}}" alt="{{resto-name}}">
-            </button>
-        </a>
-    {{/each}} 
-    
+        {{#if isDeleted}}
+        {{else}}
+            <a href="/login">
+                <button class="restaurant_buttons">
+                    <img class="restaurants_pic" src="{{resto-img}}" alt="{{resto-name}}">
+                </button>
+            </a>
+        {{/if}}
+    {{/each}}
 
           </div>
       </div>

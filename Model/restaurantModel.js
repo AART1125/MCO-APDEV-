@@ -74,7 +74,8 @@ async function getSpecificRestaurantData(restoname, req) {
             'owner-fullname': review.reply ? restaurants[0].owner_id.fullname : null,
             'owner-username': review.reply ? restaurants[0].owner_id.username : null,
             'replyexists' : (review.reply && !review.reply.isDeleted) ? true:false,
-            'isDeleted': review.reply ? review.reply.isDeleted : false
+            'isDeleted': review.reply ? review.reply.isDeleted : false,
+            'isEdited': review.reply ? review.reply.isEdited : false 
         }));
 
         return [restaurantDataArr, reviewData];

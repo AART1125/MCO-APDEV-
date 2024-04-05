@@ -25,11 +25,14 @@
           <div class="category-items-2">
 
     {{#each restaurants}}
+        {{#if isDeleted}}
+        {{else}}
         <a href="/restaurant/{{resto-name}}">
-            <button class="restaurant_buttons">
-                <img class="restaurants_pic" src="{{resto-img}}" alt="{{resto-name}}">
-            </button>
-        </a>
+                <button class="restaurant_buttons">
+                    <img class="restaurants_pic" src="{{resto-img}}" alt="{{resto-name}}">
+                </button>
+            </a>
+        {{/if}}
     {{/each}} 
     
 

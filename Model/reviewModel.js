@@ -52,9 +52,11 @@ async function editReview(req, resp) {
             return resp.status(404).json({ message: 'Review not found' });
         }
 
-        existingReview.review = updatedReviewContent;
-        existingReview.isRecommend = updatedRecommendation;
-
+        if (existingReview.review !== updatedReviewContent || existingReview.isRecommend !== updatedRecommendation) {
+            existingReview.review = updatedReviewContent + ' (Edited)';
+            existingReview.isRecommend = updatedRecommendation;
+            existingReview.isEdited = true; 
+        }
         const updatedReview = await existingReview.save();
 
         resp.status(200).json({ message: 'Review updated successfully', review: updatedReview });
