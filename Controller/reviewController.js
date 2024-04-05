@@ -1,5 +1,9 @@
 const review = require('../Model/reviewModel');
-const schema = require('../Model/schemaModels.js')
+const schema = require('../Model/schemaModels.js');
+const multer = require('multer');
+
+const storage = multer.memoryStorage();
+const upload = multer({storage:storage});
 
 function add(server) {
     // Handle create review
@@ -16,10 +20,23 @@ function add(server) {
         });
     });
 
-    server.post('/restaurant/:restoname/post-reviews', (req, resp) => {
+    server.post('/restaurant/:restoname/post-reviews', upload.single('myFile'), (req, resp) => {
         review.addReview(req, resp);
         review.computeRatings(req);
     });
+
+    // server.get('/reviewimage/:imagename', async (req,resp) =>  {
+    //     try {
+    //         const review = await schema.reviewModel.findOne({'image.name' : req.params.imagename});
+    //         console.log(review);
+    //         if (!review) {
+    //             return resp.status(404).send('Image not found');
+    //           }
+    //           resp.contentType(review.image.contentType).send(review.image.data);
+    //     } catch (error) {
+    //           resp.status(500).send('Server error');
+    //     }
+    // });
 
     // Handle edit review
     server.get('/restaurant/:restoname/editreview/:reviewId', async (req, resp) => {

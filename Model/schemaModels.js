@@ -13,6 +13,7 @@ const replySchema = new mongoose.Schema({
 
 const reviewSchema = new mongoose.Schema({
     reviewnum   :   {type: Number},
+    image       :   {type: Object, default: null},
     users_id    :   {type: mongoose.Types.ObjectId, ref: 'users'},
     restaurant  :   {type: String, ref: 'restaurants'},
     restoimg    :   {type: String},

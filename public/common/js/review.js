@@ -101,17 +101,22 @@ document.addEventListener('DOMContentLoaded', function () {
         // files.forEach(function(file, index) {
         //     formData.append('file' + (index + 1), file);
         // });
+
+        const formData = new FormData();
+        formData.append('isRecommend', checked);
+        formData.append('review', textReviewValue);
+        formData.append('restoname', document.getElementById("hiddenval").value),
+        formData.append('myFile', document.getElementById('myFile').files[0]);
+        console.log(document.getElementById('myFile').files[0]);
         fetch('post-reviews', 
         {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                isRecommend   :  checked,
-                review        :  textReviewValue,
-                restoname     :  document.getElementById("hiddenval").value
-            })
+            // body: JSON.stringify({
+            //     isRecommend   :  checked,
+            //     review        :  textReviewValue,
+            //     restoname     :  document.getElementById("hiddenval").value
+            // })
+            body : formData
         })
         .then(response => {
             console.log(response)
