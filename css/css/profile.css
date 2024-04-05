@@ -1,0 +1,320 @@
+body {
+    margin: 0;
+    background-color: #191F24;
+    color: #191F24;
+    font-family: 'Poppins';
+    font-size: 2vh;
+}
+
+* {
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+/** 
+#EE6958
+#537A5A 
+**/
+
+/* -- FOR A HREF */
+
+a {
+    all: unset;
+}
+
+a:hover {
+    background-color: #FAF6DF;
+    padding: 1vh;
+    color: #191F24;
+}
+
+.links a {
+    margin-right: 1em;
+}
+
+.nav_links {
+    position: relative;
+    transition: background-color 0.1s ease;
+}
+
+.linkz {
+    all: unset !important;
+}
+
+
+/* -- FOR A DIVIDERS */
+
+.deletemsg {
+    text-align: justify;
+}
+
+.header {
+    padding: 5%;
+    padding-bottom: 1%;
+    padding-top: 1em;
+    overflow: hidden;
+}
+
+.divide {
+    padding-bottom: .5em;
+    background: #FAF6DF;
+}
+
+.divide2 {
+    padding-bottom: 1%;
+    background: #191F24;
+}
+
+.navigation {
+    display: flex;
+    background-color: #191F24;
+    color: #F4F6DF;
+    justify-content: space-between;
+    margin-left: -1em;
+    margin-right: -2em;
+}
+
+.profile-main {
+    margin-top: -4em;
+    display: flex;
+    justify-content: space-between;
+    gap: 1%;
+}
+
+.profile-section1 {
+    padding: 2em;
+    background-color: #FAF6DF;
+    display: block;
+    text-align: center;
+    width: 30%;
+
+}
+
+.profile-section2 {
+    padding: 2em;
+    width: 71%;
+    background-color: #FAF6DF;
+    display: block;
+}
+
+.profile-section3 {
+    padding: 20px;
+    width: 20%;
+    background-color: #FAF6DF;
+    display: block; 
+    list-style-type: none;  
+}
+
+.profile-section3 li {
+    padding: .5em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.profile-section4 {
+    padding-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #FAF6DF;
+    display: block; 
+}
+
+
+.likes {
+    background-color: #537A5A;
+    padding: 10px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    color: #F4F6DF;
+}
+
+.details {
+    background-color: #191F24;
+    color: #F4F6DF;
+    padding: 10px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    color: #F4F6DF;
+}
+
+.dislikes {
+    background-color: #EE6958;
+    padding: 10px;
+    color: #F4F6DF;
+}
+
+
+.reviews {
+    display: flex;
+    align-items: center;
+    gap: 1.5%;
+}
+
+.edit-profile {
+    background-color: #FAF6DF;
+    padding: 2em;
+    width: 90%;
+    padding-bottom: 8em;
+}
+
+.edit-form-table {
+    display: flex;
+    align-items: center;
+    
+}
+
+.edit-form1 {
+    padding-top: 1em;
+    line-height: 2.2;
+    width: 100%;
+}
+
+.edit-form2 {
+    padding-top: 1em;
+    line-height: 1.5;
+    width: 65%;
+}
+
+/* -- FOR INPUTS */
+
+.edit-input {
+    padding: .5%;
+    font-family: 'Poppins';
+    border: 1px solid #191F24;
+    border-radius: 30px;
+}
+
+ #submit {
+    all: unset;
+    font-family: 'Poppins';
+    border-radius: 30px;
+    background-color: #537A5A;
+    color: #F4F6DF;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+ }
+
+ #delete {
+    all: unset;
+    font-family: 'Poppins';
+    border-radius: 30px;
+    background-color: #EE6958;
+    color: #F4F6DF;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+ }
+
+
+/* -- FOR A SPANS */
+
+.logo_text {
+    display: flex;
+    align-items: center;
+}
+
+.head-review {
+    display: flex;
+    align-items: center;
+    gap: .7em;
+}
+
+.sub {
+    display: block;
+    text-align: left;
+}
+
+.resto {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+/* -- FOR A TEXTS */
+.logo_text p {
+    margin-left: .5em;
+}
+
+h1 {
+    margin: 0; 
+    margin-bottom: -.1em;
+}
+
+p {
+    margin: 0; 
+    margin-bottom: .4em;
+}
+
+h2 {
+    font-family: 'Helvetica';
+    margin: 0;
+}
+
+
+
+/* -- FOR A BUTTONS */
+
+button {
+    all: unset;
+    cursor: pointer;
+    background-color: #537A5A;
+    color: #F4F6DF;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 30px;
+}
+
+.del {
+    background-color: #EE6958;
+}
+
+.linkzers {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: .5%;
+    border: #F4F6DF 1px solid;
+}
+
+.limmerz {
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #EE6958;
+}
+
+
+/* -- FOR A IMAGES */
+
+.logo {
+    margin-top: -1vh;
+    width: 4vh;
+}
+
+.profile-picture {
+    margin-top: 12%;
+    width: 60%;
+    border-radius: 100%;
+}
+
+.friend-picture {
+    width:30%;
+    margin: 0;
+    border-radius: 100%;
+}
+
+.restaurant {
+    width: 10%;
+    border-radius: 30px;
+}
+
+.react {
+    width: 2vh;
+}

@@ -1,0 +1,103 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.delete-button {
+    background-color: #D44747;
+    padding: 10px 15px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color:#181d23;
+}
+
+.modal-value {
+    background-color: #fefefe;
+    width: 30%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px gray;
+}
+
+.modal-content {
+    padding-top: 10px;
+}
+
+p {
+    margin: 0px;
+    padding-top: 5px;
+}
+
+.modal-header {
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.warning {
+    color: #D44747;
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.delete_account {
+    background-color: #D44747;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.delete_account:hover {
+    background-color: #AF3B3B;
+}
+
+.cancel {
+    background-color: #9F9F9F;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    background-color: #8E8E8E;
+}
