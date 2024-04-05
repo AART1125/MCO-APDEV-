@@ -42,7 +42,7 @@ async function getSpecificRestaurantData(restoname, req) {
                                     ]})
 
         const restaurantData = {
-            'resto-img': restaurants[0].restoimg2[0],
+            'resto-img': restaurants[0].restoimg2.length > 0 ? restaurants[0].restoimg2[0] : restaurants[0].restoimg,
             'resto-name': restaurants[0].restoname,
             'resto-type': restaurants[0].restotype,
             'location': restaurants[0].location,
