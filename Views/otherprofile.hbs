@@ -12,9 +12,9 @@
             <p>{{user.username}}</p>
             <span class="buttons">
                 {{#if user.isFriend}}
-                    <button class="del">Remove Friend</button>
+                    <a href="/user-profile/{{username}}/delete-friend/{{user.username}}" class="linkz"><button class="del">Remove Friend</button></a>
                 {{else}}
-                    <button>Add Friend</button>
+                    <a href="/user-profile/{{username}}/add-friend/{{user.username}}" class="linkz"><button>Add Friend</button></a>
                 {{/if}}
             </span>
         </div>
