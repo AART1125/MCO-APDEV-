@@ -44,7 +44,7 @@ function add(server) {
         resp.render('editreview', {
             layout: 'index',
             title: 'Edit a Review',
-            js: '/common/js/editreview.js',
+            js: '/common/js/editReview.js',
             css: '/common/css/review.css',
             islogin: req.session.login_id !== undefined,
             isOwner: req.session.login_isOwner,
