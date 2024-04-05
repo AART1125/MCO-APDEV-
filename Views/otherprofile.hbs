@@ -11,8 +11,13 @@
             <h1>{{user.fullname}}</h1>
             <p>{{user.username}}</p>
             <span class="buttons">
-                <button>Add Friend</button>
-                <button class="del">Block</button>
+                {{#if user.isFriend}}
+                    <button>Add Friend</button>
+                    <button class="del">Block</button>
+                {{else}}
+                    <button>Remove Friend</button>
+                    <button class="del">Block</button>
+                {{/if}}
             </span>
         </div>
 

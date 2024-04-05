@@ -18,6 +18,17 @@ async function findUserProfile(req, resp, templateName) {
                                             match: {isDeleted : false},
                                             select: 'profileimg fullname username'
                                         }); 
+        const secondprof = await searchModel.findOne({_id:req.session.login_user});
+
+        let isFriend = false;
+        if(!profile._id === secondprof._id){
+            for(const friends of profile){
+                if (friends._id === secondprof._id) {
+                    isFriend = true;
+                    break;                  
+                }
+            }
+        }
 
         if (!profile) {
             console.log('No profiles found');
@@ -32,51 +43,100 @@ async function findUserProfile(req, resp, templateName) {
                 match: {isDeleted : false},
                 select: 'restoimg restaurant rname review likes dislikes isRecommend',
             });
-
-        resp.render(templateName, {
-            layout: 'index',
-            title: 'Archer\'s Hunt | Profile',
-            js: '/common/js/profile.js',
-            css: '/common/css/profile.css',
-            islogin: req.session.login_user != undefined,
-            username: req.session.login_username,
-            userID: req.session.login_user,
-            isOwner: false,
-            user: {
-                profileimg: profile.profileimg,
-                fullname: profile.fullname,
-                username: profile.username,
-                email: profile.email,
-                contactnum: profile.contactnum,
-                preferences: {
-                    isLike: profile.preferences.isLike,
-                    isDislike: profile.preferences.isDislike
-                },
-                friends: profile.friends.map(friend => ({
-                    friendpic: friend.profileimg,
-                    friendname: friend.fullname,
-                    friendusername: friend.username
-                })),
-                
-                // (profile.friends || []).map(friend => ({
-                //     friendpic: friend.profileimg,
-                //     friendname: friend.fullname,
-                //     friendusername: friend.username
-                // })),
-                reviews: reviews.map(review => ({
-                    restaurant      : review.restaurant,
-                    rname           : review.restaurant.toUpperCase(),
-                    restaurantimg   : review.restoimg,
-                    reviewText      : review.review,
-                    link            : review.link,
-                    likes           : review.likes,
-                    dislikes        : review.dislikes,
-                    showReco        : review.isRecommend,
-                    showLike        : review.likes > 0,
-                    showDislike     : review.dislikes > 0,
-                }))
-            }
-        });
+        
+        if (templateName === 'otherprofile') {
+            resp.render(templateName, {
+                layout: 'index',
+                title: 'Archer\'s Hunt | Profile',
+                js: '/common/js/profile.js',
+                css: '/common/css/profile.css',
+                islogin: req.session.login_user != undefined,
+                username: req.session.login_username,
+                userID: req.session.login_user,
+                isOwner: false,
+                user: {
+                    profileimg: profile.profileimg,
+                    fullname: profile.fullname,
+                    username: profile.username,
+                    email: profile.email,
+                    contactnum: profile.contactnum,
+                    preferences: {
+                        isLike: profile.preferences.isLike,
+                        isDislike: profile.preferences.isDislike
+                    },
+                    isFriend: isFriend,
+                    friends: profile.friends.map(friend => ({
+                        friendpic: friend.profileimg,
+                        friendname: friend.fullname,
+                        friendusername: friend.username
+                    })),
+                    
+                    // (profile.friends || []).map(friend => ({
+                    //     friendpic: friend.profileimg,
+                    //     friendname: friend.fullname,
+                    //     friendusername: friend.username
+                    // })),
+                    reviews: reviews.map(review => ({
+                        restaurant      : review.restaurant,
+                        rname           : review.restaurant.toUpperCase(),
+                        restaurantimg   : review.restoimg,
+                        reviewText      : review.review,
+                        link            : review.link,
+                        likes           : review.likes,
+                        dislikes        : review.dislikes,
+                        showReco        : review.isRecommend,
+                        showLike        : review.likes > 0,
+                        showDislike     : review.dislikes > 0,
+                    }))
+                }
+            });
+        } else {
+            resp.render(templateName, {
+                layout: 'index',
+                title: 'Archer\'s Hunt | Profile',
+                js: '/common/js/profile.js',
+                css: '/common/css/profile.css',
+                islogin: req.session.login_user != undefined,
+                username: req.session.login_username,
+                userID: req.session.login_user,
+                isOwner: false,
+                user: {
+                    profileimg: profile.profileimg,
+                    fullname: profile.fullname,
+                    username: profile.username,
+                    email: profile.email,
+                    contactnum: profile.contactnum,
+                    preferences: {
+                        isLike: profile.preferences.isLike,
+                        isDislike: profile.preferences.isDislike
+                    },
+                    friends: profile.friends.map(friend => ({
+                        friendpic: friend.profileimg,
+                        friendname: friend.fullname,
+                        friendusername: friend.username
+                    })),
+                    
+                    // (profile.friends || []).map(friend => ({
+                    //     friendpic: friend.profileimg,
+                    //     friendname: friend.fullname,
+                    //     friendusername: friend.username
+                    // })),
+                    reviews: reviews.map(review => ({
+                        restaurant      : review.restaurant,
+                        rname           : review.restaurant.toUpperCase(),
+                        restaurantimg   : review.restoimg,
+                        reviewText      : review.review,
+                        link            : review.link,
+                        likes           : review.likes,
+                        dislikes        : review.dislikes,
+                        showReco        : review.isRecommend,
+                        showLike        : review.likes > 0,
+                        showDislike     : review.dislikes > 0,
+                    }))
+                }
+            });
+        }
+        
     } catch (err) {
         console.error('Error finding profile:', err);
         resp.status(500).send('Error finding profile');

@@ -5,7 +5,6 @@ function add(server) {
         try {
             const [restodata, reviewdata] = await restaurantModel.getSpecificRestaurantData(req.params.restoname, req);
             if (restodata) {
-                console.log(reviewdata[0]['reviewnum'])
                 resp.render('restaurant', {
                     layout: 'index',
                     title: 'Archer\'s Hunt',
@@ -22,7 +21,7 @@ function add(server) {
                 resp.status(404).send('Restaurant not found'); 
             }
         } catch (error) {
-            console.error('Error in /restaurant/:restoname route:', error);
+            console.error('Error in /restaurant/'+req.params.restoname+ ' route:', error);
             resp.status(500).send('Internal Server Error');
         }
     });
