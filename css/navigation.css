@@ -1,0 +1,56 @@
+/* -- FOR LINKS */
+
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+.nav_links {
+    position: relative;
+    padding: 1vh;
+    transition: background-color 0.1s ease;
+}
+
+a:hover {
+    background-color: #FAF6DE;
+    color: #191F24;
+}
+
+/* -- FOR DIVIDERS */
+
+.header {
+    color: #FAF6DE;
+    padding: 5%;
+    padding-top: 1em;
+    overflow: hidden;
+    position: relative;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -1em;
+    margin-right: -2em;
+}
+
+/* -- FOR PICTURES */
+
+.logonav {
+    margin-top: -1vh;
+    width: 4vh;
+}
+
+/* -- FOR SPANS */
+
+.logo_text {
+    display: flex;
+    align-items: center;
+}
+
+.logo_text p {
+    margin-left: .5em;
+}
+
+.links a {
+    margin-right: 1em;
+}

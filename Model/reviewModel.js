@@ -8,7 +8,6 @@ async function addReview(req, resp) {
     for(i = 0; i <= reviews.length; i++){
         if(reviews[i]) reviewnum++;
     }
-    
     const reviewInstance = schemas.reviewModel({
         users_id: req.session.login_user,
         restaurant: restoname.restoname,
@@ -145,7 +144,6 @@ async function computeRatings(req){
 
     await resto.save();
 }
-
 module.exports = {
     addReview,
     editReview,
@@ -153,5 +151,4 @@ module.exports = {
     deleteReview,
     likeReview,
     dislikeReview,
-    computeRatings
 };
