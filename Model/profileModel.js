@@ -76,11 +76,11 @@ async function findUserProfile(req, resp, templateName) {
         const secondprof = await searchModel.findOne({_id:req.session.login_user});
 
         let isFriend = false;
-        if(!profile._id === secondprof._id){
-            for(const friends of profile){
-                if (friends._id === secondprof._id) {
+        if(!(profile._id === secondprof._id)){
+            for(const friend of profile.friends){
+                if (friend._id.toString() == secondprof._id.toString()) {
                     isFriend = true;
-                    break;                  
+                    break
                 }
             }
         }
