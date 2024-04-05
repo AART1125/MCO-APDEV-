@@ -4,7 +4,6 @@ async function addReview(req, resp) {
     const restoname = await schemas.restaurantModel.findOne({restoname : req.params.restoname, isDeleted : false});
     const user = await schemas.userModel.findOne({_id : req.session.login_user});
     const reviews = await schemas.reviewModel.find({restaurant: req.params.restoname});
-    console.log(user);
     let reviewnum = 1;
     for(i = 0; i <= reviews.length; i++){
         if(reviews[i]) reviewnum++;

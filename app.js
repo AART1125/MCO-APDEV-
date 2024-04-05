@@ -64,7 +64,6 @@ function getControllerPaths(pathname = "./Controller") {
 let controllerPaths = getControllerPaths();
 
 for (let path of controllerPaths) {
-  console.log("Processing Controllers: " + path);
   const controller = require("./Controller/" + path);
 
   controller.add(server);

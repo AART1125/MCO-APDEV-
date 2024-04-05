@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("DOM Content Loaded");
     var reviewForm = document.getElementById("reviewform");
 
     if (!reviewForm) {

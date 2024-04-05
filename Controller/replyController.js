@@ -16,7 +16,6 @@ function add(server) {
     });
 
     server.post('/restaurant/:restoname/post-replies', (req, resp) => {
-        console.log('Connection Successful 1');
         const reviewId = req.body.reviewId;
         reply.addReply(req, resp, reviewId);
     });
