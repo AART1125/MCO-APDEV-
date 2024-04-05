@@ -29,7 +29,7 @@ window.onload = function (e) {
     let model = {
       role,
       base64: img,
-      profileimg:
+      'profileimg':
         "/assets/avatars/" +
         role +
         "/" +
@@ -60,11 +60,7 @@ window.onload = function (e) {
           ) {
             alert("Something went wrong please check all inputs.");
           } else {
-            if (response.isOwner) {
               window.location.href = "/";
-            } else {
-              window.location.href = "/";
-            }
           }
         })
         .catch(err => {
