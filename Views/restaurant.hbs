@@ -1,88 +1,9 @@
 {{#if islogin}}
     {{#if isOwner}}
         {{> ownernav}}
+        {{> ownerresto}}
     {{else}}
         {{> usernav}}
+        {{> userresto}}
     {{/if}}
-{{else}}
-    {{> guestnav}}
 {{/if}}
-
-<div class = "main">
-        <div class="restaurant">
-            <div class="restaurant-text">
-                <div class="text-left">
-                    <div class="restaurant-name">
-                        <strong>{{resto-name}}</strong>
-                    </div>
-                    <div class="restaurant-type">
-                        <i>{{resto-type}}</i>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <div class="details">
-                        <p><strong>Located In:</strong> {{location}}</p>
-                        <p><strong>Address:</strong> {{address}}</p>
-                        <p><strong>Opening Hours:</strong> {{opening-hours}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="restaurant-pics">
-                <img src="{{resto-img}}" alt="{{resto-name}}">
-            </div>
-        </div>
-        <div class="reviews">
-           <div class="rev-scroll">
-            <div class="rev1">
-                <div class="profile">
-                    <div class="profile-picture">
-                        <img src="{{user-profileimg}}">
-                    </div>
-                    <div class="name">
-                        <strong><a href="../index_profile/profile_4.html" class="linkz">{{user-fullname}}</a></strong>
-                        <div class="username">
-                            <p>@{{user-username}}</p>
-                        </div>
-                    </div>
-                    <div class="post-ratings-container">
-                        <div class="post-rating">
-                            <span class="post-rating-button material-icons" title="Mark as helpful">thumb_up</span>
-                            <span class="post-rating-count">{{likes}}</span>
-                        </div>
-                        <div class="post-rating">
-                            <span class="post-rating-button material-icons" title="Mark as unhelpful">thumb_down</span>
-                            <span class="post-rating-count">{{dislikes}}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="comment">
-                    <div class="recommendation">
-                        <strong>{{is-recommend}}</strong>
-                    </div>
-                    <p>{{review}}</p>                                             
-                </div>
-                <div class="replies">
-                    <div class="profile">
-                        <div class="profile-picture">
-                            <img src="{{owner-profileimg}}">
-                        </div>
-                        <div class="name">
-                            <strong>{{owner-fullname}}</strong>
-                            <div class="username">
-                                <p>@{{owner-username}}</p>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="comment">
-                        <p>{{reply}}</p>
-                    </div> 
-                </div>
-            </div>   
-           </div>
-            <div class="leave-review-button">
-                <a href="review.html" class="button-link">Leave a Review</a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>

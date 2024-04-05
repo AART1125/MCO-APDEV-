@@ -1,0 +1,39 @@
+<div class="profile-main">
+    <div class="profile-section1">
+        <img class="profile-picture" src="{{owner.profileimg}}">
+        <h1>{{owner.fullname}}</h1>
+        <p>{{owner.username}}</p>
+        <span class="buttons">
+            <a href="/deleteProfile/{{userID}}"><button class = "del">Delete Account</button></a>
+        </span>
+    </div>
+        
+        <div class = "edit-profile">
+            <h1>Edit Profile</h1>
+            <div class = "edit-form-table">
+                <div class = "edit-form1">
+                    <form>
+                        Profile Picture <input type ="file" id = "password"><br>
+                        First Name <input type ="text" id = "fname" class = "edit-input"><br>
+                        Last Name <input type ="text" id = "lname" class = "edit-input"><br>
+                        Username <input type ="text" id = "username" class = "edit-input"><br>
+                        Email <input type ="email" id = "username" class = "edit-input"><br>
+                        Password <input type ="text" id = "password" class = "edit-input"><br>     
+                    </form>
+                </div>
+                
+                <div class = "edit-form2">
+                    <form>
+                        Additional Information <br><textarea name="paragraph_text" cols="70" rows="5" class = "edit-input"></textarea>
+                    </form>
+                    
+                </div>
+                
+            </div>
+            <br>
+            <span class = "sub">
+                <a href="/owner-profile/{{owner.username}}"> <input type="submit" id="submit" value="Submit"> </a>
+        </span>            
+        </div>
+        
+    </div>

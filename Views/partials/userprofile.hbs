@@ -1,11 +1,10 @@
 <div class="profile-main">
-    <!-- Profile Section 1 -->
     <div class="profile-section1">
         <img class="profile-picture" src="{{user.profileimg}}">
         <h1>{{user.fullname}}</h1>
         <p>{{user.username}}</p>
         <span class="buttons">
-            <a href="/edit_profile"><button>Edit Profile</button></a>
+            <a href="/user-profile/{{username}}/edit-user-profile"><button>Edit Profile</button></a>
         </span>
     </div>
 
@@ -14,8 +13,10 @@
         
         <div class="details">
             <h2>OTHER INFORMATION</h2>
+            <ul>
                 <li>{{user.email}}</li>
                 <li>{{user.contactnum}}</li>
+            </ul>
         </div>
         <div class="likes">
             <h2>LIKES</h2>
@@ -35,25 +36,51 @@
             </ul>
         </div>
     </div>
+
+    <div class="profile-section3">
+        <h1>Friends List</h1><br>
+            {{#each user.friends}}
+            <li>
+                <img class="friend-picture" src="{{this.friendpic}}"> 
+                <a href = "/user-profile/{{this.friendusername}}" class="linkz">
+                    <button>@{{this.friendusername}}</button></a>      
+            </li>
+            {{/each}}
+    </div>
 </div>
 
 <div class="divide2"></div>
 
-{{#each user.reviews}}
-    <div class="profile-section3">
+    {{#if user.reviews}}
+    <div class="profile-section4">
         <h1>Reviews</h1>
+    </div>
+
+    {{#each user.reviews}}
+    <div class="profile-section4">
         <div class="reviews">
-            <img class="restaurant" src="{{this.restaurantimgs.[0]}}">
+            <img class="restaurant" src="{{this.restaurantimg}}">
             <span class="review">
                 <span class="head-review">
-                    <h2>{{this.restaurant}}</h2>
-                    {{#each this.reactionIcons}}
-                        <img class="react" src="profile_assets/{{this}}.png">
-                    {{/each}}
+                    <h2>{{this.rname}}</h2>
+                    {{#if this.showLike}}
+                        <img class="react" src="/common/images/like.png">{{this.likes}}
+                    {{/if}}
+                    {{#if this.showDislike}}
+                        <img class="react" src="/common/images/dislike.png">{{this.dislikes}}
+                    {{/if}}
+                    {{#if this.showReco}}
+                        <img class="react" src="/common/images/heart.png">
+                    {{/if}}
                 </span>
                 <p>"{{this.reviewText}}"</p>
-                <a href="{{this.link}}" class="linkz"><button>View Review</button></a>
+                <a href="/restaurant/{{this.restaurant}}" class="linkz"><button>View Review</button></a>
             </span>
         </div>
     </div>
-{{/each}}
+    {{/each}}
+{{else}}
+    <div class="profile-section4">
+        <h1>No Reviews Yet</h1>
+    </div>
+{{/if}}

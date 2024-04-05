@@ -1,0 +1,124 @@
+<div class = "main">
+    {{#each restaurant}}
+    <div class="restaurant">
+        <div class="restaurant-text">
+            <div class="text-left">
+                <div class="restaurant-name">
+                    <input type="hidden" name="hiddenval" id="hiddenval" value="{{resto-name}}">
+                    <strong>{{'resto-name'}}</strong>
+                </div>
+                <div class="restaurant-type">
+                    <i>{{resto-type}}</i>
+                </div>
+            </div>
+            <div class="text-right">
+                <div class="details">
+                    <p><strong>Located In:</strong> {{location}}</p>
+                    <p><strong>Address:</strong> {{address}}</p>
+                    <p><strong>Opening Hours:</strong> {{opening-hours}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="restaurant-pics">
+            <img src="{{resto-img}}" alt="{{resto-name}}">
+        </div>
+    </div>
+    {{/each}}
+    <div class="reviews">
+        <div class="rev-scroll">
+        {{#each reviewsdata}}
+        <div class="rev1" id="rev{{reviewnum}}">
+            <div class="profile">
+                <div class="profile-picture">
+                    <img src="{{user-profileimg}}">
+                </div>
+                <div class="name">
+                    <strong><a href="/user-profile/{{user-username}}" class="linkz">{{user-fullname}}</a></strong>
+                    <div class="username">
+                        <p>@{{user-username}}</p>
+                    </div>
+                </div>
+                <div class="post-ratings-container">
+                    <div class="post-rating" id="liked{{reviewnum}}">
+                        <span class="post-rating-button material-icons" title="Mark as helpful" id="likebutton{{reviewnum}}">thumb_up</span>
+                        <span class="post-rating-count" id="liketext{{reviewnum}}">{{likes}}</span>
+                    </div>
+                    <div class="post-rating" id="disliked{{reviewnum}}">
+                        <span class="post-rating-button material-icons" title="Mark as unhelpful" id="dislikebutton{{reviewnum}}">thumb_down</span>
+                        <span class="post-rating-count" id="disliketext{{reviewnum}}">{{dislikes}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="recommendation">
+                    {{#if is-recommend}}
+                        <strong>Recommended</strong>
+                    {{else}}
+                        <strong>Not Recommended</strong>
+                    {{/if}}
+                </div>
+                <p>{{review}}</p>
+                <!-- IF THE REVIEW HAS PICTURE/S
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <input type="file" id="file1" name="files[]" class="file-input">
+                    </div>
+                    <div class="grid-item">
+                        <input type="file" id="file2" name="files[]" class="file-input">
+                    </div>
+                </div>
+
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <input type="file" id="file{{@index}}" name="files[]" class="file-input">
+                    </div>
+                </div>
+                
+                <div class="img">
+                    
+                </div>
+                <div class="vid">
+
+                </div>
+                -->
+                {{#if isUser}}
+                    <div class="delete">
+                        <a href="/restaurant/{{resto-name}}/deletereview/{{reviewId}}">Delete Review</a>
+                    </div>
+                    <div class="edit">
+                        <a href="/restaurant/{{resto-name}}/editreview/{{reviewId}}">Edit Review</a>
+                    </div>
+                {{/if}}                                      
+            </div>
+            {{#if replyexists}}
+            <div class="replies">
+                <div class="profile">
+                    <div class="profile-picture">
+                        <img src="{{owner-profileimg}}">
+                    </div>
+                    <div class="name">
+                        <strong>{{owner-fullname}}</strong>
+                        <div class="username">
+                            <p>@{{owner-username}}</p>
+                        </div>
+                    </div>
+                </div> 
+                <div class="comment">
+                    {{#if isDeleted}}
+                    <i>Reply Deleted</i>
+                    {{else}}
+                    <p>{{reply}}</p> 
+                    {{/if}}
+                </div> 
+            </div>
+            {{/if}}
+        </div> 
+        {{/each}} 
+        </div>
+        {{#each restaurant}}
+        <div class="leave-review-button">
+            <a href="/restaurant/{{resto-name}}/reviews" class="button-link">Leave a Review</a>
+        </div>
+        {{/each}}
+    </div>
+</div>

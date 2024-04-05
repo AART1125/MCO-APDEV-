@@ -5,6 +5,7 @@ function add(server) {
         try {
             const [restodata, reviewdata] = await restaurantModel.getSpecificRestaurantData(req.params.restoname, req);
             if (restodata) {
+                console.log(reviewdata[0]['reviewnum'])
                 resp.render('restaurant', {
                     layout: 'index',
                     title: 'Archer\'s Hunt',

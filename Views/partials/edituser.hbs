@@ -1,0 +1,39 @@
+<div class="profile-main">
+    <div class="profile-section1">
+        <img class="profile-picture" src="{{user.profileimg}}">
+        <h1>{{user.fullname}}</h1>
+        <p>{{user.username}}</p>
+        <span class="buttons">
+            <a href="/deleteProfile/{{userID}}"><button class = "del">Delete Account</button></a>
+        </span>
+    </div>
+    
+    <div class = "edit-profile">
+        <h1>Edit Profile</h1>
+        <div class = "edit-form-table">
+            <div class="edit-form1">
+            <form action="/user-profile/{{username}}/edit-user-profile" method="POST">
+                Profile Picture <input type="file" id="profile"><br>
+                Full Name <input type="text" name="fullname" class="edit-input" value="{{ user.fullname }}"><br>
+                Username <input type="text" name="username" class="edit-input" value="{{ user.username }}"><br>
+                Email <input type="email" name="email" class="edit-input" value="{{ user.email }}"><br>
+                Password <input type="password" name="password" class="edit-input" value=""><br>
+        </div>
+
+        <div class="edit-form2">
+                Likes: 
+                <input type="text" class="edit-input" name="likes" value="{{#each user.preferences.isLike}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"><br>
+
+                Dislikes: 
+                <input type="text" class="edit-input" name="dislikes" value="{{#each user.preferences.isDislike}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"><br>
+        </div>
+            
+        </div>
+        <br>
+        <span class = "sub">
+            <input type="submit" id="submit" value="Submit"> </a>
+            </form>
+    </span>            
+    </div>
+    
+</div>

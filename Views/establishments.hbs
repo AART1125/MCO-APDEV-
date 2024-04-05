@@ -3,41 +3,52 @@
         {{> ownernav}}
     {{else}}
         {{> usernav}}
+        <div class="searchbar">
+            <form action="/search" method="get">
+                <input type="text" name="query" id="query" placeholder="Search....">
+                <i class='bx bx-search'></i>
+            </form>
+        </div>
     {{/if}}
 {{else}}
     {{> guestnav}}
 {{/if}}
 
-<div class="searchbar">
-    <input type="text" name="listings-search" id="listings-search" placeholder="Search....">
-    <i class='bx bx-search'></i>
-</div>
-
 <div class="search-results">
-    {{#each search-results}}
-    <div class="results">
-        <div class="resto-img">
-            <img src="{{resto-img}}" alt="{{resto-name}}">
-        </div>
-        <div class="description">
-            <div class="name">
-                <a href="/restaurant/{{resto-name}}"><h1>{{resto-name}}</h1></a>
-            </div>
-            <div class="info">
-                <p>{{resto-desc}}</p>
-            </div>
-            <div class="rating">
-            {{#each star}}
-                {{#if isStar}}
-                    <span class="fa fa-star checked"></span>
-                {{else}}
-                    <span class="fa fa-star"></span>
-                {{/if}}
-            {{/each}}
+    {{#if isEmpty}}
+       <div class="results">
+            <div class="descriptionempty">
+                <div class="name">
+                    <h1>No results found ;-; </h1>
+                </div>
             </div>
         </div>
-    </div>
-    {{/each}} 
+    {{else}}
+        {{#each search-results}}
+            <div class="results">
+                <div class="resto-img">
+                    <img src="{{resto-img}}" alt="{{resto-name}}">
+                </div>
+                <div class="description">
+                    <div class="name">
+                        <a href="/restaurant/{{resto-name}}"><h1>{{resto-name}}</h1></a>
+                    </div>
+                    <div class="info">
+                        <p>{{resto-desc}}</p>
+                    </div>
+                    <div class="rating">
+                    {{#each star}}
+                        {{#if isStar}}
+                            <span class="fa fa-star checked"></span>
+                        {{else}}
+                            <span class="fa fa-star"></span>
+                        {{/if}}
+                    {{/each}}
+                    </div>
+                </div>
+            </div>
+        {{/each}} 
+    {{/if}}
 </div>
 
 {{!-- 

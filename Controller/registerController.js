@@ -31,15 +31,15 @@ function add(server) {
       Entity.ownerModel
         .create(req.body)
         .then(async item => {
-          const url = "/common/assets/avatars/owner";
+          const url = "\\public\\common\\assets\\avatar\\owners";
           if (!fs.existsSync(url)) {
             fs.mkdirSync(url, { recursive: true });
           }
           try {
             fs.writeFileSync(
               `${url}/${item.email}.png`,
-                req.body.base64,
-                "base64"
+              req.body.base64,
+              "base64"
             );
           } catch (error) {}
 
@@ -59,13 +59,13 @@ function add(server) {
       Entity.userModel
         .create(req.body)
         .then(user => {
-          const url ="/common/assets/avatars/users";
+          const url = "\\public\\common\\assets\\avatar\\users";
           if (!fs.existsSync(url)) {
             fs.mkdirSync(url, { recursive: true });
           }
           try {
             fs.writeFileSync(
-              '${url}/${item.email}.png',
+              `${url}/${item.email}.png`,
               req.body.base64,
               "base64"
             );
@@ -88,7 +88,7 @@ function add(server) {
       await Entity.userModel
         .findByIdAndUpdate(
           req.params.id,
-          { deleted: true },
+          { isDeleted: true },
           {
             new: true,
           }

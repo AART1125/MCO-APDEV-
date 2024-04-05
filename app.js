@@ -3,7 +3,7 @@ const server = express();
 const bodyParser = require("body-parser"); // body-parser
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt'); // Database Link
+mongoose.connect('mongodb+srv://serverDB:server@archerhunts.lmgolam.mongodb.net/archer\'s_hunt').then(conn => {console.log("Connection Successful")}); // Database Link
 // mongoose.connect('mongodb://localhost:27017/archer\'s_hunts'); // Database Link
 
 server.use(

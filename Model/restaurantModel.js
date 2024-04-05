@@ -64,6 +64,7 @@ async function getSpecificRestaurantData(restoname, req) {
             'likes': review.likes,
             'dislikes': review.dislikes,
             'action': review.action,
+            'reviewnum': review.reviewnum,
             'is-recommend': review.isRecommend,
             'review': review.review,
             'reply': review.reply ? review.reply.reply : null,

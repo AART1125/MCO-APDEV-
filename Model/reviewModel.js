@@ -3,12 +3,18 @@ const schemas = require('./schemaModels');
 async function addReview(req, resp) {
     const restoname = await schemas.restaurantModel.findOne({restoname : req.params.restoname, isDeleted : false});
     const user = await schemas.userModel.findOne({_id : req.session.login_user});
+    const reviews = await schemas.reviewModel.find({restaurant: req.params.restoname});
+    let reviewnum = 1;
+    for(i = 0; i <= reviews.length; i++){
+        if(reviews[i]) reviewnum++;
+    }
     const reviewInstance = schemas.reviewModel({
         users_id: req.session.login_user,
         restaurant: restoname.restoname,
         restoimg: restoname.restoimg[0],
         review: req.body.review,
         isRecommend: req.body.isRecommend,
+        reviewnum: reviewnum,
         reply : null,
         isDeleted : false
     });
@@ -115,11 +121,34 @@ async function dislikeReview(req, resp) {
     }
 }
 
+//function computes the rating of the restaurant
+async function computeRatings(req){
+    const resto = await schemas.restaurantModel.findOne({restoname : req.params.restoname}).populate({
+                                                                                        path: "reviews",
+                                                                                        match: {isDeleted : false},
+                                                                                        select: "isRecommend"
+                                                                                        });
+
+    let liked = 0;
+    let stars = 0;
+    
+    for(const review of resto.reviews){
+        if(review.isRecommend) liked++;
+    };
+
+    if (resto.reviews.length > 0) {
+        stars = Math.round((liked/resto.reviews.length) * 5)
+    }
+
+    resto.stars = Math.max(0, Math.min(stars, 5));
+
+    await resto.save();
+}
 module.exports = {
     addReview,
     editReview,
     searchReview,
     deleteReview,
     likeReview,
-    dislikeReview
+    dislikeReview,
 };
