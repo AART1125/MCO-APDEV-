@@ -43,15 +43,7 @@ function add(server) {
             );
           } catch (error) {}
 
-          let response = { doesExist: true, isOwner: false };
-
-          req.session.login_user = owner._id;
-          req.session.login_username = owner.username;
-          req.session.login_isOwner = true;
-          req.session.login_id = req.sessionID;
-          console.log("Owner Register!");
-          response = { doesExist: true, isOwner: true };
-
+          let response = { message: 'success' };
           res.send(response);
         })
         .catch(error => res.status(400).json({ error: error }));
@@ -70,13 +62,7 @@ function add(server) {
               "base64"
             );
           } catch (error) {}
-          let response = { doesExist: true, isOwner: false };
-          req.session.login_user = user._id;
-          req.session.login_username = user.username;
-          req.session.login_isOwner = false;
-          req.session.login_id = req.sessionID;
-          response = { doesExist: true, isOwner: true };
-          console.log("Register User");
+          let response = { message: 'success' };
           res.send(response);
         })
         .catch(error => res.status(400).json({ error: error }));

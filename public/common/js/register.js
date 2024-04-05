@@ -58,7 +58,7 @@ window.onload = function (e) {
             response.status === 500 ||
             response.status === 400
           ) {
-            alert("Something went wrong please check all inputs.");
+              window.location.href = "/";
           } else {
               window.location.href = "/";
           }
