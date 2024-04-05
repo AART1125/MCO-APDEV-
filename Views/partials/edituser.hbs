@@ -1,3 +1,11 @@
+{{#if islogin}}
+    {{#if isOwner}}
+        {{> ownernav}}
+    {{else}}
+        {{> usernav}}
+    {{/if}}
+{{/if}}
+
 <div class="profile-main">
     <div class="profile-section1">
         <img class="profile-picture" src="{{user.profileimg}}">
@@ -31,7 +39,7 @@
         </div>
         <br>
         <span class = "sub">
-            <input type="submit" id="submit" value="Submit"> </a>
+            <input type="submit" id="submit" value="Edit Profile"> </a>
             </form>
     </span>            
     </div>

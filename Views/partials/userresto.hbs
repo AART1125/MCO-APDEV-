@@ -1,10 +1,11 @@
+<input type="hidden" name="hiddenval" id="hiddenval" value="{{restoname}}">
+<input type="hidden" name="reviewId" id="hiddenrev" value="{{reviewId}}">
 <div class = "main">
     {{#each restaurant}}
     <div class="restaurant">
         <div class="restaurant-text">
             <div class="text-left">
                 <div class="restaurant-name">
-                    <input type="hidden" name="hiddenval" id="hiddenval" value="{{resto-name}}">
                     <strong>{{'resto-name'}}</strong>
                 </div>
                 <div class="restaurant-type">
@@ -27,7 +28,7 @@
     <div class="reviews">
         <div class="rev-scroll">
         {{#each reviewsdata}}
-        <div class="rev1" id="rev{{reviewnum}}">
+        <div class="rev1">
             <div class="profile">
                 <div class="profile-picture">
                     <img src="{{user-profileimg}}">
@@ -39,13 +40,13 @@
                     </div>
                 </div>
                 <div class="post-ratings-container">
-                    <div class="post-rating" id="liked{{reviewnum}}">
-                        <span class="post-rating-button material-icons" title="Mark as helpful" id="likebutton{{reviewnum}}">thumb_up</span>
-                        <span class="post-rating-count" id="liketext{{reviewnum}}">{{likes}}</span>
+                    <div class="post-rating">
+                        <span class="post-rating-button material-icons" title="Mark as helpful">thumb_up</span>
+                        <span class="post-rating-count">{{likes}}</span>
                     </div>
-                    <div class="post-rating" id="disliked{{reviewnum}}">
-                        <span class="post-rating-button material-icons" title="Mark as unhelpful" id="dislikebutton{{reviewnum}}">thumb_down</span>
-                        <span class="post-rating-count" id="disliketext{{reviewnum}}">{{dislikes}}</span>
+                    <div class="post-rating">
+                        <span class="post-rating-button material-icons" title="Mark as unhelpful">thumb_down</span>
+                        <span class="post-rating-count">{{dislikes}}</span>
                     </div>
                 </div>
             </div>
