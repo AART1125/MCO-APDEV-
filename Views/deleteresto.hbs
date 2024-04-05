@@ -1,0 +1,31 @@
+{{#if islogin}}
+    {{#if isOwner}}
+        {{> ownernav}}
+    {{else}}
+        {{> usernav}}
+    {{/if}}
+{{/if}}
+
+<div class="profile-main">
+    <div class="profile-section1">
+        <img class="profile-picture" src="{{owner.profileimg}}">
+        <h1>{{owner.fullname}}</h1>
+        <p>{{owner.username}}</p>
+    </div>
+    
+    <div class = "edit-profile">
+        <h1>Delete Restaurant</h1>
+            <form action="/owner-profile/{{username}}/delete-restaurant/{{owner.restaurantToEdit.restoname}}" method="POST">
+<br>
+        <div class="deletemsg">
+            <p>  This is to confirm that you are deleting your restaurant!
+            <br> We're sad to see your restaurant go! (Not manipulating..)
+        </div>
+        <br>
+        <span class = "sub">
+            <input type="submit" id="delete" value="Delete Restaurant"> </a>
+            </form>
+    </span>            
+    </div>
+    
+</div>

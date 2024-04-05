@@ -1,0 +1,54 @@
+{{#if islogin}}
+    {{#if isOwner}}
+        {{> ownernav}}
+    {{else}}
+        {{> usernav}}
+    {{/if}}
+{{/if}}
+
+<div class="profile-main">
+    <div class="profile-section1">
+        <img class="profile-picture" src="{{owner.profileimg}}">
+        <h1>{{owner.fullname}}</h1>
+        <p>{{owner.username}}</p>
+    </div>
+    
+    <div class = "edit-profile">
+        <h1>Add Restaurant</h1>
+        <div class = "edit-form-table">
+            <div class="edit-form1">
+            <form action="/owner-profile/{{username}}/add-restaurant" method="POST">
+
+            Restaurant Image <input type="text" id="restoimg" name="restoimg" class="edit-input"><br>
+            Restaurant Name <input type="text" id="restoname" name="restoname" required class="edit-input"><br>
+            Restaurant Description <br> <textarea id="restodesc" name="restodesc" rows="5" cols="70" class="edit-input" required> </textarea><br>
+            Location <input type="text" id="location" name="location"class="edit-input" required><br>
+            Address <input type="text" id="address" name="address" class="edit-input" required><br>
+            Opening Hours <input type="text" id="openingHours" name="openingHours" class="edit-input" required><br>
+            Contact Number <input type="text" id="contactnum" name="contactnum" class="edit-input" required><br>
+            Restaurant Type <input type="text" id="restotype" name="restotype" class="edit-input"><br>
+                
+
+            Food Type
+            <select id="foodtype" name="foodtype" class="edit-input" required><br>
+                            <option value="Korean">Korean</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Chicken">Chicken</option>
+                            <option value="Quick Bites">Quick Bites</option>
+                            <option value="Seafood">Seafood</option>
+                            <option value="French">French</option>
+                            <option value="Dessert">Dessert</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                    </select><br>
+        </div>
+            
+        </div>
+        <br>
+        <span class = "sub">
+            <input type="submit" id="submit" value="Add Restaurant"> </a>
+            </form>
+    </span>            
+    </div>
+    
+</div>
