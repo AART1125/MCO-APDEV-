@@ -358,4 +358,8 @@ a:hover {
     width: 100%; 
     height: auto; 
   }
+
+  .status{
+    color:#537A5A;
+  }
   

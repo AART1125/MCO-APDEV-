@@ -43,7 +43,11 @@ async function editReply(req, resp) {
             return resp.status(404).json({ message: 'Reply not found' });
         }
 
-        existingReply.reply = updatedReplyContent;
+         
+        if (existingReply.reply !== updatedReplyContent) {
+            existingReply.reply = updatedReplyContent + ' (Edited)';
+            existingReply.isEdited = true; 
+        }
 
         const updatedReply = await existingReply.save();
 
