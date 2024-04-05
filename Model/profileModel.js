@@ -135,33 +135,22 @@ async function getRestoEdit(req, resp, templateName) {
 }
 
 async function findUserProfile(req, resp, templateName) {
-    let query = {_id: req.session.login_user};
+    let query = { _id: req.session.login_user };
 
-    if(req.params.username != req.session.login_username){
-        query = {username: req.params.username, isDeleted : false};
+    if (req.params.username !== req.session.login_username) {
+        query = { username: req.params.username, isDeleted: false };
         templateName = 'otherprofile';
     }
-    
+
     let searchModel = schemas.userModel;
 
     try {
         const profile = await searchModel.findOne(query)
-                                         .populate({
-                                            path: 'friends',
-                                            match: {isDeleted : false},
-                                            select: 'profileimg fullname username'
-                                        }); 
-        const secondprof = await searchModel.findOne({_id:req.session.login_user});
-
-        let isFriend = false;
-        if(!(profile._id === secondprof._id)){
-            for(const friend of profile.friends){
-                if (friend._id.toString() == secondprof._id.toString()) {
-                    isFriend = true;
-                    break
-                }
-            }
-        }
+            .populate({
+                path: 'friends',
+                match: { isDeleted: false },
+                select: 'profileimg fullname username'
+            });
 
         if (!profile) {
             console.log('No profiles found');
@@ -170,111 +159,77 @@ async function findUserProfile(req, resp, templateName) {
 
         const userId = profile._id;
 
+        const loginUser = await schemas.userModel.findById(req.session.login_user._id)
+        .populate({
+            path: 'friends',
+            match: { isDeleted: false },
+            select: '_id profileimg fullname username'
+        });
+        
+        let isFriend = false;
+        if (loginUser.friends) {
+            for (let i = 0; i < loginUser.friends.length; i++) {
+                if (loginUser.friends[i]._id.equals(userId)) {
+                    isFriend = true;
+                    break;
+                }
+            }
+        }
+
         const reviews = await schemas.reviewModel.find({ users_id: userId })
             .populate({
                 path: 'users_id',
-                match: {isDeleted : false},
+                match: { isDeleted: false },
                 select: 'restoimg restaurant rname review likes dislikes isRecommend',
             });
 
-            if (templateName === 'otherprofile') {
-                resp.render(templateName, {
-                    layout: 'index',
-                    title: 'Archer\'s Hunt | Profile',
-                    js: '/common/js/profile.js',
-                    css: '/common/css/profile.css',
-                    islogin: req.session.login_user != undefined,
-                    username: req.session.login_username,
-                    userID: req.session.login_user,
-                    isOwner: false,
-                    user: {
-                        profileimg: profile.profileimg,
-                        fullname: profile.fullname,
-                        username: profile.username,
-                        email: profile.email,
-                        contactnum: profile.contactnum,
-                        preferences: {
-                            isLike: profile.preferences.isLike,
-                            isDislike: profile.preferences.isDislike
-                        },
-                        isFriend: isFriend,
-                        friends: profile.friends.map(friend => ({
-                            friendpic: friend.profileimg,
-                            friendname: friend.fullname,
-                            friendusername: friend.username
-                        })),
-                        
-                        // (profile.friends || []).map(friend => ({
-                        //     friendpic: friend.profileimg,
-                        //     friendname: friend.fullname,
-                        //     friendusername: friend.username
-                        // })),
-                        reviews: reviews.map(review => ({
-                            restaurant      : review.restaurant,
-                            rname           : review.restaurant.toUpperCase(),
-                            restaurantimg   : review.restoimg,
-                            reviewText      : review.review,
-                            link            : review.link,
-                            likes           : review.likes,
-                            dislikes        : review.dislikes,
-                            showReco        : review.isRecommend,
-                            showLike        : review.likes > 0,
-                            showDislike     : review.dislikes > 0,
-                        }))
-                    }
-                });
-            } else {
-                resp.render(templateName, {
-                    layout: 'index',
-                    title: 'Archer\'s Hunt | Profile',
-                    js: '/common/js/profile.js',
-                    css: '/common/css/profile.css',
-                    islogin: req.session.login_user != undefined,
-                    username: req.session.login_username,
-                    userID: req.session.login_user,
-                    isOwner: false,
-                    user: {
-                        profileimg: profile.profileimg,
-                        fullname: profile.fullname,
-                        username: profile.username,
-                        email: profile.email,
-                        contactnum: profile.contactnum,
-                        preferences: {
-                            isLike: profile.preferences.isLike,
-                            isDislike: profile.preferences.isDislike
-                        },
-                        friends: profile.friends.map(friend => ({
-                            friendpic: friend.profileimg,
-                            friendname: friend.fullname,
-                            friendusername: friend.username
-                        })),
-                        
-                        // (profile.friends || []).map(friend => ({
-                        //     friendpic: friend.profileimg,
-                        //     friendname: friend.fullname,
-                        //     friendusername: friend.username
-                        // })),
-                        reviews: reviews.map(review => ({
-                            restaurant      : review.restaurant,
-                            rname           : review.restaurant.toUpperCase(),
-                            restaurantimg   : review.restoimg,
-                            reviewText      : review.review,
-                            link            : review.link,
-                            likes           : review.likes,
-                            dislikes        : review.dislikes,
-                            showReco        : review.isRecommend,
-                            showLike        : review.likes > 0,
-                            showDislike     : review.dislikes > 0,
-                        }))
-                    }
-                });
+        resp.render(templateName, {
+            layout: 'index',
+            title: 'Archer\'s Hunt | Profile',
+            js: '/common/js/profile.js',
+            css: '/common/css/profile.css',
+            islogin: req.session.login_user !== undefined,
+            username: req.session.login_username,
+            userID: req.session.login_user,
+            isOwner: false,
+            user: {
+                profileimg: profile.profileimg,
+                fullname: profile.fullname,
+                username: profile.username,
+                email: profile.email,
+                contactnum: profile.contactnum,
+                preferences: {
+                    isLike: profile.preferences.isLike,
+                    isDislike: profile.preferences.isDislike
+                },
+                friends: profile.friends.map(friend => ({
+                    friendpic: friend.profileimg,
+                    friendname: friend.fullname,
+                    friendusername: friend.username
+                })),
+
+                reviews: reviews.map(review => ({
+                    restaurant: review.restaurant,
+                    rname: review.restaurant.toUpperCase(),
+                    restaurantimg: review.restoimg,
+                    reviewText: review.review,
+                    link: review.link,
+                    likes: review.likes,
+                    dislikes: review.dislikes,
+                    showReco: review.isRecommend,
+                    showLike: review.likes > 0,
+                    showDislike: review.dislikes > 0,
+                })),
+                isFriend: isFriend
             }
-            
-        } catch (err) {
-            console.error('Error finding profile:', err);
-            resp.status(500).send('Error finding profile');
-        }
+        });
+
+    } catch (err) {
+        console.error('Error finding profile:', err);
+        resp.status(500).send('Error finding profile');
     }
+}
+
 
 async function findOwnerProfile(req, resp, templateName) {
     let query = {_id: req.session.login_user, isDeleted : false};
@@ -551,6 +506,70 @@ async function deleteRestaurant(req, resp) {
     }
 }
 
+async function addFriend(req, resp) {
+    try {
+        const { username, friendUsername } = req.params;
+
+        const friend = await schemas.userModel.findOne({ username: friendUsername });
+        if (!friend) {
+            return resp.status(404).send("Friend not found.");
+        }
+
+        const user = await schemas.userModel.findOneAndUpdate(
+            { username: username, isDeleted: false },
+            { $push: { friends: friend._id } },
+            { new: true }
+        );
+
+        if (!user) {
+            return resp.status(404).send("User not found.");
+        }
+
+        await schemas.userModel.findOneAndUpdate(
+            { username: friendUsername, isDeleted: false },
+            { $push: { friends: user._id } },
+            { new: true }
+        );
+
+        resp.redirect(`/user-profile/${user.username}`);
+    } catch (error) {
+        console.error('Error adding friend:', error);
+        resp.status(500).send("Error adding friend.");
+    }
+}
+
+
+async function deleteFriend(req, resp) {
+    try {
+        const { username, friendUsername } = req.params;
+
+        const friend = await schemas.userModel.findOne({ username: friendUsername });
+        if (!friend) {
+            return resp.status(404).send("Friend not found.");
+        }
+
+        const user = await schemas.userModel.findOneAndUpdate(
+            { username: username, isDeleted: false },
+            { $pull: { friends: friend._id } },
+            { new: true }
+        );
+
+        if (!user) {
+            return resp.status(404).send("User not found.");
+        }
+
+        await schemas.userModel.findOneAndUpdate(
+            { username: friendUsername, isDeleted: false },
+            { $pull: { friends: user._id } },
+            { new: true }
+        );
+
+        resp.redirect(`/user-profile/${user.username}`);
+    } catch (error) {
+        console.error('Error deleting friend:', error);
+        resp.status(500).send("Error deleting friend.");
+    }
+}
 
 
 module.exports = {
@@ -564,5 +583,7 @@ module.exports = {
     editRestaurant,
     deleteRestaurant,
     getRestoEdit,
-    getResto
+    getResto,
+    addFriend,
+    deleteFriend
 };
