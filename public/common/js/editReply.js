@@ -56,6 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     cancelBtn.addEventListener('click', function (event) {
         event.preventDefault();
-        window.history.back();
+        window.location.href = '/restaurant/' + document.getElementById("hiddenval").value;
     });
 });
