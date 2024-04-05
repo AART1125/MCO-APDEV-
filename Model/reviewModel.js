@@ -4,10 +4,12 @@ async function addReview(req, resp) {
     const restoname = await schemas.restaurantModel.findOne({restoname : req.params.restoname, isDeleted : false});
     const user = await schemas.userModel.findOne({_id : req.session.login_user});
     const reviews = await schemas.reviewModel.find({restaurant: req.params.restoname});
+    
     let reviewnum = 1;
     for(i = 0; i <= reviews.length; i++){
         if(reviews[i]) reviewnum++;
     }
+    
     const reviewInstance = schemas.reviewModel({
         users_id: req.session.login_user,
         restaurant: restoname.restoname,
@@ -144,6 +146,7 @@ async function computeRatings(req){
 
     await resto.save();
 }
+
 module.exports = {
     addReview,
     editReview,
@@ -151,4 +154,5 @@ module.exports = {
     deleteReview,
     likeReview,
     dislikeReview,
+    computeRatings
 };
