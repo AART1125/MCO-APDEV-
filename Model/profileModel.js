@@ -312,6 +312,7 @@ async function UserProfileEdit(req, resp) {
         user.fullname = req.body.fullname;
         user.username = req.body.username;
         user.email = req.body.email;
+        user.reviews = [];
 
         user.preferences.isLike = req.body.likes.split(',').map(item => item.trim());
         user.preferences.isDislike = req.body.dislikes.split(',').map(item => item.trim());
