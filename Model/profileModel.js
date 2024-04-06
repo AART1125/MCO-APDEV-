@@ -14,7 +14,7 @@ async function getResto(req, resp, templateName) {
                               .populate({
                                 path: 'restaurants',
                                 match: {isDeleted : false},
-                                select: 'owner_id restoimg restoname restodesc stars',
+                                select: '',
                                 populate: {
                                     path: 'owner_id',
                                     model: 'owners', 
@@ -48,6 +48,7 @@ async function getResto(req, resp, templateName) {
                 },
                 restaurants: profile.restaurants.map(restaurants => ({
                     restoimg: restaurants.restoimg[0],
+                    restoimg2: restaurants.restoimg2[0],
                     restoname: restaurants.restoname,
                     ownerid: restaurants.owner_id,
                     owneruser: restaurants.owner_id.username,
@@ -380,6 +381,7 @@ async function addRestaurant(req, resp) {
 
         const newRestaurant = new schemas.restaurantModel({
             restoimg: req.body.restoimg || [],
+            restoimg: req.body.restoimg2 || [],
             restoname: req.body.restoname,
             restodesc: req.body.restodesc,
             location: req.body.location,
@@ -435,6 +437,7 @@ async function editRestaurant(req, resp) {
         }
 
         restaurant.restoimg = req.body.restoimg;
+        restaurant.restoimg2 = req.body.restoimg2;
         restaurant.restoname = req.body.restoname;
         restaurant.restodesc = req.body.restodesc;
         restaurant.location = req.body.location;
