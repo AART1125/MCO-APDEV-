@@ -20,6 +20,7 @@
                 <form action="/owner-profile/{{username}}/edit-restaurant/{{owner.restaurantToEdit.restoname}}" method="POST">
                     
                     Restaurant Image <input type="text" id="restoimg" name="restoimg" class="edit-input" value="{{owner.restaurantToEdit.restoimg}}"><br>
+                    Other Images <input type="text" id="restoimg2" name="restoimg2" class="edit-input" value="{{owner.restaurantToEdit.restoimg2}}"><br>
                     Restaurant Name <input type="text" id="restoname" name="restoname" class="edit-input" value="{{owner.restaurantToEdit.restoname}}" required><br>
                     Restaurant Description <br> <textarea id="restodesc" name="restodesc" rows="5" cols="70" class="edit-input" required>{{owner.restaurantToEdit.restodesc}}</textarea><br>
                     Location <input type="text" id="location" name="location" class="edit-input" value="{{owner.restaurantToEdit.location}}" required><br>
