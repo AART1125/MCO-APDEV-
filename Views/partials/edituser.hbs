@@ -14,10 +14,11 @@
         <div class = "edit-form-table">
             <div class="edit-form1">
             <form action="/user-profile/{{username}}/edit-user-profile" method="POST">
-                Profile Picture <input type="file" id="profile"><br>
+                Profile Picture <input type="text" name="profileimg" class="edit-input" value="{{ user.profileimg }}"><br>
                 Full Name <input type="text" name="fullname" class="edit-input" value="{{ user.fullname }}"><br>
                 Username <input type="text" name="username" class="edit-input" value="{{ user.username }}"><br>
                 Email <input type="email" name="email" class="edit-input" value="{{ user.email }}"><br>
+                Contact Number <input type="cnum" name="cnum" class="edit-input" value="{{ user.contactnum }}"><br>
                 Password <input type="password" name="password" class="edit-input" value=""><br>
         </div>
 
