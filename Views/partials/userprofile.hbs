@@ -57,6 +57,8 @@
     </div>
 
     {{#each user.reviews}}
+    {{#if this.isDeleted}}
+    {{else}}
     <div class="profile-section4">
         <div class="reviews">
             <img class="restaurant" src="{{this.restaurantimg}}">
@@ -78,6 +80,7 @@
             </span>
         </div>
     </div>
+    {{/if}}
     {{/each}}
 {{else}}
     <div class="profile-section4">
