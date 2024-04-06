@@ -14,7 +14,7 @@
         <div class = "edit-form-table">
             <div class="edit-form1">
             <form action="/owner-profile/{{username}}/edit-owner-profile" method="POST">
-                Profile Picture <input type="file" id="profile"><br>
+                Profile Picture <input type="text" name="profileimg" class="edit-input" value="{{ owner.profileimg }}"><br>
                 Full Name <input type="text" name="fullname" class="edit-input" value="{{ owner.fullname }}"><br>
                 Username <input type="text" name="username" class="edit-input" value="{{ owner.username }}"><br>
                 Email <input type="email" name="email" class="edit-input" value="{{ owner.email }}"><br>
