@@ -181,7 +181,7 @@ async function findUserProfile(req, resp, templateName) {
             .populate({
                 path: 'users_id',
                 match: { isDeleted: false },
-                select: 'restoimg restaurant rname review likes dislikes isRecommend',
+                select: 'restoimg restaurant rname review likes dislikes isRecommend isDeleted',
             });
 
         resp.render(templateName, {
@@ -220,6 +220,7 @@ async function findUserProfile(req, resp, templateName) {
                     showReco: review.isRecommend,
                     showLike: review.likes > 0,
                     showDislike: review.dislikes > 0,
+                    isDeleted: review.isDeleted,
                 })),
                 isFriend: isFriend
             }
@@ -310,9 +311,10 @@ async function UserProfileEdit(req, resp) {
             return resp.status(404).send("User not found.");
         }
 
+        user.profileimg = req.body.profileimg;
         user.fullname = req.body.fullname;
         user.username = req.body.username;
-        user.email = req.body.email;
+        user.contactnum = req.body.cnum;
         user.reviews = [];
 
         user.preferences.isLike = req.body.likes.split(',').map(item => item.trim());
@@ -349,6 +351,7 @@ async function OwnerProfileEdit(req, resp) {
         }
 
         owner.fullname = req.body.fullname;
+        owner.profileimg = req.body.profileimg;
         owner.username = req.body.username;
         owner.email = req.body.email;
         owner.contactnum = req.body.cnum;
